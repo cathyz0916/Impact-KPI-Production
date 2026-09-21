@@ -1526,7 +1526,8 @@ function closePanel(){document.getElementById('det-panel').classList.remove('ope
 // MAIN RENDER
 function renderDashboard(){
   const main=document.getElementById('main-cnt');
-  document.getElementById('dash-loading').style.display='none';
+  const _loading=document.getElementById('dash-loading');
+  if(_loading)_loading.style.display='none';
   if(_st.region==='BKD'){
     main.innerHTML=`<div class="r-panel active" id="rp-BKD"><div id="bkd-content">${renderBreakdown()}</div></div>`;
     return;
@@ -1681,13 +1682,31 @@ function handleFileUpload(e){
       const newDD=parseExcelToDD(wb);
       if(newDD.error){setStatus('commit-preview',newDD.error,'err');return;}
       _pendingData=newDD;
+      setStatus('commit-preview',`Applying to dashboard…`,'info');
+      // Apply new data to the live page
+      Object.assign(DD,newDD);
+      updatePeriodInfo();
+      rebuildCombos();
+      try{renderDashboard();}catch(renderErr){
+        // Rendering error is non-fatal — data is still updated; report separately
+        console.error('Render error after upload:',renderErr);
+        setStatus('commit-preview',`⚠ Dashboard render error: ${renderErr.message}. Data was updated. Try switching tabs to force a re-render.`,'err');
+        // Still allow commit since data parsed fine
+        _pendingHTMLStr=generateUpdatedHTML(newDD);
+        document.getElementById('commit-gh-section').style.display='';
+        document.getElementById('commit-gh-btn').style.display='';
+        setStatus('commit-gh-status','Data parsed successfully. You can commit despite the render error.','info');
+        return;
+      }
       setStatus('commit-preview',`✓ Parsed — Fixed: ${newDD.f.length} accounts, Dynamic: ${newDD.d.length} accounts. Dashboard refreshed!`,'ok');
-      Object.assign(DD,newDD);updatePeriodInfo();rebuildCombos();renderDashboard();
       _pendingHTMLStr=generateUpdatedHTML(newDD);
       document.getElementById('commit-gh-section').style.display='';
       document.getElementById('commit-gh-btn').style.display='';
       setStatus('commit-gh-status','Ready. Configure GitHub Settings if not done, then click Commit.','info');
-    }catch(err){setStatus('commit-validation','Parse error: '+err.message,'err');}
+    }catch(err){
+      // Only reaches here if tab validation or Excel parsing itself failed
+      setStatus('commit-validation','Error: '+err.message,'err');
+    }
   };
   reader.readAsArrayBuffer(file);
 }
