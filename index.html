@@ -1616,7 +1616,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
       <div>
         <label class="modal-lbl">Admin Password</label>
         <input class="modal-inp" type="password" id="admin-pw-inp" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doAdminLogin()">
-        <div class="modal-status" id="admin-status"></div>
+        <div class="modal-status err" id="admin-status">Incorrect password.</div>
       </div>
       <div class="modal-note">Admin access enables Excel uploads and GitHub commits.<br>To change the password, log in and use <strong>GitHub Settings</strong>.</div>
     </div>
