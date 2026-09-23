@@ -1,4 +1,4 @@
-<html lang="en"><!-- EA RISE Impact KPI Dashboard – Dynamic v1 – Data: 2026-09-18 --><head>
+<html lang="en" style="--sticky-below-ctrl: 145px; --sticky-below-secnav: 188px;"><!-- EA RISE Impact KPI Dashboard – Dynamic v1 – Data: 2026-09-18 --><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EA RISE IMPACT KPI DASHBOARD – APJ</title>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -18,6 +18,13 @@
   --grey:#697078;--grey-bg:#F0F2F4;--purple:#6B2FBF;
   --sh-sm:0 1px 4px rgba(0,0,0,.08);--sh-md:0 4px 16px rgba(0,0,0,.10);
   --r:8px;--font:"72 Brand","72",Arial,sans-serif;--hh:60px;--th:48px;
+  --ctrl-flt-h:44px;   /* filter row height */
+  --ctrl-tabs-h:48px;  /* tabs row height */
+  --ctrl-h:calc(var(--ctrl-flt-h) + var(--ctrl-tabs-h)); /* 92px total */
+  --sec-nav-h:44px;    /* section-nav bar height */
+  /* Compound offsets used by sticky children */
+  --sticky-below-ctrl:calc(var(--hh) + var(--ctrl-h));           /* 152px */
+  --sticky-below-secnav:calc(var(--sticky-below-ctrl) + var(--sec-nav-h)); /* 196px */
 }
 html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:var(--text);min-height:100vh}
 .hdr{position:sticky;top:0;z-index:100;height:var(--hh);background:var(--bg);
@@ -778,7 +785,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
 /* ── v60-nav: Section navigation bar ───────────────────────────────────── */
 .sec-nav{
   position:sticky;
-  top:calc(var(--hh) + 92px);
+  top:var(--sticky-below-ctrl);
   z-index:85;
   background:var(--bg);
   border-bottom:2px solid var(--bdr-l);
@@ -982,41 +989,80 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
   transition:all .15s;white-space:nowrap;flex-shrink:0}
 .p-xls-btn:hover{background:#188918;color:#fff}
 
-/* 4 ── APAC EA 6-column MU grid ── */
-.mu-ea-grid{
-  display:grid;grid-template-columns:repeat(6,1fr);
-  border-top:1px solid var(--bdr)}
-.mu-ea-col{
-  border-right:1px solid var(--bdr-l);
-  min-width:0;overflow:hidden}
-.mu-ea-col:last-child{border-right:none}
-.mu-ea-col-hdr{
-  padding:8px 10px;font-size:11.5px;font-weight:700;
-  background:var(--blue-pale);border-bottom:2px solid var(--blue-l);
-  color:var(--blue);text-align:center;white-space:nowrap;
-  position:sticky;top:0;z-index:2}
+/* 4 ── APAC EA 3-level accordion ── */
+/* Level 1: MU row */
+.mu-row-list{border-top:1px solid var(--bdr)}
+.mu-row{border-bottom:1px solid var(--bdr-l)}
+.mu-row:last-child{border-bottom:none}
+.mu-row-hdr{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 20px;cursor:pointer;
+  background:var(--blue-pale);transition:background .12s;
+  user-select:none}
+.mu-row-hdr:hover{background:#DAEEFF}
+.mu-row-name{
+  font-size:13px;font-weight:700;color:var(--blue);
+  flex:1;min-width:0}
+.mu-row-stats{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  font-size:11px}
+.mu-row-stat{color:var(--sub);white-space:nowrap}
+.mu-row-stat strong{color:var(--text)}
+.mu-row-chevron{
+  font-size:10px;color:var(--muted);flex-shrink:0;
+  transition:transform .2s}
+.mu-row.mu-row-open>.mu-row-hdr .mu-row-chevron{transform:rotate(180deg)}
+.mu-row-body{display:none;background:var(--bg-alt);border-top:1px solid var(--bdr-l)}
+.mu-row.mu-row-open>.mu-row-body{display:block}
+/* Level 2: EA cards in 4-column grid inside MU */
+.mu-ea-list{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  padding:10px 16px 14px;
+  align-items:start}
+/* Level 2 card */
 .mu-ea-card{
-  padding:8px 10px;border-bottom:1px solid var(--bdr-l);
-  cursor:default;transition:background .12s}
-.mu-ea-card:last-child{border-bottom:none}
-.mu-ea-name{
-  font-size:11.5px;font-weight:700;color:var(--text);
-  margin-bottom:3px;white-space:nowrap;
-  overflow:hidden;text-overflow:ellipsis}
-.mu-ea-stats{display:flex;gap:6px;font-size:10px;
-  align-items:center;margin-bottom:4px;flex-wrap:wrap}
-.mu-ea-all-met{color:#188918;font-weight:700}
-.mu-ea-gaps{color:var(--red);font-weight:700}
-.mu-ea-accs{color:var(--muted)}
-.mu-ea-acc-lnk{
-  display:block;font-size:10.5px;color:var(--blue);
-  text-decoration:none;margin-top:2px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mu-ea-acc-lnk:hover{text-decoration:underline}
-.mu-ea-bp{font-size:9.5px;color:var(--muted)}
-.mu-ea-more{
-  font-size:10px;color:var(--muted);font-style:italic;
-  display:block;margin-top:2px}
+  background:var(--bg);border:1px solid var(--bdr-l);
+  border-radius:6px;overflow:hidden;
+  /* cards align to top of their row so expanded cards don't stretch neighbours */
+  align-self:start}
+.mu-ea-card:last-child{margin-bottom:0}
+.mu-ea-card-hdr{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 12px;cursor:pointer;transition:background .12s;
+  user-select:none}
+.mu-ea-card-hdr:hover{background:var(--bg-alt)}
+.mu-ea-card-info{flex:1;min-width:0}
+.mu-ea-card-name{
+  font-size:12px;font-weight:600;color:var(--text);
+  white-space:normal;word-break:break-word;line-height:1.3}
+.mu-ea-card-stats{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}
+.mu-ea-stat-met{font-size:10px;font-weight:700;color:#188918}
+.mu-ea-stat-nm{font-size:10px;font-weight:700;color:var(--red)}
+.mu-ea-stat-imp{font-size:10px;font-weight:600;color:var(--blue)}
+.mu-ea-stat-cnt{font-size:10px;color:var(--muted)}
+.mu-ea-stat-gap{font-size:10px;color:var(--red)}
+.mu-ea-chevron-btn{
+  font-size:9px;color:var(--muted);flex-shrink:0;
+  transition:transform .2s;padding:2px 4px}
+.mu-ea-card.mu-ea-open .mu-ea-chevron-btn{transform:rotate(180deg)}
+/* Level 3: account list inside EA */
+.mu-ea-card-body{display:none;border-top:1px solid var(--bdr-l);background:var(--bg-alt);padding:4px 0}
+.mu-ea-card.mu-ea-open .mu-ea-card-body{display:block}
+.mu-ea-acc-item{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  padding:5px 14px;border-bottom:1px solid var(--bdr-l);font-size:11px}
+.mu-ea-acc-item:last-child{border-bottom:none}
+.mu-ea-acc-link{
+  color:var(--blue);text-decoration:none;font-weight:600;
+  flex:1;min-width:100px;word-break:break-word}
+.mu-ea-acc-link:hover{text-decoration:underline}
+.mu-ea-acc-bp{font-size:10px;color:var(--muted);white-space:nowrap}
+.mu-ea-acc-miss{font-size:10px;color:var(--red);white-space:nowrap}
+/* Legacy column styles (no longer used but kept for safety) */
+.mu-ea-grid{display:none}
+.mu-ea-col{display:none}
 
 /* 5 ── KPI Trend cards + category grid ── */
 .kpich-cat-grid{
@@ -1086,32 +1132,36 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
 
 /* 8 ── Mobile / tablet responsive ── */
 @media(max-width:1200px){
-  .mu-ea-grid{grid-template-columns:repeat(3,1fr)!important}
   .kpich-cat-grid{grid-template-columns:repeat(3,1fr)!important}
+  .mu-ea-list{grid-template-columns:repeat(3,1fr)!important}
 }
 @media(max-width:900px){
-  .mu-ea-grid{grid-template-columns:repeat(2,1fr)!important}
   .kpich-cat-grid{grid-template-columns:repeat(2,1fr)!important}
   .smry-flt-card{min-width:80px;padding:8px 8px}
   .smry-flt-num{font-size:20px}
+  .mu-row-hdr{padding:10px 14px}
+  .mu-row-stats{gap:7px}
+  .mu-ea-list{grid-template-columns:repeat(2,1fr)!important}
 }
 @media(max-width:640px){
-  .mu-ea-grid{grid-template-columns:repeat(2,1fr)!important}
   .kpich-cat-grid{grid-template-columns:1fr 1fr!important}
   .smry-flt-row{gap:5px}
   .smry-flt-card{min-width:calc(33% - 6px);padding:7px 5px;flex:1 1 calc(33% - 6px)}
   .smry-flt-num{font-size:17px!important}
   .smry-flt-lbl{font-size:9px!important}
   .trend-bar-lbl{width:50px!important}
+  .mu-row-hdr{flex-wrap:wrap;gap:6px 10px}
+  .mu-row-stats{width:100%}
+  .mu-ea-list{grid-template-columns:repeat(2,1fr)!important}
 }
 @media(max-width:480px){
   .main{padding:8px 8px 40px!important}
-  .mu-ea-grid{grid-template-columns:1fr!important}
   .kpich-cat-grid{grid-template-columns:1fr!important}
   .smry-flt-card{min-width:calc(50% - 4px);flex:1 1 calc(50% - 4px)}
   .bk-wrap{max-height:calc(100vh - 220px)}
   .det-panel{width:100vw!important;max-width:100vw!important;right:-100vw!important}
   .det-panel.open{right:0!important}
+  .mu-ea-list{grid-template-columns:1fr!important;padding:8px 10px 12px}
 }
 /* ─────────────────────────────────────────────────────── */
 
@@ -1130,7 +1180,16 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
 /* ── 9-card summary strip ─────────────────────────────────────────────── */
 .smry-strip{
   display:flex;gap:8px;flex-wrap:wrap;
-  padding:12px 0 8px;
+  padding:10px 0 8px;
+  position:sticky;
+  top:var(--sticky-below-secnav);
+  z-index:80;
+  background:var(--bg);
+  border-bottom:1px solid var(--bdr-l);
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+  /* Bleed the background edge-to-edge while keeping content aligned */
+  margin-left:-22px;margin-right:-22px;
+  padding-left:22px;padding-right:22px;
 }
 .smry-info-card{
   display:flex;flex-direction:column;align-items:center;gap:1px;
@@ -1269,7 +1328,6 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
   .smry-info-lbl,.smry-flt-lbl{font-size:9px!important}
   .ctrl-row-flt .flt-lbl{display:none}
   .hdr-period{display:none}
-  .mu-ea-grid{grid-template-columns:repeat(2,1fr)!important}
 }
 @media(max-width:400px){
   .smry-info-card,.smry-flt-card{
@@ -1285,7 +1343,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
   gap:0 !important;           /* groups handle their own spacing */
   flex-wrap:nowrap !important;
   width:100%;
-  padding:14px 0 12px !important;
+  padding:12px 22px 10px !important;
 }
 .smry-group{
   display:flex !important;
@@ -1398,90 +1456,18 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
 }
 
 
-/* ══════════════════════════════════════════════════════════════
-   EA View – APAC 6-column grid: anti-overlap on narrow screens
-   ══════════════════════════════════════════════════════════════ */
-
-/* Column header: allow text to wrap & shrink */
-.mu-ea-col-hdr{
-  white-space:normal!important;
-  word-break:break-word;
-  font-size:11px!important;
-  padding:6px 8px!important;
-  line-height:1.3
-}
-
-/* Card name: wrap instead of clip on narrow columns */
+/* ── APAC EA accordion: responsive EA card sizing ── */
+/* Card name wraps cleanly */
 .mu-ea-card-name{
-  white-space:normal!important;
-  word-break:break-word;
-  overflow:hidden;
-  font-size:11px!important;
-  line-height:1.35
-}
-
-/* Stats row: wrap badges freely, smaller text */
-.mu-ea-card-stats{
-  gap:4px!important;
-  row-gap:3px!important;
-}
+  white-space:normal;word-break:break-word;
+  overflow:hidden;font-size:11.5px;line-height:1.35}
+/* Stats badges */
+.mu-ea-card-stats{gap:4px;row-gap:3px;flex-wrap:wrap}
 .mu-ea-stat-met,.mu-ea-stat-nm,
-.mu-ea-stat-imp,.mu-ea-stat-cnt{
-  font-size:9.5px!important;
-  white-space:nowrap
-}
-.mu-ea-stat-gap{
-  font-size:9px!important;
-  padding:1px 4px!important
-}
-
-/* Card header: tighter on very narrow columns */
-.mu-ea-card-hdr{
-  gap:4px!important;
-  padding:7px 8px!important;
-  align-items:flex-start!important
-}
-.mu-ea-chevron-btn{margin-top:2px;flex-shrink:0}
-
-/* Account link + BP inside expanded body */
-.mu-ea-acc-link{
-  max-width:none!important;
-  white-space:normal!important;
-  word-break:break-word;
-  font-size:10.5px!important
-}
-.mu-ea-acc-bp{font-size:9px!important}
-.mu-ea-acc-miss{font-size:9px!important}
-.mu-ea-acc-item{flex-wrap:wrap!important;gap:2px 6px!important}
-
-/* Card body: smaller padding on narrow columns */
-.mu-ea-card-body{padding:5px 8px 8px!important}
-
-/* ── ≤900px: 3 columns, slightly larger text OK ── */
-@media(max-width:900px){
-  .mu-ea-card-name{font-size:11.5px!important}
-  .mu-ea-stat-met,.mu-ea-stat-nm,
-  .mu-ea-stat-imp,.mu-ea-stat-cnt{font-size:10px!important}
-}
-
-/* ── ≤600px: 2 columns, readable sizes ── */
-@media(max-width:600px){
-  .mu-ea-col-hdr{font-size:12px!important;padding:8px 10px!important}
-  .mu-ea-card-name{font-size:12px!important}
-  .mu-ea-card-hdr{padding:8px 10px!important;align-items:center!important}
-  .mu-ea-stat-met,.mu-ea-stat-nm,
-  .mu-ea-stat-imp,.mu-ea-stat-cnt{font-size:10.5px!important}
-  .mu-ea-acc-link{font-size:11px!important}
-}
-
-/* ── ≤480px: 1 column, generous sizes ── */
-@media(max-width:480px){
-  .mu-ea-col-hdr{font-size:13px!important}
-  .mu-ea-card-name{font-size:12.5px!important}
-  .mu-ea-stat-met,.mu-ea-stat-nm,
-  .mu-ea-stat-imp,.mu-ea-stat-cnt,.mu-ea-stat-gap{font-size:11px!important}
-}
-
+.mu-ea-stat-imp,.mu-ea-stat-cnt{white-space:nowrap}
+/* Account items in expanded body */
+.mu-ea-acc-link{white-space:normal;word-break:break-word}
+.mu-ea-acc-item{flex-wrap:wrap;gap:2px 8px}
 
 /* ══════════════════════════════════════════════════════════════
    Non-APAC EA banner: prevent text squash in ea-stats-row
@@ -1582,6 +1568,19 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
 /* EA 4-col grid responsive */
 @media(max-width:1200px){.ea-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:800px){.ea-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.ea-grid{grid-template-columns:1fr!important}}
+/* EA banner header: stack avatar + name + stats vertically on narrow cards */
+@media(max-width:520px){
+  .ea-grid .ea-banner-hdr{flex-direction:column;align-items:flex-start;gap:6px}
+  .ea-grid .ea-stats-row{width:100%;justify-content:flex-start;gap:10px;flex-wrap:wrap}
+  .ea-grid .ea-banner-body{padding:0 10px 10px 10px!important}
+}
+/* Full-width list layout at very small sizes (non-grid) */
+@media(max-width:420px){
+  .ea-banner-hdr{flex-wrap:wrap;gap:6px}
+  .ea-stats-row{flex-wrap:wrap;gap:6px 10px}
+  .ea-banner-body{padding:0 12px 10px 12px!important}
+}
 </style>
 </head>
 <body>
@@ -1616,7 +1615,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
       <div>
         <label class="modal-lbl">Admin Password</label>
         <input class="modal-inp" type="password" id="admin-pw-inp" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doAdminLogin()">
-        <div class="modal-status" id="admin-status"></div>
+        <div class="modal-status err" id="admin-status">Incorrect password.</div>
       </div>
       <div class="modal-note">Admin access enables Excel uploads and GitHub commits.<br>To change the password, log in and use <strong>GitHub Settings</strong>.</div>
     </div>
@@ -2453,8 +2452,20 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
       <div class="ea-sec-title">EA Performance View — APAC</div>
       <input class="ea-srch-inp" id="APAC-ea-srch" placeholder="Search EA name…" oninput="filterEAView('APAC')">
     </div>
-    <div class="mu-ea-grid"><div class="mu-ea-col">
-        <div class="mu-ea-col-hdr">ANZ<br><span style="font-weight:500;font-size:10px;opacity:.8">26 EA • 57 accs</span></div><div class="mu-ea-card" id="muea-APAC-ANZ-Alan_Beven">
+    <div class="mu-row-list"><div class="mu-row" id="mu-row-APAC-ANZ">
+        <div class="mu-row-hdr" onclick="toggleMuRow('mu-row-APAC-ANZ')">
+          <span class="mu-row-name">ANZ</span>
+          <div class="mu-row-stats">
+            <span class="mu-row-stat"><strong>26</strong> EAs</span>
+            <span class="mu-row-stat"><strong>57</strong> accs</span>
+            <span class="mu-row-stat" style="color:#188918"><strong>0</strong> all-met</span>
+            <span class="mu-row-stat" style="color:var(--red)"><strong>57</strong> not met</span>
+            <span class="mu-row-stat" style="color:var(--red)">344 KPI gaps</span>
+          </div>
+          <span class="mu-row-chevron">▼</span>
+        </div>
+        <div class="mu-row-body">
+          <div class="mu-ea-list"><div class="mu-ea-card" id="muea-APAC-ANZ-Alan_Beven">
           <div class="mu-ea-card-hdr" onclick="toggleMuEaCard('muea-APAC-ANZ-Alan_Beven')">
             <div class="mu-ea-card-info">
               <div class="mu-ea-card-name" title="Alan Beven">Alan Beven</div>
@@ -3046,8 +3057,20 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <a class="mu-ea-acc-link" href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0001132441" target="_blank" rel="noopener" title="Turners and Growers New Zealand Ltd">Turners and Growers New Zealand Ltd</a>
             <span class="mu-ea-acc-bp">BP: 0001132441</span>
             <span class="mu-ea-acc-miss">6 missing</span>
-          </div></div></div></div><div class="mu-ea-col">
-        <div class="mu-ea-col-hdr">G.China<br><span style="font-weight:500;font-size:10px;opacity:.8">10 EA • 39 accs</span></div><div class="mu-ea-card" id="muea-APAC-G_China-Danping_Jing">
+          </div></div></div></div></div></div><div class="mu-row" id="mu-row-APAC-G_China">
+        <div class="mu-row-hdr" onclick="toggleMuRow('mu-row-APAC-G_China')">
+          <span class="mu-row-name">G.China</span>
+          <div class="mu-row-stats">
+            <span class="mu-row-stat"><strong>10</strong> EAs</span>
+            <span class="mu-row-stat"><strong>39</strong> accs</span>
+            <span class="mu-row-stat" style="color:#188918"><strong>0</strong> all-met</span>
+            <span class="mu-row-stat" style="color:var(--red)"><strong>39</strong> not met</span>
+            <span class="mu-row-stat" style="color:var(--red)">202 KPI gaps</span>
+          </div>
+          <span class="mu-row-chevron">▼</span>
+        </div>
+        <div class="mu-row-body">
+          <div class="mu-ea-list"><div class="mu-ea-card" id="muea-APAC-G_China-Danping_Jing">
           <div class="mu-ea-card-hdr" onclick="toggleMuEaCard('muea-APAC-G_China-Danping_Jing')">
             <div class="mu-ea-card-info">
               <div class="mu-ea-card-name" title="Danping Jing">Danping Jing</div>
@@ -3343,8 +3366,20 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <a class="mu-ea-acc-link" href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0001240477" target="_blank" rel="noopener" title="Syensqo (CHINA) Co., Ltd">Syensqo (CHINA) Co., Ltd</a>
             <span class="mu-ea-acc-bp">BP: 0001240477</span>
             <span class="mu-ea-acc-miss">7 missing</span>
-          </div></div></div></div><div class="mu-ea-col">
-        <div class="mu-ea-col-hdr">India<br><span style="font-weight:500;font-size:10px;opacity:.8">24 EA • 70 accs</span></div><div class="mu-ea-card" id="muea-APAC-India-Akshay_Mittal">
+          </div></div></div></div></div></div><div class="mu-row" id="mu-row-APAC-India">
+        <div class="mu-row-hdr" onclick="toggleMuRow('mu-row-APAC-India')">
+          <span class="mu-row-name">India</span>
+          <div class="mu-row-stats">
+            <span class="mu-row-stat"><strong>24</strong> EAs</span>
+            <span class="mu-row-stat"><strong>70</strong> accs</span>
+            <span class="mu-row-stat" style="color:#188918"><strong>0</strong> all-met</span>
+            <span class="mu-row-stat" style="color:var(--red)"><strong>70</strong> not met</span>
+            <span class="mu-row-stat" style="color:var(--red)">402 KPI gaps</span>
+          </div>
+          <span class="mu-row-chevron">▼</span>
+        </div>
+        <div class="mu-row-body">
+          <div class="mu-ea-list"><div class="mu-ea-card" id="muea-APAC-India-Akshay_Mittal">
           <div class="mu-ea-card-hdr" onclick="toggleMuEaCard('muea-APAC-India-Akshay_Mittal')">
             <div class="mu-ea-card-info">
               <div class="mu-ea-card-name" title="Akshay Mittal">Akshay Mittal</div>
@@ -3960,8 +3995,20 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <a class="mu-ea-acc-link" href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0007897598" target="_blank" rel="noopener" title="NHPC Limited">NHPC Limited</a>
             <span class="mu-ea-acc-bp">BP: 0007897598</span>
             <span class="mu-ea-acc-miss">8 missing</span>
-          </div></div></div></div><div class="mu-ea-col">
-        <div class="mu-ea-col-hdr">Japan<br><span style="font-weight:500;font-size:10px;opacity:.8">22 EA • 36 accs</span></div><div class="mu-ea-card" id="muea-APAC-Japan-Daisuke_Ikeda">
+          </div></div></div></div></div></div><div class="mu-row" id="mu-row-APAC-Japan">
+        <div class="mu-row-hdr" onclick="toggleMuRow('mu-row-APAC-Japan')">
+          <span class="mu-row-name">Japan</span>
+          <div class="mu-row-stats">
+            <span class="mu-row-stat"><strong>22</strong> EAs</span>
+            <span class="mu-row-stat"><strong>36</strong> accs</span>
+            <span class="mu-row-stat" style="color:#188918"><strong>0</strong> all-met</span>
+            <span class="mu-row-stat" style="color:var(--red)"><strong>36</strong> not met</span>
+            <span class="mu-row-stat" style="color:var(--red)">259 KPI gaps</span>
+          </div>
+          <span class="mu-row-chevron">▼</span>
+        </div>
+        <div class="mu-row-body">
+          <div class="mu-ea-list"><div class="mu-ea-card" id="muea-APAC-Japan-Daisuke_Ikeda">
           <div class="mu-ea-card-hdr" onclick="toggleMuEaCard('muea-APAC-Japan-Daisuke_Ikeda')">
             <div class="mu-ea-card-info">
               <div class="mu-ea-card-name" title="Daisuke Ikeda">Daisuke Ikeda</div>
@@ -4413,8 +4460,20 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <a class="mu-ea-acc-link" href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0001104582" target="_blank" rel="noopener" title="Fujitsu Limited">Fujitsu Limited</a>
             <span class="mu-ea-acc-bp">BP: 0001104582</span>
             <span class="mu-ea-acc-miss">14 missing</span>
-          </div></div></div></div><div class="mu-ea-col">
-        <div class="mu-ea-col-hdr">Korea<br><span style="font-weight:500;font-size:10px;opacity:.8">12 EA • 43 accs</span></div><div class="mu-ea-card" id="muea-APAC-Korea-ByeongJin_Kim">
+          </div></div></div></div></div></div><div class="mu-row" id="mu-row-APAC-Korea">
+        <div class="mu-row-hdr" onclick="toggleMuRow('mu-row-APAC-Korea')">
+          <span class="mu-row-name">Korea</span>
+          <div class="mu-row-stats">
+            <span class="mu-row-stat"><strong>12</strong> EAs</span>
+            <span class="mu-row-stat"><strong>43</strong> accs</span>
+            <span class="mu-row-stat" style="color:#188918"><strong>0</strong> all-met</span>
+            <span class="mu-row-stat" style="color:var(--red)"><strong>43</strong> not met</span>
+            <span class="mu-row-stat" style="color:var(--red)">260 KPI gaps</span>
+          </div>
+          <span class="mu-row-chevron">▼</span>
+        </div>
+        <div class="mu-row-body">
+          <div class="mu-ea-list"><div class="mu-ea-card" id="muea-APAC-Korea-ByeongJin_Kim">
           <div class="mu-ea-card-hdr" onclick="toggleMuEaCard('muea-APAC-Korea-ByeongJin_Kim')">
             <div class="mu-ea-card-info">
               <div class="mu-ea-card-name" title="ByeongJin Kim">ByeongJin Kim</div>
@@ -4754,8 +4813,20 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <a class="mu-ea-acc-link" href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0001132804" target="_blank" rel="noopener" title="BizTech i Co., Ltd.">BizTech i Co., Ltd.</a>
             <span class="mu-ea-acc-bp">BP: 0001132804</span>
             <span class="mu-ea-acc-miss">9 missing</span>
-          </div></div></div></div><div class="mu-ea-col">
-        <div class="mu-ea-col-hdr">South East Asia<br><span style="font-weight:500;font-size:10px;opacity:.8">24 EA • 56 accs</span></div><div class="mu-ea-card" id="muea-APAC-South_East_Asia-Aditya_Krishan_Nanda">
+          </div></div></div></div></div></div><div class="mu-row" id="mu-row-APAC-South_East_Asia">
+        <div class="mu-row-hdr" onclick="toggleMuRow('mu-row-APAC-South_East_Asia')">
+          <span class="mu-row-name">South East Asia</span>
+          <div class="mu-row-stats">
+            <span class="mu-row-stat"><strong>24</strong> EAs</span>
+            <span class="mu-row-stat"><strong>56</strong> accs</span>
+            <span class="mu-row-stat" style="color:#188918"><strong>0</strong> all-met</span>
+            <span class="mu-row-stat" style="color:var(--red)"><strong>56</strong> not met</span>
+            <span class="mu-row-stat" style="color:var(--red)">277 KPI gaps</span>
+          </div>
+          <span class="mu-row-chevron">▼</span>
+        </div>
+        <div class="mu-row-body">
+          <div class="mu-ea-list"><div class="mu-ea-card" id="muea-APAC-South_East_Asia-Aditya_Krishan_Nanda">
           <div class="mu-ea-card-hdr" onclick="toggleMuEaCard('muea-APAC-South_East_Asia-Aditya_Krishan_Nanda')">
             <div class="mu-ea-card-info">
               <div class="mu-ea-card-name" title="Aditya Krishan Nanda">Aditya Krishan Nanda</div>
@@ -5315,7 +5386,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <a class="mu-ea-acc-link" href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0002645420" target="_blank" rel="noopener" title="PT Mitra Adiperkasa TBK">PT Mitra Adiperkasa TBK</a>
             <span class="mu-ea-acc-bp">BP: 0002645420</span>
             <span class="mu-ea-acc-miss">12 missing</span>
-          </div></div></div></div></div></div></div></div><div class="coll-wrap kpich-wrap" id="APAC-trends" data-sec="trends">
+          </div></div></div></div></div></div></div></div></div></div><div class="coll-wrap kpich-wrap" id="APAC-trends" data-sec="trends">
   <div class="coll-hdr" onclick="toggleColl('APAC-trends-body')">
     <div class="coll-hdr-row">
       <span class="coll-arrow">▼</span>
@@ -5336,71 +5407,71 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
     </div>
     <div class="kpich-cat-grid"><div class="kpich-cat-col"><div class="kpich-cat-hdr">AI</div><div class="kpich-trend-card" onclick="openKpiPanel('ai_adoption_plan','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">AI Adoption Plan</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:80%"></div></div><div class="trend-pct">80%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:80%"></div></div><div class="trend-pct">80%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:84%"></div></div><div class="trend-pct">84%</div><div class="trend-delta kpich-delta-grn">+4pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('ai_agent','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">AI Agent Activated</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:30%"></div></div><div class="trend-pct">30%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:30%"></div></div><div class="trend-pct">30%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:15%"></div></div><div class="trend-pct">15%</div><div class="trend-delta kpich-delta-red">-15pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('ai_btp','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">AI BTP Services</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:34%"></div></div><div class="trend-pct">34%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:34%"></div></div><div class="trend-pct">34%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:34%"></div></div><div class="trend-pct">34%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('joule','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Joule Activated</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:61%"></div></div><div class="trend-pct">61%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:61%"></div></div><div class="trend-pct">61%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:28%"></div></div><div class="trend-pct">28%</div><div class="trend-delta kpich-delta-red">-33pp</div></div>
       </div></div><div class="kpich-cat-col"><div class="kpich-cat-hdr">Clean Core</div><div class="kpich-trend-card" onclick="openKpiPanel('cc_princ_score','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Clean Core Score</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:38%"></div></div><div class="trend-pct">38%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:38%"></div></div><div class="trend-pct">38%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:39%"></div></div><div class="trend-pct">39%</div><div class="trend-delta kpich-delta-grn">+1pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('rwsm_dibo','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">RWSM DiBO Activated</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:38%"></div></div><div class="trend-pct">38%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:38%"></div></div><div class="trend-pct">38%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:43%"></div></div><div class="trend-pct">43%</div><div class="trend-delta kpich-delta-grn">+5pp</div></div>
       </div></div><div class="kpich-cat-col"><div class="kpich-cat-hdr">EA KPI</div><div class="kpich-trend-card" onclick="openKpiPanel('churn_mitigation','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Churn Mitigation</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:85%"></div></div><div class="trend-pct">85%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:85%"></div></div><div class="trend-pct">85%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:85%"></div></div><div class="trend-pct">85%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('compliance_check','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Compliance Check</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:95%"></div></div><div class="trend-pct">95%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:95%"></div></div><div class="trend-pct">95%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:95%"></div></div><div class="trend-pct">95%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('lead_created','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Lead Created</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:34%"></div></div><div class="trend-pct">34%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:34%"></div></div><div class="trend-pct">34%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:35%"></div></div><div class="trend-pct">35%</div><div class="trend-delta kpich-delta-grn">+1pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('qbr_govnc','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">QBR Governance</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:76%"></div></div><div class="trend-pct">76%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:76%"></div></div><div class="trend-pct">76%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:78%"></div></div><div class="trend-pct">78%</div><div class="trend-delta kpich-delta-grn">+2pp</div></div>
       </div></div><div class="kpich-cat-col"><div class="kpich-cat-hdr">RISE</div><div class="kpich-trend-card" onclick="openKpiPanel('risk_assessment','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Risk Assessment</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:88%"></div></div><div class="trend-pct">88%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:88%"></div></div><div class="trend-pct">88%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:88%"></div></div><div class="trend-pct">88%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('s4_upgrade','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">S4 Upgrade Commitment</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:28%"></div></div><div class="trend-pct">28%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:28%"></div></div><div class="trend-pct">28%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:29%"></div></div><div class="trend-pct">29%</div><div class="trend-delta kpich-delta-grn">+1pp</div></div>
       </div></div><div class="kpich-cat-col"><div class="kpich-cat-hdr">Toolchain</div><div class="kpich-trend-card" onclick="openKpiPanel('calm_tenant','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">CALM Tenant</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:92%"></div></div><div class="trend-pct">92%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:92%"></div></div><div class="trend-pct">92%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:92%"></div></div><div class="trend-pct">92%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('leanix','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">LeanIX Usage</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:83%"></div></div><div class="trend-pct">83%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:83%"></div></div><div class="trend-pct">83%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:71%"></div></div><div class="trend-pct">71%</div><div class="trend-delta kpich-delta-red">-12pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('signavio','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Signavio Usage</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:74%"></div></div><div class="trend-pct">74%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:74%"></div></div><div class="trend-pct">74%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:75%"></div></div><div class="trend-pct">75%</div><div class="trend-delta kpich-delta-grn">+1pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('tricentis','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Tricentis</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:18%"></div></div><div class="trend-pct">18%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:18%"></div></div><div class="trend-pct">18%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:18%"></div></div><div class="trend-pct">18%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('walkme','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">WalkMe Usage</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:24%"></div></div><div class="trend-pct">24%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">11 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:24%"></div></div><div class="trend-pct">24%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:26%"></div></div><div class="trend-pct">26%</div><div class="trend-delta kpich-delta-grn">+2pp</div></div>
       </div></div></div></div></div></div></div></main>
 <footer style="background:var(--bg);border-top:1px solid var(--bdr);padding:9px 22px;text-align:center;font-size:11px;color:var(--muted)">
@@ -5683,14 +5754,14 @@ function renderEAView(accounts,pid){
   const APAC_MUS=['ANZ','G.China','India','Japan','Korea','South East Asia'];
   const ini=n=>n.split(/[\s,]+/).filter(Boolean).slice(0,2).map(w=>w[0]||'').join('').toUpperCase()||'?';
 
-  /* ── APAC: 6-column MU grid ── */
+  /* ── APAC: 3-level accordion (MU → EA → Accounts) ── */
   if(_st.region==='APAC'){
     let h=`<div class="ea-wrap" id="${pid}-ea">
     <div class="ea-sec-hdr" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
       <div class="ea-sec-title">EA Performance View &mdash; APAC</div>
       <input class="ea-srch-inp" id="${pid}-ea-srch" placeholder="Search EA name&hellip;" oninput="filterEAView('${pid}')">
     </div>
-    <div class="mu-ea-grid">`;
+    <div class="mu-row-list">`;
     APAC_MUS.forEach(mu=>{
       const muAccs=accounts.filter(a=>a.r2===mu);
       const eaMap={};
@@ -5699,9 +5770,30 @@ function renderEAView(accounts,pid){
         const ua=a==='— Unassigned —',ub=b==='— Unassigned —';
         if(ua!==ub)return ua?1:-1;return a.localeCompare(b);
       });
-      h+=`<div class="mu-ea-col">
-        <div class="mu-ea-col-hdr">${mu}<br><span style="font-weight:500;font-size:10px;opacity:.8">${eas.length} EA &bull; ${muAccs.length} accs</span></div>`;
-      if(!eas.length){h+=`<div style="padding:12px 10px;font-size:11px;color:var(--muted);font-style:italic">No accounts</div>`;}
+      // MU-level summary
+      let muMet=0,muImp=0,muGaps=0;
+      muAccs.forEach(a=>{
+        const miss=vis.filter(kd=>kpiVal(a,kd.k,'c')===0);
+        if(!miss.length)muMet++;
+        muGaps+=miss.length;
+        if(vis.some(kd=>kpiVal(a,kd.k,'c')===1&&kpiVal(a,kd.k,'pw')===0))muImp++;
+      });
+      const muid=`mu-row-${pid}-${mu.replace(/[^a-z0-9]/gi,'_')}`;
+      h+=`<div class="mu-row" id="${muid}">
+        <div class="mu-row-hdr" onclick="toggleMuRow('${muid}')">
+          <span class="mu-row-name">${mu}</span>
+          <div class="mu-row-stats">
+            <span class="mu-row-stat"><strong>${eas.length}</strong> EA${eas.length!==1?'s':''}</span>
+            <span class="mu-row-stat"><strong>${muAccs.length}</strong> accs</span>
+            <span class="mu-row-stat" style="color:#188918"><strong>${muMet}</strong> all-met</span>
+            <span class="mu-row-stat" style="color:var(--red)"><strong>${muAccs.length-muMet}</strong> not met</span>
+            <span class="mu-row-stat" style="color:var(--red)">${muGaps} KPI gaps</span>
+          </div>
+          <span class="mu-row-chevron">&#9660;</span>
+        </div>
+        <div class="mu-row-body">
+          <div class="mu-ea-list">`;
+      if(!eas.length){h+=`<div style="padding:10px 4px;font-size:11px;color:var(--muted);font-style:italic">No accounts in this MU</div>`;}
       eas.forEach(ea=>{
         const accs=eaMap[ea];
         const isUnasgn=ea==='— Unassigned —';
@@ -5738,7 +5830,7 @@ function renderEAView(accounts,pid){
         });
         h+=`</div></div>`;
       });
-      h+=`</div>`;
+      h+=`</div></div></div>`;
     });
     h+=`</div></div>`;
     return h;
@@ -5909,7 +6001,7 @@ function renderKPITrends(pid){
       const delta=cp-pp,dc=delta>0?'kpich-delta-grn':delta<0?'kpich-delta-red':'kpich-delta-grey';
       h+=`<div class="kpich-trend-card" onclick="openKpiPanel('${kd.k}','${pid}')" title="Click to see account breakdown">
         <div class="kpich-trend-title">${kd.label}</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">${fmtDate(tsA)}</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:${pp}%"></div></div><div class="trend-pct">${pp}%</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">${fmtDate(tsA)}</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:${pp}%"></div></div><div class="trend-pct">${pp}%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">${fmtDate(tsB)}</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:${cp}%"></div></div><div class="trend-pct">${cp}%</div><div class="trend-delta ${dc}">${delta>0?'+':''}${delta}pp</div></div>
       </div>`;
     });
@@ -6137,7 +6229,7 @@ function renderDashboard(){
   main.innerHTML=h;
   updateTrendFilterUI();
   updateSecNav(pid);
-  setTimeout(()=>initScrollSpy(),300);
+  setTimeout(()=>{initScrollSpy();updateStickyOffsets();},300);
 }
 
 // FILTER CONTROLS
@@ -6167,6 +6259,10 @@ function toggleCatBody(h){const b=h.parentElement.querySelector('.cat-body');if(
 function toggleColl(id){const el=document.getElementById(id);if(el)el.classList.toggle('collapsed');}
 
 // Toggle APAC MU EA accordion card
+function toggleMuRow(id){
+  const el=document.getElementById(id);if(!el)return;
+  el.classList.toggle('mu-row-open');
+}
 function toggleMuEaCard(id){
   const el=document.getElementById(id);if(!el)return;
   el.classList.toggle('mu-ea-open');
@@ -6526,6 +6622,17 @@ function navToAccountDetail(pid){
   }
 }
 
+// Sticky offset calculator — measures real heights and updates CSS vars
+function updateStickyOffsets(){
+  const root=document.documentElement;
+  const hdrH=(document.querySelector('.hdr')||{offsetHeight:60}).offsetHeight;
+  const ctrlH=(document.querySelector('.ctrl')||{offsetHeight:92}).offsetHeight;
+  const sn=document.querySelector('.sec-nav');
+  const snH=(sn&&getComputedStyle(sn).display!=='none')?sn.offsetHeight:0;
+  root.style.setProperty('--sticky-below-ctrl',(hdrH+ctrlH)+'px');
+  root.style.setProperty('--sticky-below-secnav',(hdrH+ctrlH+snH)+'px');
+}
+
 // Scroll-spy: highlight active section in nav
 function initScrollSpy(){
   if(_scrollSpyObs){_scrollSpyObs.disconnect();_scrollSpyObs=null;}
@@ -6645,6 +6752,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.addEventListener('click',e=>{if(!e.target.closest('#ea-combo'))_comboClose('ea');if(!e.target.closest('#acc-combo'))_comboClose('acc');});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDD();closePanel();['admin-modal','commit-modal','ghsettings-modal'].forEach(id=>document.getElementById(id).classList.remove('open'));}});
   if(isAdmin()){document.getElementById('admin-btn').classList.add('admin-active');document.getElementById('admin-btn-lbl').textContent='Admin ✓';document.getElementById('ghsettings-btn').style.display='';}
+  window.addEventListener('resize',()=>updateStickyOffsets());
   renderDashboard();
 });
 </script>
