@@ -1635,17 +1635,17 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
       <div><label class="modal-lbl">File</label><div class="modal-status info" id="commit-file-name">0925_AFO_EA_Impact_KPI___cACV_Territory_Analyzer_Ops_updated.xlsx</div></div>
       <div><label class="modal-lbl">Validation</label><div class="modal-status ok" id="commit-validation">✓ Both required tabs found</div></div>
       <div><label class="modal-lbl">Dashboard Preview</label><div class="modal-status ok" id="commit-preview">✓ Parsed — Fixed: 300 accounts, Dynamic: 389 accounts. Dashboard refreshed!</div></div>
-      <div id="commit-gh-section" style="display:none">
+      <div id="commit-gh-section" style="display: none;">
         <label class="modal-lbl">GitHub Commit</label>
-        <div class="modal-status" id="commit-gh-status"></div>
-        <div class="progress-bar-bg"><div class="progress-bar-fg" id="commit-progress" style="width:0%"></div></div>
-        <a class="commit-url" id="commit-url" href="#" target="_blank" rel="noopener" style="display:none"></a>
+        <div class="modal-status ok" id="commit-gh-status">✓ Committed! SHA: a531eda. GitHub Pages will update in ~1 min.</div>
+        <div class="progress-bar-bg"><div class="progress-bar-fg" id="commit-progress" style="width: 100%;"></div></div>
+        <a class="commit-url" id="commit-url" href="https://github.com/cathyz0916/Impact-KPI-Production/commit/a531eda68f65182821149b293f0224a32e180943" target="_blank" rel="noopener" style="display: none;">View commit on GitHub ↗</a>
       </div>
       <div class="modal-note">After upload the dashboard refreshes immediately in your browser.<br>Click <strong>Commit to GitHub</strong> to persist the data so all visitors see it after reload.</div>
     </div>
     <div class="modal-footer">
       <button class="btn-secondary" onclick="closeModal('commit-modal')">Close</button>
-      <button class="btn-primary" id="commit-gh-btn" onclick="doCommitToGitHub()" style="display:none">
+      <button class="btn-primary" id="commit-gh-btn" onclick="doCommitToGitHub()" style="display: none;">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
           <polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line>
           <polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line>
@@ -1720,7 +1720,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
 </div>
 
 <!-- Toast -->
-<div class="toast hidden" id="toast">Admin access granted</div>
+<div class="toast hidden" id="toast">✓ Dashboard committed to GitHub!</div>
 <div class="ctrl">
   <div class="ctrl-row ctrl-row-flt">
     <div class="flt-wrap">
@@ -1777,7 +1777,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
           <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
         </svg>GitHub
       </button>
-      <button class="flt-clear-btn" id="flt-clear-all" onclick="clearAllFilters()" style="display:none">✕ Clear All</button>
+      <button class="flt-clear-btn" id="flt-clear-all" onclick="clearAllFilters()" style="display: none;">✕ Clear All</button>
     </div>
   </div>
   <div class="ctrl-row ctrl-row-tabs">
@@ -1786,7 +1786,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
 </div>
 <div class="sec-nav" id="sec-nav"><div class="sec-nav-inner" id="sec-nav-inner"><button class="sec-nav-btn" id="snb-APAC-ovw-sec" onclick="scrollToSection('APAC-ovw-sec')">☰ Overview</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-cards" onclick="scrollToSection('APAC-cards')">☷ KPI Cards</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-mu" onclick="scrollToSection('APAC-mu')">☷ Matrix</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-eav" onclick="scrollToSection('APAC-eav')">👤 EA View</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-trends" onclick="scrollToSection('APAC-trends')">📈 KPI Trend</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" onclick="navToAccountDetail('APAC')">📋 Account Detail</button></div></div>
 <div class="dd-ov" id="dd-ov" onclick="closeDD()"></div>
-<div class="kpi-dd" id="kpi-dd">
+<div class="kpi-dd" id="kpi-dd" style="top: 99px; left: 957.213px;">
   <div class="dd-hdr">
     <span>Filter KPIs</span>
     <div class="dd-links"><a onclick="selectAllKPIs()">Select All</a><a onclick="deselectAllKPIs()">Unselect All</a></div>
@@ -5149,79 +5149,79 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
   <div class="kpich-body">
     <div class="trend-ab-row">
       <span class="trend-ab-lbl">Compare:</span>
-      <select class="trend-ts-sel" onchange="setTrendTs('a',this.value)" onclick="event.stopPropagation()"><option value="2026-05-11">11 May 2026</option><option value="2026-05-15">15 May 2026</option><option value="2026-05-22">22 May 2026</option><option value="2026-05-29">29 May 2026</option><option value="2026-06-08">8 Jun 2026</option><option value="2026-06-12">12 Jun 2026</option><option value="2026-06-19">19 Jun 2026</option><option value="2026-06-26">26 Jun 2026</option><option value="2026-07-01">1 Jul 2026</option><option value="2026-07-10">10 Jul 2026</option><option value="2026-07-18">18 Jul 2026</option><option value="2026-07-24">24 Jul 2026</option><option value="2026-07-31">31 Jul 2026</option><option value="2026-08-07">7 Aug 2026</option><option value="2026-08-14">14 Aug 2026</option><option value="2026-08-24">24 Aug 2026</option><option value="2026-08-28">28 Aug 2026</option><option value="2026-09-07">7 Sept 2026</option><option value="2026-09-11">11 Sept 2026</option><option value="2026-09-18" selected="">18 Sept 2026</option><option value="2026-09-25">25 Sept 2026</option></select>
+      <select class="trend-ts-sel" onchange="setTrendTs('a',this.value)" onclick="event.stopPropagation()"><option value="2026-05-11">11 May 2026</option><option value="2026-05-15">15 May 2026</option><option value="2026-05-22">22 May 2026</option><option value="2026-05-29">29 May 2026</option><option value="2026-06-08">8 Jun 2026</option><option value="2026-06-12">12 Jun 2026</option><option value="2026-06-19">19 Jun 2026</option><option value="2026-06-26">26 Jun 2026</option><option value="2026-07-01">1 Jul 2026</option><option value="2026-07-10">10 Jul 2026</option><option value="2026-07-18">18 Jul 2026</option><option value="2026-07-24">24 Jul 2026</option><option value="2026-07-31">31 Jul 2026</option><option value="2026-08-07">7 Aug 2026</option><option value="2026-08-14">14 Aug 2026</option><option value="2026-08-24" selected="">24 Aug 2026</option><option value="2026-08-28">28 Aug 2026</option><option value="2026-09-07">7 Sept 2026</option><option value="2026-09-11">11 Sept 2026</option><option value="2026-09-18">18 Sept 2026</option><option value="2026-09-25">25 Sept 2026</option></select>
       <span class="trend-ab-lbl">vs</span>
       <select class="trend-ts-sel" onchange="setTrendTs('b',this.value)" onclick="event.stopPropagation()"><option value="2026-05-11">11 May 2026</option><option value="2026-05-15">15 May 2026</option><option value="2026-05-22">22 May 2026</option><option value="2026-05-29">29 May 2026</option><option value="2026-06-08">8 Jun 2026</option><option value="2026-06-12">12 Jun 2026</option><option value="2026-06-19">19 Jun 2026</option><option value="2026-06-26">26 Jun 2026</option><option value="2026-07-01">1 Jul 2026</option><option value="2026-07-10">10 Jul 2026</option><option value="2026-07-18">18 Jul 2026</option><option value="2026-07-24">24 Jul 2026</option><option value="2026-07-31">31 Jul 2026</option><option value="2026-08-07">7 Aug 2026</option><option value="2026-08-14">14 Aug 2026</option><option value="2026-08-24">24 Aug 2026</option><option value="2026-08-28">28 Aug 2026</option><option value="2026-09-07">7 Sept 2026</option><option value="2026-09-11">11 Sept 2026</option><option value="2026-09-18">18 Sept 2026</option><option value="2026-09-25" selected="">25 Sept 2026</option></select>
       <span style="font-size:11px;color:var(--muted);flex:1">← click any card to see account breakdown</span>
     </div>
     <div class="kpich-cat-grid"><div class="kpich-cat-col"><div class="kpich-cat-hdr">AI</div><div class="kpich-trend-card" onclick="openKpiPanel('ai_adoption_plan','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">AI Adoption Plan</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:84%"></div></div><div class="trend-pct">84%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:85%"></div></div><div class="trend-pct">85%</div><div class="trend-delta kpich-delta-grn">+1pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:75%"></div></div><div class="trend-pct">75%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:85%"></div></div><div class="trend-pct">85%</div><div class="trend-delta kpich-delta-grn">+10pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('ai_agent','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">AI Agent Activated</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:15%"></div></div><div class="trend-pct">15%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:15%"></div></div><div class="trend-pct">15%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:12%"></div></div><div class="trend-pct">12%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:15%"></div></div><div class="trend-pct">15%</div><div class="trend-delta kpich-delta-grn">+3pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('ai_btp','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">AI BTP Services</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:32%"></div></div><div class="trend-pct">32%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:33%"></div></div><div class="trend-pct">33%</div><div class="trend-delta kpich-delta-grn">+1pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:34%"></div></div><div class="trend-pct">34%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:33%"></div></div><div class="trend-pct">33%</div><div class="trend-delta kpich-delta-red">-1pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('joule','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Joule Activated</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:69%"></div></div><div class="trend-pct">69%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:68%"></div></div><div class="trend-pct">68%</div><div class="trend-delta kpich-delta-red">-1pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:62%"></div></div><div class="trend-pct">62%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:68%"></div></div><div class="trend-pct">68%</div><div class="trend-delta kpich-delta-grn">+6pp</div></div>
       </div></div><div class="kpich-cat-col"><div class="kpich-cat-hdr">Clean Core</div><div class="kpich-trend-card" onclick="openKpiPanel('cc_princ_score','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Clean Core Score</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:39%"></div></div><div class="trend-pct">39%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:42%"></div></div><div class="trend-pct">42%</div><div class="trend-delta kpich-delta-grn">+3pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:25%"></div></div><div class="trend-pct">25%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:42%"></div></div><div class="trend-pct">42%</div><div class="trend-delta kpich-delta-grn">+17pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('rwsm_dibo','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">RWSM DiBO Activated</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:43%"></div></div><div class="trend-pct">43%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:43%"></div></div><div class="trend-pct">43%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:38%"></div></div><div class="trend-pct">38%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:43%"></div></div><div class="trend-pct">43%</div><div class="trend-delta kpich-delta-grn">+5pp</div></div>
       </div></div><div class="kpich-cat-col"><div class="kpich-cat-hdr">EA KPI</div><div class="kpich-trend-card" onclick="openKpiPanel('churn_mitigation','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Churn Mitigation</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:85%"></div></div><div class="trend-pct">85%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:86%"></div></div><div class="trend-pct">86%</div><div class="trend-delta kpich-delta-grn">+1pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:78%"></div></div><div class="trend-pct">78%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:86%"></div></div><div class="trend-pct">86%</div><div class="trend-delta kpich-delta-grn">+8pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('compliance_check','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Compliance Check</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:95%"></div></div><div class="trend-pct">95%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:95%"></div></div><div class="trend-pct">95%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:95%"></div></div><div class="trend-pct">95%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('lead_created','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Lead Created</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:35%"></div></div><div class="trend-pct">35%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:36%"></div></div><div class="trend-pct">36%</div><div class="trend-delta kpich-delta-grn">+1pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:32%"></div></div><div class="trend-pct">32%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:36%"></div></div><div class="trend-pct">36%</div><div class="trend-delta kpich-delta-grn">+4pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('qbr_govnc','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">QBR Governance</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:78%"></div></div><div class="trend-pct">78%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:80%"></div></div><div class="trend-pct">80%</div><div class="trend-delta kpich-delta-grn">+2pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:74%"></div></div><div class="trend-pct">74%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:80%"></div></div><div class="trend-pct">80%</div><div class="trend-delta kpich-delta-grn">+6pp</div></div>
       </div></div><div class="kpich-cat-col"><div class="kpich-cat-hdr">RISE</div><div class="kpich-trend-card" onclick="openKpiPanel('risk_assessment','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Risk Assessment</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:88%"></div></div><div class="trend-pct">88%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:89%"></div></div><div class="trend-pct">89%</div><div class="trend-delta kpich-delta-grn">+1pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:82%"></div></div><div class="trend-pct">82%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:89%"></div></div><div class="trend-pct">89%</div><div class="trend-delta kpich-delta-grn">+7pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('s4_upgrade','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">S4 Upgrade Commitment</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:71%"></div></div><div class="trend-pct">71%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:71%"></div></div><div class="trend-pct">71%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:64%"></div></div><div class="trend-pct">64%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:71%"></div></div><div class="trend-pct">71%</div><div class="trend-delta kpich-delta-grn">+7pp</div></div>
       </div></div><div class="kpich-cat-col"><div class="kpich-cat-hdr">Toolchain</div><div class="kpich-trend-card" onclick="openKpiPanel('calm_tenant','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">CALM Tenant</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:92%"></div></div><div class="trend-pct">92%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:92%"></div></div><div class="trend-pct">92%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:91%"></div></div><div class="trend-pct">91%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:92%"></div></div><div class="trend-pct">92%</div><div class="trend-delta kpich-delta-grn">+1pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('leanix','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">LeanIX Usage</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:71%"></div></div><div class="trend-pct">71%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:71%"></div></div><div class="trend-pct">71%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:89%"></div></div><div class="trend-pct">89%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:71%"></div></div><div class="trend-pct">71%</div><div class="trend-delta kpich-delta-red">-18pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('signavio','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Signavio Usage</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:75%"></div></div><div class="trend-pct">75%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:75%"></div></div><div class="trend-pct">75%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:74%"></div></div><div class="trend-pct">74%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:75%"></div></div><div class="trend-pct">75%</div><div class="trend-delta kpich-delta-grn">+1pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('tricentis','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">Tricentis</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:18%"></div></div><div class="trend-pct">18%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:18%"></div></div><div class="trend-pct">18%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
         <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:18%"></div></div><div class="trend-pct">18%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
       </div><div class="kpich-trend-card" onclick="openKpiPanel('walkme','APAC')" title="Click to see account breakdown">
         <div class="kpich-trend-title">WalkMe Usage</div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">18 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:26%"></div></div><div class="trend-pct">26%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
-        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:26%"></div></div><div class="trend-pct">26%</div><div class="trend-delta kpich-delta-grey">0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">24 Aug 2026</div><div class="trend-bar-bg"><div class="trend-bar-prev" style="width:24%"></div></div><div class="trend-pct">24%</div><div class="trend-delta" style="visibility:hidden">+0pp</div></div>
+        <div class="trend-bar-row"><div class="trend-bar-lbl">25 Sept 2026</div><div class="trend-bar-bg"><div class="trend-bar-curr" style="width:26%"></div></div><div class="trend-pct">26%</div><div class="trend-delta kpich-delta-grn">+2pp</div></div>
       </div></div></div></div></div></div></div></main>
 <footer style="background:var(--bg);border-top:1px solid var(--bdr);padding:9px 22px;text-align:center;font-size:11px;color:var(--muted)">
   EA RISE Impact KPI Dashboard — SBB APJ &nbsp;•&nbsp;
