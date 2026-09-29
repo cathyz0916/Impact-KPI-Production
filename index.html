@@ -1,4 +1,4 @@
-<html lang="en" style="--sticky-below-ctrl: 145px; --sticky-below-secnav: 189px;"><!-- EA RISE Impact KPI Dashboard – v26 – Data: 2026-09-18 – Rebuilt 2026-09-23 --><head>
+<html lang="en" style="--sticky-below-ctrl: 145px; --sticky-below-secnav: 188px;"><!-- EA RISE Impact KPI Dashboard – v26 – Data: 2026-09-18 – Rebuilt 2026-09-23 --><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EA RISE IMPACT KPI DASHBOARD – APJ</title>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -1611,41 +1611,66 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
   .ea-banner-body{padding:0 12px 10px 12px!important}
 }
 
-/* ── EA Data Model Coverage section (v49) ──────────────────────────────── */
-.eacov-section{padding:16px 20px 24px;border-top:2px solid var(--bdr-l);margin-top:4px}
-.eacov-hdr{font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px;display:flex;align-items:baseline;gap:8px}
-.eacov-ts{font-size:11px;font-weight:400;color:var(--sub)}
-.eacov-row{display:flex;gap:0;align-items:flex-start;padding-bottom:18px}
-.eacov-row:last-child{padding-bottom:0}
-.eacov-row-lbl{font-size:11px;font-weight:700;color:var(--sub);min-width:76px;padding-top:26px;line-height:1.4;flex-shrink:0;text-transform:uppercase;letter-spacing:.04em}
-.eacov-row-charts{display:flex;gap:0;flex:1;align-items:flex-end;overflow-x:auto;flex-wrap:nowrap;min-height:40px}
-.eacov-chart{padding:0 20px;min-width:160px}
-.eacov-chart:first-child{padding-left:0}
-.eacov-chart-title{font-size:11px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.4}
-.eacov-unit{font-size:10px;font-weight:400;font-style:italic;color:var(--sub)}
-.eacov-sep{width:1px;background:var(--bdr-l);align-self:stretch;margin:0 4px;flex-shrink:0}
-.eacov-bars{display:flex;gap:10px;align-items:flex-end;padding-bottom:4px}
-.eacov-bar-col{display:flex;flex-direction:column;align-items:center;min-width:54px;max-width:70px}
-.eacov-bar-tot{font-size:11px;font-weight:700;color:var(--text);margin-bottom:3px;text-align:center;white-space:nowrap}
-.eacov-bar{display:flex;flex-direction:column;overflow:hidden;width:54px;border-radius:2px;flex-shrink:0}
-.eacov-seg{display:flex;align-items:center;justify-content:center;min-height:2px;transition:none}
-.eacov-seg-lbl{font-size:8.5px;font-weight:700;color:#fff;text-align:center;line-height:1.25;padding:1px 2px;user-select:none}
-.eacov-cov{background:#0070F2}
-.eacov-unc{background:#4CB1FF}
-.eacov-bar-lbl{font-size:9px;color:var(--sub);text-align:center;margin-top:5px;line-height:1.3;max-width:70px}
-.eacov-legend{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
-.eacov-leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--sub);white-space:nowrap}
-.eacov-leg-sw{width:12px;height:8px;border-radius:1px;flex-shrink:0;display:inline-block}
-.eacov-sw-cov{background:#0070F2}
-.eacov-sw-unc{background:#4CB1FF}
-.eacov-pipeline{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:106px;padding:0 20px;border-right:1px solid var(--bdr-l)}
-.eacov-pipe-num{font-size:32px;font-weight:700;color:#0070F2;line-height:1.1}
-.eacov-pipe-lbl{font-size:10px;color:var(--text);text-align:center;margin-top:4px;line-height:1.4;font-weight:600}
-.eacov-pipe-sub{font-size:9px;color:var(--sub);font-weight:400;display:block}
-.eacov-c2c-chart{padding:0 0 0 20px;min-width:210px}
-.eacov-c2c-bars{display:flex;gap:8px;align-items:flex-end;padding-bottom:4px}
-.eacov-c2c-bar-col{display:flex;flex-direction:column;align-items:center;min-width:44px}
-.eacov-c2c-bar{width:44px;border-radius:2px;flex-shrink:0}
+/* ── EA Data Model Coverage section v51 ────────────────────────────────── */
+.eacov-section{padding:22px 26px 28px;border-top:2px solid var(--bdr-l);margin-top:6px}
+/* Title bar */
+.eacov-hline{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.eacov-hl-lbl{font-size:13px;font-weight:700;color:var(--text);white-space:nowrap}
+.eacov-hl-ts{font-size:11px;color:var(--sub);white-space:nowrap}
+.eacov-hl-rule{flex:1;height:1.5px;background:var(--bdr)}
+/* Row header (Coverage / RISE Pipeline & C2C) */
+.eacov-row-hdr{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.eacov-row-lbl{font-size:13px;font-weight:700;color:var(--text);white-space:nowrap;min-width:196px}
+.eacov-row-rule{flex:1;height:1.5px;background:var(--bdr)}
+/* Coverage content row */
+.eacov-coverage-row{display:flex;gap:0;align-items:flex-start;overflow-x:auto;padding-bottom:4px}
+/* Chart group */
+.eacov-cgrp{flex:1;min-width:220px;padding:0 24px}
+.eacov-cgrp:first-child{padding-left:0}
+.eacov-ctitle{font-size:12px;font-weight:700;color:var(--text);margin-bottom:12px;line-height:1.4}
+.eacov-cunit{font-size:10px;font-weight:400;font-style:italic;color:var(--sub)}
+/* Chart area: bars sit at bottom, gridlines are absolute */
+.eacov-carea{position:relative;display:flex;align-items:flex-end;gap:20px;
+  border-bottom:2px solid var(--bdr-l);padding-bottom:0}
+/* Gridlines */
+.eacov-gline{position:absolute;left:0;right:0;height:1px;background:var(--bdr-l);pointer-events:none}
+.eacov-yla{position:absolute;right:calc(100% + 3px);bottom:-6px;
+  font-size:8.5px;color:var(--muted);white-space:nowrap;line-height:1}
+/* Bar column */
+.eacov-bcol{display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
+.eacov-btop{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;
+  text-align:center;white-space:nowrap;line-height:1}
+/* Stacked bar */
+.eacov-bar{display:flex;flex-direction:column;overflow:hidden;border-radius:2px 2px 0 0;width:82px}
+.eacov-seg-cov{background:#0070F2;display:flex;align-items:center;justify-content:center;min-height:0}
+.eacov-seg-unc{background:#4CB1FF;display:flex;align-items:center;justify-content:center;min-height:0}
+.eacov-ilab{font-size:9px;font-weight:700;color:#fff;text-align:center;
+  line-height:1.3;padding:1px 2px;user-select:none}
+/* Bar label below axis */
+.eacov-blbl{font-size:9px;color:var(--sub);text-align:center;margin-top:8px;
+  line-height:1.4;max-width:94px}
+/* Legend */
+.eacov-lgnd{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap}
+.eacov-li{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--sub)}
+.eacov-ls{width:14px;height:9px;border-radius:1px;flex-shrink:0;display:inline-block}
+/* Vertical separator */
+.eacov-vsep{width:1px;background:var(--bdr-l);align-self:stretch;flex-shrink:0;margin:0 4px}
+/* RISE Pipeline row */
+.eacov-pipeline-row{display:flex;gap:0;align-items:flex-start;overflow-x:auto}
+.eacov-pipe-wrap{display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:0 32px;min-width:150px;text-align:center}
+.eacov-pipe-num{font-size:46px;font-weight:700;color:#0070F2;line-height:1;margin-top:8px}
+.eacov-pipe-unit{font-size:12px;font-weight:600;color:var(--text);margin-top:4px}
+.eacov-pipe-note{font-size:9.5px;color:var(--sub);margin-top:3px;line-height:1.3}
+/* C2C bars */
+.eacov-c2c-wrap{flex:2;min-width:260px;padding:0 0 0 24px}
+.eacov-c2c-area{display:flex;align-items:flex-end;gap:16px;
+  border-bottom:2px solid var(--bdr-l);padding-bottom:0}
+.eacov-c2c-col{display:flex;flex-direction:column;align-items:center}
+.eacov-c2c-num{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px}
+.eacov-c2c-bar{width:64px;border-radius:2px 2px 0 0;flex-shrink:0}
+.eacov-c2c-lbl{font-size:9px;color:var(--sub);text-align:center;
+  margin-top:8px;line-height:1.4;max-width:78px}
 </style>
 </head>
 <body>
@@ -5677,7 +5702,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
           <span class="akpi-leg-item"><span class="akpi-leg-line" style="background:#F0A800"></span><span style="color:#F0A800;font-weight:600">Q4</span> Target</span>
         </div>
       </div>
-      <div class="eacov-section"><div class="eacov-hdr">EA Data Model <span class="eacov-ts">as of 2026-09-25</span></div><div class="eacov-row"><div class="eacov-row-lbl">Coverage</div><div class="eacov-row-charts"><div class="eacov-chart"><div class="eacov-chart-title">EmLA Entitlement <span class="eacov-unit">(in #)</span></div><div class="eacov-bars"><div class="eacov-bar-col"><div class="eacov-bar-tot">1,239</div><div class="eacov-bar" style="height:160px"><div class="eacov-seg eacov-unc" style="height:110px"><span class="eacov-seg-lbl">850<br>69%</span></div><div class="eacov-seg eacov-cov" style="height:50px"><span class="eacov-seg-lbl">389<br>31%</span></div></div><div class="eacov-bar-lbl">EA eligible<br>customers</div></div><div class="eacov-bar-col"><div class="eacov-bar-tot">400</div><div class="eacov-bar" style="height:52px"><div class="eacov-seg eacov-unc" style="height:24px"><span class="eacov-seg-lbl">182<br>46%</span></div><div class="eacov-seg eacov-cov" style="height:28px"><span class="eacov-seg-lbl">218<br>55%</span></div></div><div class="eacov-bar-lbl">RISE Meth.<br>Entitlement (EmLA)</div></div><div class="eacov-bar-col"><div class="eacov-bar-tot">839</div><div class="eacov-bar" style="height:108px"><div class="eacov-seg eacov-unc" style="height:86px"><span class="eacov-seg-lbl">668<br>80%</span></div><div class="eacov-seg eacov-cov" style="height:22px"><span class="eacov-seg-lbl">171<br>20%</span></div></div><div class="eacov-bar-lbl">Non-RISE Meth.<br>Entitlement (EmLA)</div></div></div><div class="eacov-legend"><span class="eacov-leg-item"><span class="eacov-leg-sw eacov-sw-cov"></span>EA Covered</span><span class="eacov-leg-item"><span class="eacov-leg-sw eacov-sw-unc"></span>EA Uncovered</span></div></div><div class="eacov-sep"></div><div class="eacov-chart"><div class="eacov-chart-title">TPS Entitlement <span class="eacov-unit">(in #)</span></div><div class="eacov-bars"><div class="eacov-bar-col"><div class="eacov-bar-tot">1,239</div><div class="eacov-bar" style="height:160px"><div class="eacov-seg eacov-unc" style="height:110px"><span class="eacov-seg-lbl">850<br>69%</span></div><div class="eacov-seg eacov-cov" style="height:50px"><span class="eacov-seg-lbl">389<br>31%</span></div></div><div class="eacov-bar-lbl">EA eligible<br>customers</div></div><div class="eacov-bar-col"><div class="eacov-bar-tot">145</div><div class="eacov-bar" style="height:19px"><div class="eacov-seg eacov-unc" style="height:10px"></div><div class="eacov-seg eacov-cov" style="height:9px"></div></div><div class="eacov-bar-lbl">TPS<br>Entitlement</div></div><div class="eacov-bar-col"><div class="eacov-bar-tot">1,094</div><div class="eacov-bar" style="height:141px"><div class="eacov-seg eacov-unc" style="height:100px"><span class="eacov-seg-lbl">774<br>71%</span></div><div class="eacov-seg eacov-cov" style="height:41px"><span class="eacov-seg-lbl">320<br>29%</span></div></div><div class="eacov-bar-lbl">No TPS<br>Entitlement</div></div></div><div class="eacov-legend"><span class="eacov-leg-item"><span class="eacov-leg-sw eacov-sw-cov"></span>EA Covered</span><span class="eacov-leg-item"><span class="eacov-leg-sw eacov-sw-unc"></span>EA Uncovered</span></div></div><div class="eacov-sep"></div><div class="eacov-chart"><div class="eacov-chart-title">Total Exit ACV Under Mgmt. <span class="eacov-unit">(in € M)</span></div><div class="eacov-bars"><div class="eacov-bar-col"><div class="eacov-bar-tot">2.8B</div><div class="eacov-bar" style="height:160px"><div class="eacov-seg eacov-unc" style="height:44px"><span class="eacov-seg-lbl">776M<br>28%</span></div><div class="eacov-seg eacov-cov" style="height:116px"><span class="eacov-seg-lbl">2.0B<br>72%</span></div></div><div class="eacov-bar-lbl">Eligible ACV</div></div></div><div class="eacov-legend"><span class="eacov-leg-item"><span class="eacov-leg-sw eacov-sw-cov"></span>EA Covered</span><span class="eacov-leg-item"><span class="eacov-leg-sw eacov-sw-unc"></span>EA Uncovered</span></div></div></div></div><div class="eacov-row"><div class="eacov-row-lbl">RISE Pipeline &amp; C2C</div><div class="eacov-row-charts"><div class="eacov-pipeline"><div class="eacov-pipe-num">309</div><div class="eacov-pipe-lbl">RISE Pipeline Customers<span class="eacov-pipe-sub">(eligible, not yet covered)</span></div></div><div class="eacov-pipeline"><div class="eacov-pipe-num">4</div><div class="eacov-pipe-lbl">C2C Pipeline Customers</div></div><div class="eacov-c2c-chart"><div class="eacov-chart-title">C2C coverage <span class="eacov-unit">(in #)</span></div><div class="eacov-c2c-bars"><div class="eacov-c2c-bar-col"><div class="eacov-bar-tot">8</div><div class="eacov-c2c-bar" style="height:80px;background:#556B82"></div><div class="eacov-bar-lbl">Total C2C<br>customers</div></div><div class="eacov-c2c-bar-col"><div class="eacov-bar-tot">8</div><div class="eacov-c2c-bar" style="height:80px;background:#0070F2"></div><div class="eacov-bar-lbl">EA Covered</div></div><div class="eacov-c2c-bar-col"><div class="eacov-bar-tot">6</div><div class="eacov-c2c-bar" style="height:60px;background:#188918"></div><div class="eacov-bar-lbl">With Adoption<br>Plan</div></div><div class="eacov-c2c-bar-col"><div class="eacov-bar-tot">2</div><div class="eacov-c2c-bar" style="height:20px;background:#BBBEC1"></div><div class="eacov-bar-lbl">Without<br>Adoption Plan</div></div></div></div></div></div></div>
+      <div class="eacov-section"><div class="eacov-hline"><span class="eacov-hl-lbl">EA Data Model</span><span class="eacov-hl-ts">as of 2026-09-25</span><span class="eacov-hl-rule"></span></div><div class="eacov-row-hdr"><span class="eacov-row-lbl">Coverage</span><span class="eacov-row-rule"></span></div><div class="eacov-coverage-row"><div class="eacov-cgrp"><div class="eacov-ctitle">EmLA Entitlement <span class="eacov-cunit">(in #)</span></div><div class="eacov-carea" style="height:220px"><div class="eacov-gline" style="bottom:89px"><span class="eacov-yla">500</span></div><div class="eacov-gline" style="bottom:178px"><span class="eacov-yla">1,000</span></div><div class="eacov-bcol"><div class="eacov-btop">1,239</div><div class="eacov-bar" style="height:220px"><div class="eacov-seg-unc" style="height:151px"><div class="eacov-ilab">850<br>(69%)</div></div><div class="eacov-seg-cov" style="height:69px"><div class="eacov-ilab">389<br>(31%)</div></div></div><div class="eacov-blbl">EA eligible<br>customers</div></div><div class="eacov-bcol"><div class="eacov-btop">400</div><div class="eacov-bar" style="height:71px"><div class="eacov-seg-unc" style="height:32px"><div class="eacov-ilab">46%</div></div><div class="eacov-seg-cov" style="height:39px"><div class="eacov-ilab">218<br>(55%)</div></div></div><div class="eacov-blbl">RISE Meth.<br>Entitlement (EmLA)</div></div><div class="eacov-bcol"><div class="eacov-btop">839</div><div class="eacov-bar" style="height:149px"><div class="eacov-seg-unc" style="height:119px"><div class="eacov-ilab">668<br>(80%)</div></div><div class="eacov-seg-cov" style="height:30px"><div class="eacov-ilab">20%</div></div></div><div class="eacov-blbl">Non-RISE Meth.<br>Entitlement (EmLA)</div></div></div><div class="eacov-lgnd"><span class="eacov-li"><span class="eacov-ls" style="background:#0070F2"></span>EA Covered</span><span class="eacov-li"><span class="eacov-ls" style="background:#4CB1FF"></span>EA Uncovered</span></div></div><div class="eacov-vsep"></div><div class="eacov-cgrp"><div class="eacov-ctitle">TPS Entitlement <span class="eacov-cunit">(in #)</span></div><div class="eacov-carea" style="height:220px"><div class="eacov-gline" style="bottom:89px"><span class="eacov-yla">500</span></div><div class="eacov-gline" style="bottom:178px"><span class="eacov-yla">1,000</span></div><div class="eacov-bcol"><div class="eacov-btop">1,239</div><div class="eacov-bar" style="height:220px"><div class="eacov-seg-unc" style="height:151px"><div class="eacov-ilab">850<br>(69%)</div></div><div class="eacov-seg-cov" style="height:69px"><div class="eacov-ilab">389<br>(31%)</div></div></div><div class="eacov-blbl">EA eligible<br>customers</div></div><div class="eacov-bcol"><div class="eacov-btop">145</div><div class="eacov-bar" style="height:26px"><div class="eacov-seg-unc" style="height:14px"></div><div class="eacov-seg-cov" style="height:12px"></div></div><div class="eacov-blbl">TPS<br>Entitlement</div></div><div class="eacov-bcol"><div class="eacov-btop">1,094</div><div class="eacov-bar" style="height:194px"><div class="eacov-seg-unc" style="height:137px"><div class="eacov-ilab">774<br>(71%)</div></div><div class="eacov-seg-cov" style="height:57px"><div class="eacov-ilab">320<br>(29%)</div></div></div><div class="eacov-blbl">No TPS<br>Entitlement</div></div></div><div class="eacov-lgnd"><span class="eacov-li"><span class="eacov-ls" style="background:#0070F2"></span>EA Covered</span><span class="eacov-li"><span class="eacov-ls" style="background:#4CB1FF"></span>EA Uncovered</span></div></div><div class="eacov-vsep"></div><div class="eacov-cgrp"><div class="eacov-ctitle">Total Exit ACV Under Mgmt. <span class="eacov-cunit">(in € M)</span></div><div class="eacov-carea" style="height:220px"><div class="eacov-bcol"><div class="eacov-btop">2.82B</div><div class="eacov-bar" style="height:220px"><div class="eacov-seg-unc" style="height:61px"><div class="eacov-ilab">776M<br>(28%)</div></div><div class="eacov-seg-cov" style="height:159px"><div class="eacov-ilab">2.04B<br>(72%)</div></div></div><div class="eacov-blbl">Eligible ACV</div></div></div><div class="eacov-lgnd"><span class="eacov-li"><span class="eacov-ls" style="background:#0070F2"></span>EA Covered</span><span class="eacov-li"><span class="eacov-ls" style="background:#4CB1FF"></span>EA Uncovered</span></div></div></div><div class="eacov-row-hdr" style="margin-top:28px"><span class="eacov-row-lbl">RISE Pipeline &amp; C2C</span><span class="eacov-row-rule"></span></div><div class="eacov-pipeline-row"><div class="eacov-pipe-wrap"><div class="eacov-ctitle">RISE Pipeline <span class="eacov-cunit">(in #)</span></div><div class="eacov-pipe-num">309</div><div class="eacov-pipe-unit">Customers</div><div class="eacov-pipe-note">(eligible, not yet covered)</div></div><div class="eacov-vsep" style="margin:0 8px"></div><div class="eacov-pipe-wrap"><div class="eacov-ctitle">C2C Pipeline <span class="eacov-cunit">(in #)</span></div><div class="eacov-pipe-num">4</div><div class="eacov-pipe-unit">Customers</div></div><div class="eacov-vsep" style="margin:0 8px"></div><div class="eacov-c2c-wrap"><div class="eacov-ctitle">C2C coverage <span class="eacov-cunit">(in #)</span></div><div class="eacov-c2c-area" style="height:130px"><div class="eacov-c2c-col"><div class="eacov-c2c-num">8</div><div class="eacov-c2c-bar" style="height:130px;background:#52575C"></div><div class="eacov-c2c-lbl">Total # of C2C<br>customers</div></div><div class="eacov-c2c-col"><div class="eacov-c2c-num">8</div><div class="eacov-c2c-bar" style="height:130px;background:#4CB1FF"></div><div class="eacov-c2c-lbl">EA Covered</div></div><div class="eacov-c2c-col"><div class="eacov-c2c-num">2</div><div class="eacov-c2c-bar" style="height:33px;background:#7F8387"></div><div class="eacov-c2c-lbl">without<br>Adoption plan</div></div><div class="eacov-c2c-col"><div class="eacov-c2c-num">6</div><div class="eacov-c2c-bar" style="height:98px;background:#B8BEC5"></div><div class="eacov-c2c-lbl">with<br>Adoption plan</div></div></div></div></div></div>
     </div>
   </div></div></main>
 <footer style="background:var(--bg);border-top:1px solid var(--bdr);padding:9px 22px;text-align:center;font-size:11px;color:var(--muted)">
@@ -6392,107 +6417,141 @@ function closePanel(){document.getElementById('det-panel').classList.remove('ope
 // ── All KPI Status (APAC only) ────────────────────────────────────────────
 
 function renderEACoverage(pid){
-  const d=(DD.ea&&DD.ea[_st.region])?DD.ea[_st.region]:(DD.ea&&DD.ea['APAC'])?DD.ea['APAC']:null;
+  var d=(DD.ea&&(DD.ea[_st.region]||DD.ea['APAC']));
   if(!d)return'';
-  const BAR_H=160;
-  const mx=d.elig;
-  function bh(n){return Math.max(2,Math.round(n/mx*BAR_H));}
-  function pct(n,t){return t>0?Math.round(n/t*100):0;}
-  function sl(n,t,h){const p=pct(n,t);return h>=20?'<span class="eacov-seg-lbl">'+n.toLocaleString()+'<br>'+p+'%</span>':'';}
+  var H=220,BW=82,mx=d.elig;
+  function bh(v){return Math.max(0,Math.round(v/mx*H));}
+  function pc(n,t){return t?Math.round(n/t*100):0;}
+  /* inside-bar label: count + % if tall enough */
+  function ilab(n,tot,h){
+    var p=pc(n,tot);
+    if(h>=36)return'<div class="eacov-ilab">'+n.toLocaleString()+'<br>('+p+'%)</div>';
+    if(h>=20)return'<div class="eacov-ilab">'+p+'%</div>';
+    return'';
+  }
+  /* stacked bar column */
   function sbar(tot,cov,unc,lbl){
     if(tot<=0)return'';
-    const bht=bh(tot),ch=Math.round(cov/tot*bht),uh=bht-ch;
-    return '<div class="eacov-bar-col">'+
-      '<div class="eacov-bar-tot">'+tot.toLocaleString()+'</div>'+
+    var bht=bh(tot),ch=Math.round(cov/tot*bht),uh=bht-ch;
+    return'<div class="eacov-bcol">'+
+      '<div class="eacov-btop">'+tot.toLocaleString()+'</div>'+
       '<div class="eacov-bar" style="height:'+bht+'px">'+
-        '<div class="eacov-seg eacov-unc" style="height:'+uh+'px">'+sl(unc,tot,uh)+'</div>'+
-        '<div class="eacov-seg eacov-cov" style="height:'+ch+'px">'+sl(cov,tot,ch)+'</div>'+
+        '<div class="eacov-seg-unc" style="height:'+uh+'px">'+ilab(unc,tot,uh)+'</div>'+
+        '<div class="eacov-seg-cov" style="height:'+ch+'px">'+ilab(cov,tot,ch)+'</div>'+
       '</div>'+
-      '<div class="eacov-bar-lbl">'+lbl+'</div></div>';
+      '<div class="eacov-blbl">'+lbl+'</div>'+
+    '</div>';
   }
-  const lgnd='<div class="eacov-legend">'+
-    '<span class="eacov-leg-item"><span class="eacov-leg-sw eacov-sw-cov"></span>EA Covered</span>'+
-    '<span class="eacov-leg-item"><span class="eacov-leg-sw eacov-sw-unc"></span>EA Uncovered</span>'+
+  /* gridlines at 500-unit intervals */
+  var yMax=Math.ceil(mx/500)*500,glines='';
+  for(var v=500;v<yMax;v+=500){
+    var gpx=Math.round(v/mx*H);
+    glines+='<div class="eacov-gline" style="bottom:'+gpx+'px">'+
+      '<span class="eacov-yla">'+v.toLocaleString()+'</span></div>';
+  }
+  /* legend */
+  var lgnd='<div class="eacov-lgnd">'+
+    '<span class="eacov-li"><span class="eacov-ls" style="background:#0070F2"></span>EA Covered</span>'+
+    '<span class="eacov-li"><span class="eacov-ls" style="background:#4CB1FF"></span>EA Uncovered</span>'+
   '</div>';
-  const emlaChart='<div class="eacov-chart">'+
-    '<div class="eacov-chart-title">EmLA Entitlement <span class="eacov-unit">(in #)</span></div>'+
-    '<div class="eacov-bars">'+
-      sbar(d.elig,d.cov,d.unc,'EA eligible<br>customers')+
-      sbar(d.emla,d.emla_cov,d.emla_unc,'RISE Meth.<br>Entitlement (EmLA)')+
-      sbar(d.no_emla,d.no_emla_cov,d.no_emla_unc,'Non-RISE Meth.<br>Entitlement (EmLA)')+
-    '</div>'+lgnd+'</div>';
-  const tpsChart='<div class="eacov-chart">'+
-    '<div class="eacov-chart-title">TPS Entitlement <span class="eacov-unit">(in #)</span></div>'+
-    '<div class="eacov-bars">'+
-      sbar(d.elig,d.cov,d.unc,'EA eligible<br>customers')+
-      sbar(d.tps,d.tps_cov,d.tps_unc,'TPS<br>Entitlement')+
-      sbar(d.no_tps,d.no_tps_cov,d.no_tps_unc,'No TPS<br>Entitlement')+
-    '</div>'+lgnd+'</div>';
-  const acvMax=d.acv_t,acvCH=Math.round(d.acv_c/acvMax*BAR_H),acvUH=BAR_H-acvCH;
-  function fmt(v){return v>=1000?(v/1000).toFixed(1)+'B':v.toFixed(0)+'M';}
-  const acvChart='<div class="eacov-chart">'+
-    '<div class="eacov-chart-title">Total Exit ACV Under Mgmt. <span class="eacov-unit">(in \u20AC M)</span></div>'+
-    '<div class="eacov-bars">'+
-      '<div class="eacov-bar-col">'+
-        '<div class="eacov-bar-tot">'+fmt(d.acv_t)+'</div>'+
-        '<div class="eacov-bar" style="height:'+BAR_H+'px">'+
-          '<div class="eacov-seg eacov-unc" style="height:'+acvUH+'px">'+
-            (acvUH>=20?'<span class="eacov-seg-lbl">'+fmt(d.acv_u)+'<br>'+pct(d.acv_u,d.acv_t)+'%</span>':'')+
-          '</div>'+
-          '<div class="eacov-seg eacov-cov" style="height:'+acvCH+'px">'+
-            (acvCH>=20?'<span class="eacov-seg-lbl">'+fmt(d.acv_c)+'<br>'+pct(d.acv_c,d.acv_t)+'%</span>':'')+
-          '</div>'+
-        '</div>'+
-        '<div class="eacov-bar-lbl">Eligible ACV</div>'+
-      '</div>'+
-    '</div>'+lgnd+'</div>';
-  const c2cBH=80;
-  const c2cMx=Math.max(d.c2c,1);
-  function c2cb(v,lbl,bg){
-    const h=Math.max(4,Math.round(v/c2cMx*c2cBH));
-    return '<div class="eacov-c2c-bar-col">'+
-      '<div class="eacov-bar-tot">'+v+'</div>'+
-      '<div class="eacov-c2c-bar" style="height:'+h+'px;background:'+bg+'"></div>'+
-      '<div class="eacov-bar-lbl">'+lbl+'</div></div>';
+  function cgrp(title,unit,bars){
+    return'<div class="eacov-cgrp">'+
+      '<div class="eacov-ctitle">'+title+' <span class="eacov-cunit">'+unit+'</span></div>'+
+      '<div class="eacov-carea" style="height:'+H+'px">'+glines+bars+'</div>'+
+      lgnd+'</div>';
   }
-  const c2cChart='<div class="eacov-c2c-chart">'+
-    '<div class="eacov-chart-title">C2C coverage <span class="eacov-unit">(in #)</span></div>'+
-    '<div class="eacov-c2c-bars">'+
-      c2cb(d.c2c,'Total C2C<br>customers','#556B82')+
-      c2cb(d.c2c_cov,'EA Covered','#0070F2')+
-      (d.c2c_unc>0?c2cb(d.c2c_unc,'EA Uncovered','#4CB1FF'):'')+
-      c2cb(d.c2c_adp,'With Adoption<br>Plan','#188918')+
-      c2cb(d.c2c_nadp,'Without<br>Adoption Plan','#BBBEC1')+
-    '</div></div>';
-  const ts=(DD.f_ts&&DD.f_ts.c)?DD.f_ts.c:'';
-  return '<div class="eacov-section">'+
-    '<div class="eacov-hdr">EA Data Model <span class="eacov-ts">as of '+ts+'</span></div>'+
-    '<div class="eacov-row">'+
-      '<div class="eacov-row-lbl">Coverage</div>'+
-      '<div class="eacov-row-charts">'+
-        emlaChart+
-        '<div class="eacov-sep"></div>'+
-        tpsChart+
-        '<div class="eacov-sep"></div>'+
-        acvChart+
+  var emla=cgrp('EmLA Entitlement','(in #)',
+    sbar(d.elig,d.cov,d.unc,'EA eligible<br>customers')+
+    sbar(d.emla,d.emla_cov,d.emla_unc,'RISE Meth.<br>Entitlement (EmLA)')+
+    sbar(d.no_emla,d.no_emla_cov,d.no_emla_unc,'Non-RISE Meth.<br>Entitlement (EmLA)'));
+  var tps=cgrp('TPS Entitlement','(in #)',
+    sbar(d.elig,d.cov,d.unc,'EA eligible<br>customers')+
+    sbar(d.tps,d.tps_cov,d.tps_unc,'TPS<br>Entitlement')+
+    sbar(d.no_tps,d.no_tps_cov,d.no_tps_unc,'No TPS<br>Entitlement'));
+  /* ACV: stacked bar on ACV scale */
+  var acvH=H,acvMx=d.acv_t,acvCH=Math.round(d.acv_c/acvMx*acvH),acvUH=acvH-acvCH;
+  function fmtA(v){return v>=1000?(v/1000).toFixed(2)+'B':v.toFixed(0)+'M';}
+  var acv='<div class="eacov-cgrp">'+
+    '<div class="eacov-ctitle">Total Exit ACV Under Mgmt. <span class="eacov-cunit">(in \u20AC M)</span></div>'+
+    '<div class="eacov-carea" style="height:'+acvH+'px">'+
+      '<div class="eacov-bcol">'+
+        '<div class="eacov-btop">'+fmtA(d.acv_t)+'</div>'+
+        '<div class="eacov-bar" style="height:'+acvH+'px">'+
+          '<div class="eacov-seg-unc" style="height:'+acvUH+'px">'+
+            (acvUH>=36?'<div class="eacov-ilab">'+fmtA(d.acv_u)+'<br>('+pc(d.acv_u*10,d.acv_t*10)+'%)</div>':
+             acvUH>=20?'<div class="eacov-ilab">'+pc(d.acv_u*10,d.acv_t*10)+'%</div>':'')+
+          '</div>'+
+          '<div class="eacov-seg-cov" style="height:'+acvCH+'px">'+
+            (acvCH>=36?'<div class="eacov-ilab">'+fmtA(d.acv_c)+'<br>('+pc(d.acv_c*10,d.acv_t*10)+'%)</div>':
+             acvCH>=20?'<div class="eacov-ilab">'+pc(d.acv_c*10,d.acv_t*10)+'%</div>':'')+
+          '</div>'+
+        '</div>'+
+        '<div class="eacov-blbl">Eligible ACV</div>'+
       '</div>'+
+    '</div>'+lgnd+'</div>';
+  /* C2C bars — simple (non-stacked) columns */
+  var c2cH=130,c2cMx=Math.max(d.c2c,1);
+  function c2cb(v,lbl,color){
+    var h=Math.max(6,Math.round(v/c2cMx*c2cH));
+    return'<div class="eacov-c2c-col">'+
+      '<div class="eacov-c2c-num">'+v+'</div>'+
+      '<div class="eacov-c2c-bar" style="height:'+h+'px;background:'+color+'"></div>'+
+      '<div class="eacov-c2c-lbl">'+lbl+'</div>'+
+    '</div>';
+  }
+  var c2cSection='<div class="eacov-c2c-wrap">'+
+    '<div class="eacov-ctitle">C2C coverage <span class="eacov-cunit">(in #)</span></div>'+
+    '<div class="eacov-c2c-area" style="height:'+c2cH+'px">'+
+      c2cb(d.c2c,'Total # of C2C<br>customers','#52575C')+
+      (d.c2c_unc>0?c2cb(d.c2c_unc,'EA Uncovered','#0070F2'):'')+
+      c2cb(d.c2c_cov,'EA Covered','#4CB1FF')+
+      c2cb(d.c2c_nadp,'without<br>Adoption plan','#7F8387')+
+      c2cb(d.c2c_adp,'with<br>Adoption plan','#B8BEC5')+
     '</div>'+
-    '<div class="eacov-row">'+
-      '<div class="eacov-row-lbl">RISE Pipeline &amp; C2C</div>'+
-      '<div class="eacov-row-charts">'+
-        '<div class="eacov-pipeline">'+
-          '<div class="eacov-pipe-num">'+d.rise_pipe.toLocaleString()+'</div>'+
-          '<div class="eacov-pipe-lbl">RISE Pipeline Customers<span class="eacov-pipe-sub">(eligible, not yet covered)</span></div>'+
-        '</div>'+
-        '<div class="eacov-pipeline">'+
-          '<div class="eacov-pipe-num">'+d.c2c_pipe.toLocaleString()+'</div>'+
-          '<div class="eacov-pipe-lbl">C2C Pipeline Customers</div>'+
-        '</div>'+
-        c2cChart+
+  '</div>';
+  var ts=(DD.f_ts&&DD.f_ts.c)?DD.f_ts.c:'';
+  return'<div class="eacov-section">'+
+    '<div class="eacov-hline">'+
+      '<span class="eacov-hl-lbl">EA Data Model</span>'+
+      '<span class="eacov-hl-ts">as of '+ts+'</span>'+
+      '<span class="eacov-hl-rule"></span>'+
+    '</div>'+
+    /* Coverage row */
+    '<div class="eacov-row-hdr">'+
+      '<span class="eacov-row-lbl">Coverage</span>'+
+      '<span class="eacov-row-rule"></span>'+
+    '</div>'+
+    '<div class="eacov-coverage-row">'+
+      emla+
+      '<div class="eacov-vsep"></div>'+
+      tps+
+      '<div class="eacov-vsep"></div>'+
+      acv+
+    '</div>'+
+    /* RISE Pipeline & C2C row */
+    '<div class="eacov-row-hdr" style="margin-top:28px">'+
+      '<span class="eacov-row-lbl">RISE Pipeline &amp; C2C</span>'+
+      '<span class="eacov-row-rule"></span>'+
+    '</div>'+
+    '<div class="eacov-pipeline-row">'+
+      '<div class="eacov-pipe-wrap">'+
+        '<div class="eacov-ctitle">RISE Pipeline <span class="eacov-cunit">(in #)</span></div>'+
+        '<div class="eacov-pipe-num">'+d.rise_pipe.toLocaleString()+'</div>'+
+        '<div class="eacov-pipe-unit">Customers</div>'+
+        '<div class="eacov-pipe-note">(eligible, not yet covered)</div>'+
       '</div>'+
+      '<div class="eacov-vsep" style="margin:0 8px"></div>'+
+      '<div class="eacov-pipe-wrap">'+
+        '<div class="eacov-ctitle">C2C Pipeline <span class="eacov-cunit">(in #)</span></div>'+
+        '<div class="eacov-pipe-num">'+d.c2c_pipe.toLocaleString()+'</div>'+
+        '<div class="eacov-pipe-unit">Customers</div>'+
+      '</div>'+
+      '<div class="eacov-vsep" style="margin:0 8px"></div>'+
+      c2cSection+
     '</div>'+
   '</div>';
 }
+
 function renderAllKpiStatus(accounts,pid){
   const BAR_H=150;
   const GROUPS=[
