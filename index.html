@@ -1,4 +1,4 @@
-<html lang="en" style="--sticky-below-ctrl: 147px; --sticky-below-secnav: 198px;"><!-- EA RISE Impact KPI Dashboard – v26 – Data: 2026-09-18 – Rebuilt 2026-09-23 --><head>
+<html lang="en" style="--sticky-below-ctrl: 145px; --sticky-below-secnav: 197px;"><!-- EA RISE Impact KPI Dashboard – v26 – Data: 2026-09-18 – Rebuilt 2026-09-23 --><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EA RISE IMPACT KPI DASHBOARD – APJ</title>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -1878,7 +1878,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
 <!-- Toast -->
 <div class="toast hidden" id="toast">Admin access granted</div>
 <div class="ctrl">
-  <div class="ctrl-row ctrl-row-flt">
+  <div class="ctrl-row ctrl-row-flt" style="">
     <div class="flt-wrap">
       <span class="flt-lbl">Baseline:</span>
       <div class="bl-tog">
@@ -1948,7 +1948,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
     <div class="r-tabs" id="r-tabs"><button class="r-tab tab-apac active" onclick="switchRegion('APAC')">APAC</button><button class="r-tab " onclick="switchRegion('ANZ')">ANZ</button><button class="r-tab " onclick="switchRegion('G.China')">G.China</button><button class="r-tab " onclick="switchRegion('India')">India</button><button class="r-tab " onclick="switchRegion('Japan')">Japan</button><button class="r-tab " onclick="switchRegion('Korea')">Korea</button><button class="r-tab " onclick="switchRegion('South East Asia')">SEA</button><button class="r-tab tab-bkd" onclick="switchRegion('BKD')">Breakdown</button><button class="r-tab tab-kpidef" onclick="switchRegion('KPIDEF')">KPI Definitions</button></div>
   </div>
 </div>
-<div class="sec-nav" id="sec-nav"><div class="sec-nav-inner" id="sec-nav-inner"><button class="sec-nav-btn" id="snb-APAC-ovw-sec" onclick="scrollToSection('APAC-ovw-sec')">☰ Overview</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-cards" onclick="scrollToSection('APAC-cards')">☷ KPI Cards</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-mu" onclick="scrollToSection('APAC-mu')">☷ Matrix</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-eav" onclick="scrollToSection('APAC-eav')">👤 EA View</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-trends" onclick="scrollToSection('APAC-trends')">📈 KPI Trend</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-akpi" onclick="scrollToSection('APAC-akpi')">🎯 KPI Target Attainments</button></div></div>
+<div class="sec-nav" id="sec-nav" style=""><div class="sec-nav-inner" id="sec-nav-inner"><button class="sec-nav-btn" id="snb-APAC-ovw-sec" onclick="scrollToSection('APAC-ovw-sec')">☰ Overview</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-cards" onclick="scrollToSection('APAC-cards')">☷ KPI Cards</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-mu" onclick="scrollToSection('APAC-mu')">☷ Matrix</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-eav" onclick="scrollToSection('APAC-eav')">👤 EA View</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-trends" onclick="scrollToSection('APAC-trends')">📈 KPI Trend</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-akpi" onclick="scrollToSection('APAC-akpi')">🎯 KPI Target Attainments</button></div></div>
 <div class="dd-ov" id="dd-ov" onclick="closeDD()"></div>
 <div class="kpi-dd" id="kpi-dd">
   <div class="dd-hdr">
@@ -1957,7 +1957,9 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
   </div>
   <div id="dd-opts"><div class="dd-cat-lbl">AI</div><div class="dd-opt"><input type="checkbox" id="kpi-ai_adoption_plan" checked="" onchange="toggleKPI('ai_adoption_plan')"><label for="kpi-ai_adoption_plan">Has AI Adoption Plan available</label></div><div class="dd-opt"><input type="checkbox" id="kpi-ai_agent" checked="" onchange="toggleKPI('ai_agent')"><label for="kpi-ai_agent">Has AI agents activated</label></div><div class="dd-opt"><input type="checkbox" id="kpi-ai_btp" checked="" onchange="toggleKPI('ai_btp')"><label for="kpi-ai_btp">Has AI BTP services activated</label></div><div class="dd-opt"><input type="checkbox" id="kpi-joule" checked="" onchange="toggleKPI('joule')"><label for="kpi-joule">Has Joule activated</label></div><div class="dd-cat-lbl">Clean Core</div><div class="dd-opt"><input type="checkbox" id="kpi-cc_princ_score" checked="" onchange="toggleKPI('cc_princ_score')"><label for="kpi-cc_princ_score">Has Clean Core principal scores</label></div><div class="dd-opt"><input type="checkbox" id="kpi-rwsm_dibo" checked="" onchange="toggleKPI('rwsm_dibo')"><label for="kpi-rwsm_dibo">Has RwSM Dashboard activated</label></div><div class="dd-cat-lbl">EA KPI</div><div class="dd-opt"><input type="checkbox" id="kpi-churn_mitigation" checked="" onchange="toggleKPI('churn_mitigation')"><label for="kpi-churn_mitigation">Has churn mitigation plan</label></div><div class="dd-opt"><input type="checkbox" id="kpi-compliance_check" checked="" onchange="toggleKPI('compliance_check')"><label for="kpi-compliance_check">Has compliance check delivered</label></div><div class="dd-opt"><input type="checkbox" id="kpi-lead_created" checked="" onchange="toggleKPI('lead_created')"><label for="kpi-lead_created">Has Leads created (by EA and Sales accepted)</label></div><div class="dd-opt"><input type="checkbox" id="kpi-cust_ref" checked="" onchange="toggleKPI('cust_ref')"><label for="kpi-cust_ref">Has Customer Ref Stage 3 &amp; 4</label></div><div class="dd-opt"><input type="checkbox" id="kpi-qbr_govnc" checked="" onchange="toggleKPI('qbr_govnc')"><label for="kpi-qbr_govnc">Has QBR governance implemented</label></div><div class="dd-cat-lbl">RISE</div><div class="dd-opt"><input type="checkbox" id="kpi-risk_assessment" checked="" onchange="toggleKPI('risk_assessment')"><label for="kpi-risk_assessment">Has risk assessment available</label></div><div class="dd-opt"><input type="checkbox" id="kpi-s4_upgrade" checked="" onchange="toggleKPI('s4_upgrade')"><label for="kpi-s4_upgrade">Has S/4 upgrade commitment</label></div><div class="dd-cat-lbl">Toolchain</div><div class="dd-opt"><input type="checkbox" id="kpi-calm_tenant" checked="" onchange="toggleKPI('calm_tenant')"><label for="kpi-calm_tenant">Has CALM tenant activated</label></div><div class="dd-opt"><input type="checkbox" id="kpi-leanix" checked="" onchange="toggleKPI('leanix')"><label for="kpi-leanix">Has active LeanIX usage</label></div><div class="dd-opt"><input type="checkbox" id="kpi-signavio" checked="" onchange="toggleKPI('signavio')"><label for="kpi-signavio">Has active Signavio usage</label></div><div class="dd-opt"><input type="checkbox" id="kpi-tricentis" checked="" onchange="toggleKPI('tricentis')"><label for="kpi-tricentis">Has active Tricentis License</label></div><div class="dd-opt"><input type="checkbox" id="kpi-walkme" checked="" onchange="toggleKPI('walkme')"><label for="kpi-walkme">Has active WalkMe usage</label></div></div>
 </div>
-<main class="main" id="main-cnt"><div class="r-panel active" id="rp-APAC"><div class="smry-strip">
+<main class="main" id="main-cnt"><div class="r-panel active" id="rp-APAC"><div style="background:#FFF5F5;border-bottom:1px solid #FFCCCC;padding:7px 18px;text-align:right">
+    <span style="color:#BB0000;font-size:11.5px;line-height:1.5"><strong>Disclaimer:</strong> Reporting methodologies for Premium AI Customers and AI Usage have changed from Q4 following a company-level product classification update, under which certain solutions previously classified as Premium AI are now classified as Base AI. For detailed calculation logic, please refer to the KPI Definition tab.</span>
+  </div><div class="smry-strip">
     <div class="smry-group">
       <div class="smry-info-card"><div class="smry-info-num">299</div><div class="smry-info-lbl">Accounts</div></div>
       <div class="smry-info-card"><div class="smry-info-num">18</div><div class="smry-info-lbl">KPIs Tracked</div></div>
@@ -6328,6 +6330,32 @@ function renderKPIDefinitions(){
     <div class="ovw-title" style="margin-bottom:4px">KPI Definitions &amp; Targets</div>
     <div class="ovw-sub">Definitions, Q4 FY26 targets, and data sourcing for all 17 tracked KPIs &bull; Data as of ${fmtDate(tsI.c)}</div>
   </div>
+  <div style="background:#FFF5F5;border:1px solid #FFCCCC;border-left:4px solid #BB0000;border-radius:6px;padding:16px 20px;margin-bottom:22px;font-size:12.5px;line-height:1.6;color:var(--text)">
+    <div style="font-weight:700;margin-bottom:10px;font-size:13px">Please find below the reporting methodology for Premium AI customers and AI Usage.</div>
+    <div style="margin-bottom:12px">
+      <strong>1.&nbsp;&nbsp;Premium AI customers</strong><br>
+      Defined as any customer who owns at least one of the following Premium AI (embedded) SKUs, plus customers who show active AI Usage and might not be among the SKU defined customers:
+      <table style="margin-top:8px;border-collapse:collapse;font-size:12px">
+        <tbody>
+          <tr><td style="padding:1px 12px 1px 20px;color:var(--sub);font-family:monospace">8017592</td><td>SAP CX AI Toolkit</td></tr>
+          <tr><td style="padding:1px 12px 1px 20px;color:var(--sub);font-family:monospace">8016421</td><td>RISE wSAP S/4HANA Cld, priv ed, prem pl</td></tr>
+          <tr><td style="padding:1px 12px 1px 20px;color:var(--sub);font-family:monospace">8015105</td><td>SAP Ariba Category Management</td></tr>
+          <tr><td style="padding:1px 12px 1px 20px;color:var(--sub);font-family:monospace">8018501</td><td>RISE wSAP S/4HANA Cld, priv ed, prem pl</td></tr>
+          <tr><td style="padding:1px 12px 1px 20px;color:var(--sub);font-family:monospace">8017640</td><td>Pay-As-You-Go for SAP BTP</td></tr>
+          <tr><td style="padding:1px 12px 1px 20px;color:var(--sub);font-family:monospace">8016044</td><td>SAP BTP Enterprise Agreement</td></tr>
+          <tr><td style="padding:1px 12px 1px 20px;color:var(--sub);font-family:monospace">8017606</td><td>SAP BTP Enterprise Agreement partners</td></tr>
+          <tr><td style="padding:1px 12px 1px 20px;color:var(--sub);font-family:monospace">8016532</td><td>SAP AI Unit</td></tr>
+          <tr><td style="padding:1px 12px 1px 20px;color:var(--sub);font-family:monospace">8018592</td><td>SAP AI Unit</td></tr>
+          <tr><td style="padding:1px 12px 1px 20px;color:var(--sub);font-family:monospace">8019164</td><td>AI Units</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <strong>2.&nbsp;&nbsp;AI_ACTIVE_CUSTOMER</strong><br>
+      Defined by usage during the past 2 months (field: Snapshot (YY-MM)) of any of the AI solutions flagged under &lsquo;Commercial View&rsquo; as being &lsquo;Premium&rsquo;.<br>
+      The subsets <strong>AI_ACTIVE_AGENTS</strong>, <strong>AI_ACTIVE_JOULE</strong>, <strong>AI_ACTIVE_SERVICE</strong> and <strong>AI_ACTIVE_UNITS</strong> are distinctly reporting customers who use specifically these named AI use cases during the reported period.
+    </div>
+  </div>
   <table class="kdef-tbl">
     <thead><tr>
       <th>KPI</th>
@@ -6751,6 +6779,10 @@ function renderDashboard(){
   const allAccs=filterAccs(getAccs());
   const pid=_st.region.replace(/[\s.]/g,'_');
   let h=`<div class="r-panel active" id="rp-${pid}">`;
+  // Disclaimer banner — sits below sec-nav, above summary stats
+  h+=`<div style="background:#FFF5F5;border-bottom:1px solid #FFCCCC;padding:7px 18px;text-align:right">
+    <span style="color:#BB0000;font-size:11.5px;line-height:1.5"><strong>Disclaimer:</strong> Reporting methodologies for Premium AI Customers and AI Usage have changed from Q4 following a company-level product classification update, under which certain solutions previously classified as Premium AI are now classified as Base AI. For detailed calculation logic, please refer to the KPI Definition tab.</span>
+  </div>`;
   // Summary filter cards
   h+=renderSummaryFilterCards(allAccs);
   // Overview
