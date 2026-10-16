@@ -5921,12 +5921,13 @@ function barColor(p,q){if(p>=q)return'#188918';if(p>=Math.round(q*.85))return'#6
 function pctClass(p,q){if(p>=q)return'ovw-v-grn';if(p>=60)return'ovw-v-blue';return'ovw-v-red';}
 // ── Q3/Q4 Target helpers ───────────────────────────────────────────────────
 function getTgt(kd){
+  if(_st.qTarget==='q3')return typeof kd.q3!=='undefined'?kd.q3:0;
   if(_st.targetScope==='reg')return kd.muq4!=null?kd.muq4:(kd.q4!=null?kd.q4:0);
-  return typeof kd[_st.qTarget]!=='undefined'?kd[_st.qTarget]:kd.q4;
+  return kd.q4!=null?kd.q4:0;
 }
 function getTgtLabel(){
-  if(_st.targetScope==='reg')return 'Reg Q4';
-  return _st.qTarget==='q3'?'MU Q3':'MU Q4';
+  if(_st.qTarget==='q3')return 'Q3';
+  return _st.targetScope==='reg'?'Reg Q4':'MU Q4';
 }
 function setQTarget(q){
   if(_st.qTarget===q)return;
