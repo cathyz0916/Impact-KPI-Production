@@ -1,4 +1,4 @@
-<html lang="en" style="--sticky-below-ctrl: 147px; --sticky-below-secnav: 199px;"><!-- EA RISE Impact KPI Dashboard – v26 – Data: 2026-09-18 – Rebuilt 2026-09-23 --><head>
+<html lang="en" style="--sticky-below-ctrl: 145px; --sticky-below-secnav: 197px;"><!-- EA RISE Impact KPI Dashboard – v26 – Data: 2026-09-18 – Rebuilt 2026-09-23 --><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EA RISE IMPACT KPI DASHBOARD – APJ</title>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -1791,17 +1791,17 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
       <div><label class="modal-lbl">File</label><div class="modal-status info" id="commit-file-name">1012_AFO_EA_Impact_KPI___cACV_Territory_Analyzer_Ops_updated.xlsx</div></div>
       <div><label class="modal-lbl">Validation</label><div class="modal-status ok" id="commit-validation">✓ Both required tabs found</div></div>
       <div><label class="modal-lbl">Dashboard Preview</label><div class="modal-status ok" id="commit-preview">✓ Parsed — Fixed: 299 accounts, Dynamic: 394 accounts. Dashboard refreshed!</div></div>
-      <div id="commit-gh-section" style="display: none;">
+      <div id="commit-gh-section" style="display:none">
         <label class="modal-lbl">GitHub Commit</label>
-        <div class="modal-status err" id="commit-gh-status">Commit failed: index.html does not match b4cdd62dcc4f7e6061c9018fee0c3757bf88338b</div>
-        <div class="progress-bar-bg"><div class="progress-bar-fg" id="commit-progress" style="width: 0%;"></div></div>
-        <a class="commit-url" id="commit-url" href="https://github.com/cathyz0916/Impact-KPI-Production/commit/7020bd6f89901abc9446fbdf27ea567dabe5304b" target="_blank" rel="noopener" style="display: none;">View commit on GitHub ↗</a>
+        <div class="modal-status" id="commit-gh-status"></div>
+        <div class="progress-bar-bg"><div class="progress-bar-fg" id="commit-progress" style="width:0%"></div></div>
+        <a class="commit-url" id="commit-url" href="#" target="_blank" rel="noopener" style="display:none"></a>
       </div>
       <div class="modal-note">After upload the dashboard refreshes immediately in your browser.<br>Click <strong>Commit to GitHub</strong> to persist the data so all visitors see it after reload.</div>
     </div>
     <div class="modal-footer">
       <button class="btn-secondary" onclick="closeModal('commit-modal')">Close</button>
-      <button class="btn-primary" id="commit-gh-btn" onclick="doCommitToGitHub()" style="display: none;">
+      <button class="btn-primary" id="commit-gh-btn" onclick="doCommitToGitHub()" style="display:none">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
           <polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line>
           <polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line>
@@ -1876,9 +1876,9 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
 </div>
 
 <!-- Toast -->
-<div class="toast hidden" id="toast">✓ Dashboard committed to GitHub!</div>
+<div class="toast hidden" id="toast">Admin access granted</div>
 <div class="ctrl">
-  <div class="ctrl-row ctrl-row-flt" style="">
+  <div class="ctrl-row ctrl-row-flt">
     <div class="flt-wrap">
       <span class="flt-lbl">Baseline:</span>
       <div class="bl-tog">
@@ -1934,6 +1934,14 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <button class="bl-btn active" id="tgt-q4-btn" onclick="setQTarget('q4')">Q4</button>
       </div>
     </div>
+    <div class="ctrl-sep"></div>
+    <div class="flt-wrap">
+      <span class="flt-lbl">Scope:</span>
+      <div class="bl-tog">
+        <button class="bl-btn active" id="tgt-scope-mu-btn" onclick="setTargetScope('mu')">MU Target</button>
+        <button class="bl-btn" id="tgt-scope-reg-btn" onclick="setTargetScope('reg')">Regional Target</button>
+      </div>
+    </div>
     <div style="margin-left:auto;display:flex;align-items:center;gap:6px">
       <button class="adm-btn" id="ghsettings-btn" onclick="openGHSettingsModal()" title="GitHub Settings" style="">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
@@ -1948,7 +1956,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
     <div class="r-tabs" id="r-tabs"><button class="r-tab tab-apac active" onclick="switchRegion('APAC')">APAC</button><button class="r-tab " onclick="switchRegion('ANZ')">ANZ</button><button class="r-tab " onclick="switchRegion('G.China')">G.China</button><button class="r-tab " onclick="switchRegion('India')">India</button><button class="r-tab " onclick="switchRegion('Japan')">Japan</button><button class="r-tab " onclick="switchRegion('Korea')">Korea</button><button class="r-tab " onclick="switchRegion('South East Asia')">SEA</button><button class="r-tab tab-bkd" onclick="switchRegion('BKD')">Breakdown</button><button class="r-tab tab-kpidef" onclick="switchRegion('KPIDEF')">KPI Definitions</button></div>
   </div>
 </div>
-<div class="sec-nav" id="sec-nav" style=""><div class="sec-nav-inner" id="sec-nav-inner"><button class="sec-nav-btn" id="snb-APAC-ovw-sec" onclick="scrollToSection('APAC-ovw-sec')">☰ Overview</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-cards" onclick="scrollToSection('APAC-cards')">☷ KPI Cards</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-mu" onclick="scrollToSection('APAC-mu')">☷ Matrix</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-eav" onclick="scrollToSection('APAC-eav')">👤 EA View</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-trends" onclick="scrollToSection('APAC-trends')">📈 KPI Trend</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-akpi" onclick="scrollToSection('APAC-akpi')">🎯 KPI Target Attainments</button></div></div>
+<div class="sec-nav" id="sec-nav"><div class="sec-nav-inner" id="sec-nav-inner"><button class="sec-nav-btn" id="snb-APAC-ovw-sec" onclick="scrollToSection('APAC-ovw-sec')">☰ Overview</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-cards" onclick="scrollToSection('APAC-cards')">☷ KPI Cards</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-mu" onclick="scrollToSection('APAC-mu')">☷ Matrix</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-eav" onclick="scrollToSection('APAC-eav')">👤 EA View</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-trends" onclick="scrollToSection('APAC-trends')">📈 KPI Trend</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-akpi" onclick="scrollToSection('APAC-akpi')">🎯 KPI Target Attainments</button></div></div>
 <div class="dd-ov" id="dd-ov" onclick="closeDD()"></div>
 <div class="kpi-dd" id="kpi-dd">
   <div class="dd-hdr">
@@ -1977,8 +1985,8 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
     </div>
     <div class="smry-grp-sep"></div>
     <div class="smry-group">
-      <div class="smry-flt-card sf-q4met" onclick="setKpiStatusFilter('q4met')" title="Filter: Met Q4 Target"><div class="smry-flt-num">2</div><div class="smry-flt-lbl">Met Q4 Target</div></div>
-      <div class="smry-flt-card sf-q4nm" onclick="setKpiStatusFilter('q4nm')" title="Filter: Q4 Not Met"><div class="smry-flt-num">16</div><div class="smry-flt-lbl">Q4 Not Met</div></div>
+      <div class="smry-flt-card sf-q4met" onclick="setKpiStatusFilter('q4met')" title="Filter: Met MU Q4 Target"><div class="smry-flt-num">2</div><div class="smry-flt-lbl">Met MU Q4 Target</div></div>
+      <div class="smry-flt-card sf-q4nm" onclick="setKpiStatusFilter('q4nm')" title="Filter: MU Q4 Not Met"><div class="smry-flt-num">16</div><div class="smry-flt-lbl">MU Q4 Not Met</div></div>
     </div>
   </div><div class="coll-wrap" id="APAC-ovw-sec" data-sec="ovw">
     <div class="coll-hdr" onclick="toggleColl('APAC-ovw-body')">
@@ -2001,11 +2009,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;267&nbsp;<span class="ovw-dr"></span>&nbsp;32</span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:89%;background:#6AB187"></div>
-              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">Q4:95%</span></div>
+              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">MU Q4:95%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-blue">89%<span class="ovw-cnt-lbl">(267/299)</span></span>
             <span class="ovw-wow ovw-wow-pos">+2pp WoW</span>
-            <span class="ovw-q4-milestone q4m-near">Q4: 95% ● Near</span>
+            <span class="ovw-q4-milestone q4m-near">MU Q4: 95% ● Near</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-ai_adoption_plan-body">
@@ -2023,11 +2031,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;31&nbsp;<span class="ovw-dr"></span>&nbsp;190<span style="font-size:10px;color:var(--muted);margin-left:4px">(78 N/A)</span></span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:14%;background:#BB0000"></div>
-              <div class="ovw-q4-line" style="left:45%"><span class="ovw-q4-lbl">Q4:45%</span></div>
+              <div class="ovw-q4-line" style="left:35%"><span class="ovw-q4-lbl">MU Q4:35%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-red">14%<span class="ovw-cnt-lbl">(31/221)</span></span>
             <span class="ovw-wow ovw-wow-neg">-1pp WoW</span>
-            <span class="ovw-q4-milestone q4m-miss">Q4: 45% ● Behind</span>
+            <span class="ovw-q4-milestone q4m-miss">MU Q4: 35% ● Behind</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-ai_agent-body">
@@ -2045,11 +2053,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;76&nbsp;<span class="ovw-dr"></span>&nbsp;145<span style="font-size:10px;color:var(--muted);margin-left:4px">(78 N/A)</span></span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:34%;background:#BB0000"></div>
-              <div class="ovw-q4-line" style="left:65%"><span class="ovw-q4-lbl">Q4:65%</span></div>
+              <div class="ovw-q4-line" style="left:65%"><span class="ovw-q4-lbl">MU Q4:65%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-red">34%<span class="ovw-cnt-lbl">(76/221)</span></span>
             <span class="ovw-wow ovw-wow-neg">-1pp WoW</span>
-            <span class="ovw-q4-milestone q4m-miss">Q4: 65% ● Behind</span>
+            <span class="ovw-q4-milestone q4m-miss">MU Q4: 65% ● Behind</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-ai_btp-body">
@@ -2067,11 +2075,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;69&nbsp;<span class="ovw-dr"></span>&nbsp;152<span style="font-size:10px;color:var(--muted);margin-left:4px">(78 N/A)</span></span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:31%;background:#BB0000"></div>
-              <div class="ovw-q4-line" style="left:85%"><span class="ovw-q4-lbl">Q4:85%</span></div>
+              <div class="ovw-q4-line" style="left:75%"><span class="ovw-q4-lbl">MU Q4:75%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-red">31%<span class="ovw-cnt-lbl">(69/221)</span></span>
             <span class="ovw-wow ovw-wow-neg">-37pp WoW</span>
-            <span class="ovw-q4-milestone q4m-miss">Q4: 85% ● Behind</span>
+            <span class="ovw-q4-milestone q4m-miss">MU Q4: 75% ● Behind</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-joule-body">
@@ -2089,11 +2097,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;148&nbsp;<span class="ovw-dr"></span>&nbsp;151</span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:49%;background:#6AB187"></div>
-              <div class="ovw-q4-line" style="left:50%"><span class="ovw-q4-lbl">Q4:50%</span></div>
+              <div class="ovw-q4-line" style="left:50%"><span class="ovw-q4-lbl">MU Q4:50%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-red">49%<span class="ovw-cnt-lbl">(148/299)</span></span>
             <span class="ovw-wow ovw-wow-pos">+3pp WoW</span>
-            <span class="ovw-q4-milestone q4m-near">Q4: 50% ● Near</span>
+            <span class="ovw-q4-milestone q4m-near">MU Q4: 50% ● Near</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-cc_princ_score-body">
@@ -2111,11 +2119,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;133&nbsp;<span class="ovw-dr"></span>&nbsp;166</span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:44%;background:#BB0000"></div>
-              <div class="ovw-q4-line" style="left:65%"><span class="ovw-q4-lbl">Q4:65%</span></div>
+              <div class="ovw-q4-line" style="left:65%"><span class="ovw-q4-lbl">MU Q4:65%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-red">44%<span class="ovw-cnt-lbl">(133/299)</span></span>
             <span class="ovw-wow ovw-wow-pos">+1pp WoW</span>
-            <span class="ovw-q4-milestone q4m-miss">Q4: 65% ● Behind</span>
+            <span class="ovw-q4-milestone q4m-miss">MU Q4: 65% ● Behind</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-rwsm_dibo-body">
@@ -2133,11 +2141,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;264&nbsp;<span class="ovw-dr"></span>&nbsp;35</span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:88%;background:#6AB187"></div>
-              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">Q4:95%</span></div>
+              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">MU Q4:95%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-blue">88%<span class="ovw-cnt-lbl">(264/299)</span></span>
             <span class="ovw-wow ovw-wow-pos">+1pp WoW</span>
-            <span class="ovw-q4-milestone q4m-near">Q4: 95% ● Near</span>
+            <span class="ovw-q4-milestone q4m-near">MU Q4: 95% ● Near</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-churn_mitigation-body">
@@ -2155,11 +2163,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;286&nbsp;<span class="ovw-dr"></span>&nbsp;13</span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:96%;background:#188918"></div>
-              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">Q4:95%</span></div>
+              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">MU Q4:95%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-grn">96%<span class="ovw-cnt-lbl">(286/299)</span></span>
             <span class="ovw-wow ovw-wow-flat">0pp WoW</span>
-            <span class="ovw-q4-milestone q4m-met">Q4: 95% ✓ Met</span>
+            <span class="ovw-q4-milestone q4m-met">MU Q4: 95% ✓ Met</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-compliance_check-body">
@@ -2177,11 +2185,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;114&nbsp;<span class="ovw-dr"></span>&nbsp;185</span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:38%;background:#6AB187"></div>
-              <div class="ovw-q4-line" style="left:45%"><span class="ovw-q4-lbl">Q4:45%</span></div>
+              <div class="ovw-q4-line" style="left:45%"><span class="ovw-q4-lbl">MU Q4:45%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-red">38%<span class="ovw-cnt-lbl">(114/299)</span></span>
             <span class="ovw-wow ovw-wow-pos">+2pp WoW</span>
-            <span class="ovw-q4-milestone q4m-near">Q4: 45% ● Near</span>
+            <span class="ovw-q4-milestone q4m-near">MU Q4: 45% ● Near</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-lead_created-body">
@@ -2198,12 +2206,12 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-kpi-nm">Has Customer Ref Stage 3 &amp; 4</span>
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;97&nbsp;<span class="ovw-dr"></span>&nbsp;202</span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
-              <div class="ovw-bar-fg" style="width:32%;background:#BB0000"></div>
-              <div class="ovw-q4-line" style="left:50%"><span class="ovw-q4-lbl">Q4:50%</span></div>
+              <div class="ovw-bar-fg" style="width:32%;background:#6AB187"></div>
+              <div class="ovw-q4-line" style="left:35%"><span class="ovw-q4-lbl">MU Q4:35%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-red">32%<span class="ovw-cnt-lbl">(97/299)</span></span>
             <span class="ovw-wow ovw-wow-flat">0pp WoW</span>
-            <span class="ovw-q4-milestone q4m-miss">Q4: 50% ● Behind</span>
+            <span class="ovw-q4-milestone q4m-near">MU Q4: 35% ● Near</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-cust_ref-body">
@@ -2221,11 +2229,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;251&nbsp;<span class="ovw-dr"></span>&nbsp;48</span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:84%;background:#6AB187"></div>
-              <div class="ovw-q4-line" style="left:90%"><span class="ovw-q4-lbl">Q4:90%</span></div>
+              <div class="ovw-q4-line" style="left:90%"><span class="ovw-q4-lbl">MU Q4:90%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-blue">84%<span class="ovw-cnt-lbl">(251/299)</span></span>
             <span class="ovw-wow ovw-wow-flat">0pp WoW</span>
-            <span class="ovw-q4-milestone q4m-near">Q4: 90% ● Near</span>
+            <span class="ovw-q4-milestone q4m-near">MU Q4: 90% ● Near</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-qbr_govnc-body">
@@ -2243,11 +2251,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;268&nbsp;<span class="ovw-dr"></span>&nbsp;31</span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:90%;background:#6AB187"></div>
-              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">Q4:95%</span></div>
+              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">MU Q4:95%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-blue">90%<span class="ovw-cnt-lbl">(268/299)</span></span>
             <span class="ovw-wow ovw-wow-flat">0pp WoW</span>
-            <span class="ovw-q4-milestone q4m-near">Q4: 95% ● Near</span>
+            <span class="ovw-q4-milestone q4m-near">MU Q4: 95% ● Near</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-risk_assessment-body">
@@ -2265,11 +2273,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;54&nbsp;<span class="ovw-dr"></span>&nbsp;19<span style="font-size:10px;color:var(--muted);margin-left:4px">(226 N/A)</span></span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:74%;background:#6AB187"></div>
-              <div class="ovw-q4-line" style="left:85%"><span class="ovw-q4-lbl">Q4:85%</span></div>
+              <div class="ovw-q4-line" style="left:85%"><span class="ovw-q4-lbl">MU Q4:85%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-blue">74%<span class="ovw-cnt-lbl">(54/73)</span></span>
             <span class="ovw-wow ovw-wow-flat">0pp WoW</span>
-            <span class="ovw-q4-milestone q4m-near">Q4: 85% ● Near</span>
+            <span class="ovw-q4-milestone q4m-near">MU Q4: 85% ● Near</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-s4_upgrade-body">
@@ -2287,11 +2295,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;276&nbsp;<span class="ovw-dr"></span>&nbsp;23</span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:92%;background:#6AB187"></div>
-              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">Q4:95%</span></div>
+              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">MU Q4:95%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-blue">92%<span class="ovw-cnt-lbl">(276/299)</span></span>
             <span class="ovw-wow ovw-wow-flat">0pp WoW</span>
-            <span class="ovw-q4-milestone q4m-near">Q4: 95% ● Near</span>
+            <span class="ovw-q4-milestone q4m-near">MU Q4: 95% ● Near</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-calm_tenant-body">
@@ -2309,11 +2317,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;75&nbsp;<span class="ovw-dr"></span>&nbsp;36<span style="font-size:10px;color:var(--muted);margin-left:4px">(188 N/A)</span></span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:68%;background:#F0A800"></div>
-              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">Q4:95%</span></div>
+              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">MU Q4:95%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-blue">68%<span class="ovw-cnt-lbl">(75/111)</span></span>
             <span class="ovw-wow ovw-wow-neg">-3pp WoW</span>
-            <span class="ovw-q4-milestone q4m-miss">Q4: 95% ● Behind</span>
+            <span class="ovw-q4-milestone q4m-miss">MU Q4: 95% ● Behind</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-leanix-body">
@@ -2331,11 +2339,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;92&nbsp;<span class="ovw-dr"></span>&nbsp;31<span style="font-size:10px;color:var(--muted);margin-left:4px">(176 N/A)</span></span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:75%;background:#F0A800"></div>
-              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">Q4:95%</span></div>
+              <div class="ovw-q4-line" style="left:95%"><span class="ovw-q4-lbl">MU Q4:95%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-blue">75%<span class="ovw-cnt-lbl">(92/123)</span></span>
             <span class="ovw-wow ovw-wow-flat">0pp WoW</span>
-            <span class="ovw-q4-milestone q4m-miss">Q4: 95% ● Behind</span>
+            <span class="ovw-q4-milestone q4m-miss">MU Q4: 95% ● Behind</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-signavio-body">
@@ -2353,11 +2361,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;55&nbsp;<span class="ovw-dr"></span>&nbsp;244</span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:18%;background:#BB0000"></div>
-              <div class="ovw-q4-line" style="left:25%"><span class="ovw-q4-lbl">Q4:25%</span></div>
+              <div class="ovw-q4-line" style="left:25%"><span class="ovw-q4-lbl">MU Q4:25%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-red">18%<span class="ovw-cnt-lbl">(55/299)</span></span>
             <span class="ovw-wow ovw-wow-flat">0pp WoW</span>
-            <span class="ovw-q4-milestone q4m-miss">Q4: 25% ● Behind</span>
+            <span class="ovw-q4-milestone q4m-miss">MU Q4: 25% ● Behind</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-tricentis-body">
@@ -2375,11 +2383,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
             <span class="ovw-met-info"><span class="ovw-dg"></span>&nbsp;11&nbsp;<span class="ovw-dr"></span>&nbsp;33<span style="font-size:10px;color:var(--muted);margin-left:4px">(255 N/A)</span></span>
             <div class="ovw-bar-bg" style="overflow:visible;position:relative">
               <div class="ovw-bar-fg" style="width:25%;background:#188918"></div>
-              <div class="ovw-q4-line" style="left:25%"><span class="ovw-q4-lbl">Q4:25%</span></div>
+              <div class="ovw-q4-line" style="left:25%"><span class="ovw-q4-lbl">MU Q4:25%</span></div>
             </div>
             <span class="ovw-pct-lbl ovw-v-grn">25%<span class="ovw-cnt-lbl">(11/44)</span></span>
             <span class="ovw-wow ovw-wow-neg">-1pp WoW</span>
-            <span class="ovw-q4-milestone q4m-met">Q4: 25% ✓ Met</span>
+            <span class="ovw-q4-milestone q4m-met">MU Q4: 25% ✓ Met</span>
             <span class="ovw-chevron">▼</span>
           </div>
           <div class="ovw-banner-body" id="ovwb-APAC-walkme-body">
@@ -2411,20 +2419,20 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-pos">+2pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-pos">+4pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">95%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">95%</span></div>
           
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('ai_agent','APAC')">
         <div class="card-hdr"><div><div class="card-name">Has AI agents activated</div><div class="card-base">AI</div></div><div class="t-badge tb-dec">-1pp WoW</div></div>
         <hr class="c-div">
-        <div class="p-row"><div class="p-meta"><span class="p-lbl">Current</span><span class="p-val">14%</span><span class="p-cnt">31/221</span></div><div class="p-trk"><div class="p-fill f-curr" style="width:14%;background:#BB0000"></div><div class="p-q4-line" style="left:45%"></div></div></div>
+        <div class="p-row"><div class="p-meta"><span class="p-lbl">Current</span><span class="p-val">14%</span><span class="p-cnt">31/221</span></div><div class="p-trk"><div class="p-fill f-curr" style="width:14%;background:#BB0000"></div><div class="p-q4-line" style="left:35%"></div></div></div>
         <div class="p-row"><div class="p-meta"><span class="p-lbl">Prev Week</span><span class="p-val">15%</span><span class="p-cnt">33/219</span></div><div class="p-trk"><div class="p-fill f-wk" style="width:15%"></div></div></div>
         <div class="p-row"><div class="p-meta"><span class="p-lbl">Prev Month</span><span class="p-val">15%</span><span class="p-cnt">32/208</span></div><div class="p-trk"><div class="p-fill f-mo" style="width:15%"></div></div></div>
         <hr class="c-div">
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-neg">-1pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-neg">-1pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">45%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">35%</span></div>
           <div class="d-item"><span class="d-lbl">N/A:</span><span class="d-na">78</span></div>
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('ai_btp','APAC')">
@@ -2437,20 +2445,20 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-neg">-1pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-pos">+1pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">65%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">65%</span></div>
           <div class="d-item"><span class="d-lbl">N/A:</span><span class="d-na">78</span></div>
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('joule','APAC')">
         <div class="card-hdr"><div><div class="card-name">Has Joule activated</div><div class="card-base">AI</div></div><div class="t-badge tb-dec">-37pp WoW</div></div>
         <hr class="c-div">
-        <div class="p-row"><div class="p-meta"><span class="p-lbl">Current</span><span class="p-val">31%</span><span class="p-cnt">69/221</span></div><div class="p-trk"><div class="p-fill f-curr" style="width:31%;background:#BB0000"></div><div class="p-q4-line" style="left:85%"></div></div></div>
+        <div class="p-row"><div class="p-meta"><span class="p-lbl">Current</span><span class="p-val">31%</span><span class="p-cnt">69/221</span></div><div class="p-trk"><div class="p-fill f-curr" style="width:31%;background:#BB0000"></div><div class="p-q4-line" style="left:75%"></div></div></div>
         <div class="p-row"><div class="p-meta"><span class="p-lbl">Prev Week</span><span class="p-val">68%</span><span class="p-cnt">148/219</span></div><div class="p-trk"><div class="p-fill f-wk" style="width:68%"></div></div></div>
         <div class="p-row"><div class="p-meta"><span class="p-lbl">Prev Month</span><span class="p-val">68%</span><span class="p-cnt">142/208</span></div><div class="p-trk"><div class="p-fill f-mo" style="width:68%"></div></div></div>
         <hr class="c-div">
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-neg">-37pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-neg">-37pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">85%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">75%</span></div>
           <div class="d-item"><span class="d-lbl">N/A:</span><span class="d-na">78</span></div>
         </div>
       </div></div></div></div><div class="cat-sec"><div class="cat-hdr" onclick="toggleCatBody(this)"><span class="cat-title">Clean Core</span><span class="cat-toggle">▼</span></div><div class="cat-body"><div class="card-grid"><div class="kpi-card" onclick="openKpiPanel('cc_princ_score','APAC')">
@@ -2463,7 +2471,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-pos">+3pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-pos">+8pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">50%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">50%</span></div>
           
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('rwsm_dibo','APAC')">
@@ -2476,7 +2484,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-pos">+1pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-pos">+1pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">65%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">65%</span></div>
           
         </div>
       </div></div></div></div><div class="cat-sec"><div class="cat-hdr" onclick="toggleCatBody(this)"><span class="cat-title">EA KPI</span><span class="cat-toggle">▼</span></div><div class="cat-body"><div class="card-grid"><div class="kpi-card" onclick="openKpiPanel('churn_mitigation','APAC')">
@@ -2489,7 +2497,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-pos">+1pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-pos">+2pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">95%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">95%</span></div>
           
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('compliance_check','APAC')">
@@ -2502,7 +2510,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-zer">0pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-pos">+1pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-pos">95% ✓</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-pos">95% ✓</span></div>
           
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('lead_created','APAC')">
@@ -2515,20 +2523,20 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-pos">+2pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-pos">+2pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">45%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">45%</span></div>
           
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('cust_ref','APAC')">
         <div class="card-hdr"><div><div class="card-name">Has Customer Ref Stage 3 &amp; 4</div><div class="card-base">EA KPI</div></div><div class="t-badge tb-flt">0pp WoW</div></div>
         <hr class="c-div">
-        <div class="p-row"><div class="p-meta"><span class="p-lbl">Current</span><span class="p-val">32%</span><span class="p-cnt">97/299</span></div><div class="p-trk"><div class="p-fill f-curr" style="width:32%;background:#BB0000"></div><div class="p-q4-line" style="left:50%"></div></div></div>
+        <div class="p-row"><div class="p-meta"><span class="p-lbl">Current</span><span class="p-val">32%</span><span class="p-cnt">97/299</span></div><div class="p-trk"><div class="p-fill f-curr" style="width:32%;background:#6AB187"></div><div class="p-q4-line" style="left:35%"></div></div></div>
         <div class="p-row"><div class="p-meta"><span class="p-lbl">Prev Week</span><span class="p-val">32%</span><span class="p-cnt">95/299</span></div><div class="p-trk"><div class="p-fill f-wk" style="width:32%"></div></div></div>
         <div class="p-row"><div class="p-meta"><span class="p-lbl">Prev Month</span><span class="p-val">31%</span><span class="p-cnt">94/299</span></div><div class="p-trk"><div class="p-fill f-mo" style="width:31%"></div></div></div>
         <hr class="c-div">
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-zer">0pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-pos">+1pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">50%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">35%</span></div>
           
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('qbr_govnc','APAC')">
@@ -2541,7 +2549,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-zer">0pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-pos">+4pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">90%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">90%</span></div>
           
         </div>
       </div></div></div></div><div class="cat-sec"><div class="cat-hdr" onclick="toggleCatBody(this)"><span class="cat-title">RISE</span><span class="cat-toggle">▼</span></div><div class="cat-body"><div class="card-grid"><div class="kpi-card" onclick="openKpiPanel('risk_assessment','APAC')">
@@ -2554,7 +2562,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-zer">0pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-pos">+1pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">95%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">95%</span></div>
           
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('s4_upgrade','APAC')">
@@ -2567,7 +2575,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-zer">0pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-pos">+1pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">85%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">85%</span></div>
           <div class="d-item"><span class="d-lbl">N/A:</span><span class="d-na">226</span></div>
         </div>
       </div></div></div></div><div class="cat-sec"><div class="cat-hdr" onclick="toggleCatBody(this)"><span class="cat-title">Toolchain</span><span class="cat-toggle">▼</span></div><div class="cat-body"><div class="card-grid"><div class="kpi-card" onclick="openKpiPanel('calm_tenant','APAC')">
@@ -2580,7 +2588,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-zer">0pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-zer">0pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">95%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">95%</span></div>
           
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('leanix','APAC')">
@@ -2593,7 +2601,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-neg">-3pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-neg">-3pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">95%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">95%</span></div>
           <div class="d-item"><span class="d-lbl">N/A:</span><span class="d-na">188</span></div>
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('signavio','APAC')">
@@ -2606,7 +2614,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-zer">0pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-zer">0pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">95%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">95%</span></div>
           <div class="d-item"><span class="d-lbl">N/A:</span><span class="d-na">176</span></div>
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('tricentis','APAC')">
@@ -2619,7 +2627,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-zer">0pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-zer">0pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-neg">25%</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-neg">25%</span></div>
           
         </div>
       </div><div class="kpi-card" onclick="openKpiPanel('walkme','APAC')">
@@ -2632,11 +2640,11 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="card-foot">
           <div class="d-item"><span class="d-lbl">WoW:</span><span class="d-val d-neg">-1pp</span></div>
           <div class="d-item"><span class="d-lbl">MoM:</span><span class="d-val d-neg">-1pp</span></div>
-          <div class="d-item"><span class="d-lbl">Q4:</span><span class="d-val d-pos">25% ✓</span></div>
+          <div class="d-item"><span class="d-lbl">MU Q4:</span><span class="d-val d-pos">25% ✓</span></div>
           <div class="d-item"><span class="d-lbl">N/A:</span><span class="d-na">255</span></div>
         </div>
       </div></div></div></div></div></div></div><div class="coll-wrap" id="APAC-mu" data-sec="mu"><div class="coll-hdr" onclick="toggleColl('APAC-mu-body')"><div class="coll-hdr-row"><span class="coll-arrow">▼</span><span class="coll-hdr-title-text">MU / Region Matrix</span><span class="sec-hdr-right-wrap"><button class="sec-home-btn" onclick="event.stopPropagation();scrollHome()" title="Back to top">⇧ Top</button></span></div></div>
-  <div id="APAC-mu-body"><div style="overflow-x:auto;padding:14px 16px 18px"><table class="mu-matrix-tbl"><thead><tr><th class="mu-matrix-mu-th">Market Unit</th><th class="mu-matrix-cat-th" colspan="4">AI</th><th class="mu-matrix-cat-th" colspan="2">Clean Core</th><th class="mu-matrix-cat-th" colspan="5">EA KPI</th><th class="mu-matrix-cat-th" colspan="2">RISE</th><th class="mu-matrix-cat-th" colspan="5">Toolchain</th></tr><tr><th class="mu-matrix-mu-th">&nbsp;</th><th class="mu-matrix-kpi-th">AI Adoption Plan<div class="mu-th-q4">Q4: 95%</div></th><th class="mu-matrix-kpi-th">AI agents Act.<div class="mu-th-q4">Q4: 45%</div></th><th class="mu-matrix-kpi-th">AI BTP services Act.<div class="mu-th-q4">Q4: 65%</div></th><th class="mu-matrix-kpi-th">Joule Act.<div class="mu-th-q4">Q4: 85%</div></th><th class="mu-matrix-kpi-th">Clean Core principal scores<div class="mu-th-q4">Q4: 50%</div></th><th class="mu-matrix-kpi-th">RwSM Dashboard Act.<div class="mu-th-q4">Q4: 65%</div></th><th class="mu-matrix-kpi-th">churn mitigation plan<div class="mu-th-q4">Q4: 95%</div></th><th class="mu-matrix-kpi-th">compliance check delivered<div class="mu-th-q4">Q4: 95%</div></th><th class="mu-matrix-kpi-th">Leads created <div class="mu-th-q4">Q4: 45%</div></th><th class="mu-matrix-kpi-th">Customer Ref Stage 3 &amp; 4<div class="mu-th-q4">Q4: 50%</div></th><th class="mu-matrix-kpi-th">QBR governance implemented<div class="mu-th-q4">Q4: 90%</div></th><th class="mu-matrix-kpi-th">risk<div class="mu-th-q4">Q4: 95%</div></th><th class="mu-matrix-kpi-th">S/4 upgrade Comm.<div class="mu-th-q4">Q4: 85%</div></th><th class="mu-matrix-kpi-th">CALM tenant Act.<div class="mu-th-q4">Q4: 95%</div></th><th class="mu-matrix-kpi-th">active LeanIX usage<div class="mu-th-q4">Q4: 95%</div></th><th class="mu-matrix-kpi-th">active Signavio usage<div class="mu-th-q4">Q4: 95%</div></th><th class="mu-matrix-kpi-th">active Tricentis License<div class="mu-th-q4">Q4: 25%</div></th><th class="mu-matrix-kpi-th">active WalkMe usage<div class="mu-th-q4">Q4: 25%</div></th></tr></thead><tbody><tr><td class="mu-matrix-q4-mu">Q4 Target</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">45%</td><td class="mu-matrix-q4-td">65%</td><td class="mu-matrix-q4-td">85%</td><td class="mu-matrix-q4-td">50%</td><td class="mu-matrix-q4-td">65%</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">45%</td><td class="mu-matrix-q4-td">50%</td><td class="mu-matrix-q4-td">90%</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">85%</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">25%</td><td class="mu-matrix-q4-td">25%</td></tr><tr><td class="mu-matrix-apac-mu">APAC Total</td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">89%</div><div class="cat-cell-cnt">267/299</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">14%</div><div class="cat-cell-cnt">31/221</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">34%</div><div class="cat-cell-cnt">76/221</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','joule')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">31%</div><div class="cat-cell-cnt">69/221</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','cc_princ_score')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">49%</div><div class="cat-cell-cnt">148/299</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','rwsm_dibo')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">44%</div><div class="cat-cell-cnt">133/299</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','churn_mitigation')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">88%</div><div class="cat-cell-cnt">264/299</div></td><td class="mu-matrix-apac-td" style="background:#C8E6C9;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','compliance_check')"><div class="cat-cell-pct" style="color:#1B5E20;font-size:12px;font-weight:700">96%</div><div class="cat-cell-cnt">286/299</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','lead_created')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">38%</div><div class="cat-cell-cnt">114/299</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','cust_ref')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">32%</div><div class="cat-cell-cnt">97/299</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','qbr_govnc')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">84%</div><div class="cat-cell-cnt">251/299</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','risk_assessment')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">90%</div><div class="cat-cell-cnt">268/299</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','s4_upgrade')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">74%</div><div class="cat-cell-cnt">54/73</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','calm_tenant')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">92%</div><div class="cat-cell-cnt">276/299</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','leanix')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">68%</div><div class="cat-cell-cnt">75/111</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','signavio')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">75%</div><div class="cat-cell-cnt">92/123</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','tricentis')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">18%</div><div class="cat-cell-cnt">55/299</div></td><td class="mu-matrix-apac-td" style="background:#C8E6C9;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','walkme')"><div class="cat-cell-pct" style="color:#1B5E20;font-size:12px;font-weight:700">25%</div><div class="cat-cell-cnt">11/44</div></td></tr><tr><td class="mu-matrix-mu-td">ANZ</td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#1B5E20">96%</div><div class="cat-cell-cnt">55/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C">20%</div><div class="cat-cell-cnt">10/51</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C">35%</div><div class="cat-cell-cnt">18/51</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','joule')"><div class="cat-cell-pct" style="color:#B71C1C">27%</div><div class="cat-cell-cnt">14/51</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','cc_princ_score')"><div class="cat-cell-pct" style="color:#B71C1C">25%</div><div class="cat-cell-cnt">14/57</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','rwsm_dibo')"><div class="cat-cell-pct" style="color:#B71C1C">49%</div><div class="cat-cell-cnt">28/57</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','churn_mitigation')"><div class="cat-cell-pct" style="color:#1B5E20">98%</div><div class="cat-cell-cnt">56/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','compliance_check')"><div class="cat-cell-pct" style="color:#1B5E20">98%</div><div class="cat-cell-cnt">56/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','lead_created')"><div class="cat-cell-pct" style="color:#1B5E20">58%</div><div class="cat-cell-cnt">33/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','cust_ref')"><div class="cat-cell-pct" style="color:#B71C1C">37%</div><div class="cat-cell-cnt">21/57</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('ANZ','qbr_govnc')"><div class="cat-cell-pct" style="color:#E65100">81%</div><div class="cat-cell-cnt">46/57</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','risk_assessment')"><div class="cat-cell-pct" style="color:#1B5E20">98%</div><div class="cat-cell-cnt">56/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('ANZ','s4_upgrade')"><div class="cat-cell-pct" style="color:#E65100">78%</div><div class="cat-cell-cnt">7/9</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','calm_tenant')"><div class="cat-cell-pct" style="color:#1B5E20">100%</div><div class="cat-cell-cnt">57/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('ANZ','leanix')"><div class="cat-cell-pct" style="color:#E65100">84%</div><div class="cat-cell-cnt">26/31</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('ANZ','signavio')"><div class="cat-cell-pct" style="color:#E65100">86%</div><div class="cat-cell-cnt">37/43</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','tricentis')"><div class="cat-cell-pct" style="color:#1B5E20">35%</div><div class="cat-cell-cnt">20/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','walkme')"><div class="cat-cell-pct" style="color:#B71C1C">17%</div><div class="cat-cell-cnt">4/23</div><div class="q4-badge q4-badge-miss">!</div></td></tr><tr><td class="mu-matrix-mu-td">G.China</td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#B71C1C">71%</div><div class="cat-cell-cnt">27/38</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C">19%</div><div class="cat-cell-cnt">3/16</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C">50%</div><div class="cat-cell-cnt">8/16</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','joule')"><div class="cat-cell-pct" style="color:#B71C1C">38%</div><div class="cat-cell-cnt">6/16</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('G.China','cc_princ_score')"><div class="cat-cell-pct" style="color:#1B5E20">63%</div><div class="cat-cell-cnt">24/38</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','rwsm_dibo')"><div class="cat-cell-pct" style="color:#B71C1C">26%</div><div class="cat-cell-cnt">10/38</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('G.China','churn_mitigation')"><div class="cat-cell-pct" style="color:#E65100">92%</div><div class="cat-cell-cnt">35/38</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('G.China','compliance_check')"><div class="cat-cell-pct" style="color:#1B5E20">97%</div><div class="cat-cell-cnt">37/38</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','lead_created')"><div class="cat-cell-pct" style="color:#B71C1C">8%</div><div class="cat-cell-cnt">3/38</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','cust_ref')"><div class="cat-cell-pct" style="color:#B71C1C">11%</div><div class="cat-cell-cnt">4/38</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('G.China','qbr_govnc')"><div class="cat-cell-pct" style="color:#E65100">87%</div><div class="cat-cell-cnt">33/38</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('G.China','risk_assessment')"><div class="cat-cell-pct" style="color:#1B5E20">100%</div><div class="cat-cell-cnt">38/38</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','s4_upgrade')"><div class="cat-cell-pct" style="color:#B71C1C">67%</div><div class="cat-cell-cnt">6/9</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','calm_tenant')"><div class="cat-cell-pct" style="color:#B71C1C">74%</div><div class="cat-cell-cnt">28/38</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','leanix')"><div class="cat-cell-pct" style="color:#B71C1C">75%</div><div class="cat-cell-cnt">3/4</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','signavio')"><div class="cat-cell-pct" style="color:#B71C1C">33%</div><div class="cat-cell-cnt">1/3</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','tricentis')"><div class="cat-cell-pct" style="color:#B71C1C">8%</div><div class="cat-cell-cnt">3/38</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','walkme')"><div class="cat-cell-pct" style="color:#B71C1C">0%</div><div class="cat-cell-cnt">0/2</div><div class="q4-badge q4-badge-miss">!</div></td></tr><tr><td class="mu-matrix-mu-td">India</td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#E65100">91%</div><div class="cat-cell-cnt">64/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C">14%</div><div class="cat-cell-cnt">8/59</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C">32%</div><div class="cat-cell-cnt">19/59</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','joule')"><div class="cat-cell-pct" style="color:#B71C1C">19%</div><div class="cat-cell-cnt">11/59</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('India','cc_princ_score')"><div class="cat-cell-pct" style="color:#1B5E20">59%</div><div class="cat-cell-cnt">41/70</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','rwsm_dibo')"><div class="cat-cell-pct" style="color:#B71C1C">51%</div><div class="cat-cell-cnt">36/70</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','churn_mitigation')"><div class="cat-cell-pct" style="color:#E65100">90%</div><div class="cat-cell-cnt">63/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','compliance_check')"><div class="cat-cell-pct" style="color:#E65100">90%</div><div class="cat-cell-cnt">63/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','lead_created')"><div class="cat-cell-pct" style="color:#E65100">43%</div><div class="cat-cell-cnt">30/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','cust_ref')"><div class="cat-cell-pct" style="color:#E65100">40%</div><div class="cat-cell-cnt">28/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','qbr_govnc')"><div class="cat-cell-pct" style="color:#E65100">89%</div><div class="cat-cell-cnt">62/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','risk_assessment')"><div class="cat-cell-pct" style="color:#E65100">91%</div><div class="cat-cell-cnt">64/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('India','s4_upgrade')"><div class="cat-cell-pct" style="color:#1B5E20">100%</div><div class="cat-cell-cnt">16/16</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('India','calm_tenant')"><div class="cat-cell-pct" style="color:#1B5E20">99%</div><div class="cat-cell-cnt">69/70</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','leanix')"><div class="cat-cell-pct" style="color:#E65100">79%</div><div class="cat-cell-cnt">23/29</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','signavio')"><div class="cat-cell-pct" style="color:#B71C1C">70%</div><div class="cat-cell-cnt">14/20</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','tricentis')"><div class="cat-cell-pct" style="color:#B71C1C">10%</div><div class="cat-cell-cnt">7/70</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','walkme')"><div class="cat-cell-pct" style="color:#B71C1C">17%</div><div class="cat-cell-cnt">1/6</div><div class="q4-badge q4-badge-miss">!</div></td></tr><tr><td class="mu-matrix-mu-td">Japan</td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Japan','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#E65100">77%</div><div class="cat-cell-cnt">27/35</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C">10%</div><div class="cat-cell-cnt">3/31</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C">32%</div><div class="cat-cell-cnt">10/31</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','joule')"><div class="cat-cell-pct" style="color:#B71C1C">55%</div><div class="cat-cell-cnt">17/31</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Japan','cc_princ_score')"><div class="cat-cell-pct" style="color:#E65100">49%</div><div class="cat-cell-cnt">17/35</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','rwsm_dibo')"><div class="cat-cell-pct" style="color:#B71C1C">40%</div><div class="cat-cell-cnt">14/35</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','churn_mitigation')"><div class="cat-cell-pct" style="color:#B71C1C">60%</div><div class="cat-cell-cnt">21/35</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Japan','compliance_check')"><div class="cat-cell-pct" style="color:#E65100">94%</div><div class="cat-cell-cnt">33/35</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','lead_created')"><div class="cat-cell-pct" style="color:#B71C1C">29%</div><div class="cat-cell-cnt">10/35</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','cust_ref')"><div class="cat-cell-pct" style="color:#B71C1C">17%</div><div class="cat-cell-cnt">6/35</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','qbr_govnc')"><div class="cat-cell-pct" style="color:#B71C1C">66%</div><div class="cat-cell-cnt">23/35</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','risk_assessment')"><div class="cat-cell-pct" style="color:#B71C1C">63%</div><div class="cat-cell-cnt">22/35</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','s4_upgrade')"><div class="cat-cell-pct" style="color:#B71C1C">50%</div><div class="cat-cell-cnt">7/14</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Japan','calm_tenant')"><div class="cat-cell-pct" style="color:#E65100">89%</div><div class="cat-cell-cnt">31/35</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','leanix')"><div class="cat-cell-pct" style="color:#B71C1C">59%</div><div class="cat-cell-cnt">10/17</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Japan','signavio')"><div class="cat-cell-pct" style="color:#E65100">83%</div><div class="cat-cell-cnt">15/18</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Japan','tricentis')"><div class="cat-cell-pct" style="color:#E65100">23%</div><div class="cat-cell-cnt">8/35</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','walkme')"><div class="cat-cell-pct" style="color:#B71C1C">17%</div><div class="cat-cell-cnt">1/6</div><div class="q4-badge q4-badge-miss">!</div></td></tr><tr><td class="mu-matrix-mu-td">Korea</td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Korea','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#E65100">91%</div><div class="cat-cell-cnt">39/43</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C">12%</div><div class="cat-cell-cnt">3/25</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C">28%</div><div class="cat-cell-cnt">7/25</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','joule')"><div class="cat-cell-pct" style="color:#B71C1C">44%</div><div class="cat-cell-cnt">11/25</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('Korea','cc_princ_score')"><div class="cat-cell-pct" style="color:#1B5E20">72%</div><div class="cat-cell-cnt">31/43</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','rwsm_dibo')"><div class="cat-cell-pct" style="color:#B71C1C">21%</div><div class="cat-cell-cnt">9/43</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Korea','churn_mitigation')"><div class="cat-cell-pct" style="color:#E65100">81%</div><div class="cat-cell-cnt">35/43</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('Korea','compliance_check')"><div class="cat-cell-pct" style="color:#1B5E20">95%</div><div class="cat-cell-cnt">41/43</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','lead_created')"><div class="cat-cell-pct" style="color:#B71C1C">21%</div><div class="cat-cell-cnt">9/43</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','cust_ref')"><div class="cat-cell-pct" style="color:#B71C1C">35%</div><div class="cat-cell-cnt">15/43</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Korea','qbr_govnc')"><div class="cat-cell-pct" style="color:#E65100">79%</div><div class="cat-cell-cnt">34/43</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Korea','risk_assessment')"><div class="cat-cell-pct" style="color:#E65100">79%</div><div class="cat-cell-cnt">34/43</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','s4_upgrade')"><div class="cat-cell-pct" style="color:#B71C1C">54%</div><div class="cat-cell-cnt">7/13</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Korea','calm_tenant')"><div class="cat-cell-pct" style="color:#E65100">81%</div><div class="cat-cell-cnt">35/43</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','leanix')"><div class="cat-cell-pct" style="color:#B71C1C">30%</div><div class="cat-cell-cnt">6/20</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','signavio')"><div class="cat-cell-pct" style="color:#B71C1C">44%</div><div class="cat-cell-cnt">4/9</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','tricentis')"><div class="cat-cell-pct" style="color:#B71C1C">7%</div><div class="cat-cell-cnt">3/43</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','walkme')"><div class="cat-cell-pct" style="color:#B71C1C">0%</div><div class="cat-cell-cnt">0/1</div><div class="q4-badge q4-badge-miss">!</div></td></tr><tr><td class="mu-matrix-mu-td">South East Asia</td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#1B5E20">98%</div><div class="cat-cell-cnt">55/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('South East Asia','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C">10%</div><div class="cat-cell-cnt">4/39</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('South East Asia','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C">36%</div><div class="cat-cell-cnt">14/39</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('South East Asia','joule')"><div class="cat-cell-pct" style="color:#B71C1C">26%</div><div class="cat-cell-cnt">10/39</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('South East Asia','cc_princ_score')"><div class="cat-cell-pct" style="color:#B71C1C">38%</div><div class="cat-cell-cnt">21/56</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('South East Asia','rwsm_dibo')"><div class="cat-cell-pct" style="color:#E65100">64%</div><div class="cat-cell-cnt">36/56</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','churn_mitigation')"><div class="cat-cell-pct" style="color:#1B5E20">96%</div><div class="cat-cell-cnt">54/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','compliance_check')"><div class="cat-cell-pct" style="color:#1B5E20">100%</div><div class="cat-cell-cnt">56/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','lead_created')"><div class="cat-cell-pct" style="color:#1B5E20">52%</div><div class="cat-cell-cnt">29/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('South East Asia','cust_ref')"><div class="cat-cell-pct" style="color:#E65100">41%</div><div class="cat-cell-cnt">23/56</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','qbr_govnc')"><div class="cat-cell-pct" style="color:#1B5E20">95%</div><div class="cat-cell-cnt">53/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','risk_assessment')"><div class="cat-cell-pct" style="color:#1B5E20">96%</div><div class="cat-cell-cnt">54/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','s4_upgrade')"><div class="cat-cell-pct" style="color:#1B5E20">92%</div><div class="cat-cell-cnt">11/12</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','calm_tenant')"><div class="cat-cell-pct" style="color:#1B5E20">100%</div><div class="cat-cell-cnt">56/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('South East Asia','leanix')"><div class="cat-cell-pct" style="color:#B71C1C">70%</div><div class="cat-cell-cnt">7/10</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('South East Asia','signavio')"><div class="cat-cell-pct" style="color:#B71C1C">70%</div><div class="cat-cell-cnt">21/30</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','tricentis')"><div class="cat-cell-pct" style="color:#1B5E20">25%</div><div class="cat-cell-cnt">14/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','walkme')"><div class="cat-cell-pct" style="color:#1B5E20">83%</div><div class="cat-cell-cnt">5/6</div><div class="q4-badge q4-badge-met">✓</div></td></tr></tbody></table></div>
+  <div id="APAC-mu-body"><div style="overflow-x:auto;padding:14px 16px 18px"><table class="mu-matrix-tbl"><thead><tr><th class="mu-matrix-mu-th">Market Unit</th><th class="mu-matrix-cat-th" colspan="4">AI</th><th class="mu-matrix-cat-th" colspan="2">Clean Core</th><th class="mu-matrix-cat-th" colspan="5">EA KPI</th><th class="mu-matrix-cat-th" colspan="2">RISE</th><th class="mu-matrix-cat-th" colspan="5">Toolchain</th></tr><tr><th class="mu-matrix-mu-th">&nbsp;</th><th class="mu-matrix-kpi-th">AI Adoption Plan<div class="mu-th-q4">MU Q4: 95%</div></th><th class="mu-matrix-kpi-th">AI agents Act.<div class="mu-th-q4">MU Q4: 35%</div></th><th class="mu-matrix-kpi-th">AI BTP services Act.<div class="mu-th-q4">MU Q4: 65%</div></th><th class="mu-matrix-kpi-th">Joule Act.<div class="mu-th-q4">MU Q4: 75%</div></th><th class="mu-matrix-kpi-th">Clean Core principal scores<div class="mu-th-q4">MU Q4: 50%</div></th><th class="mu-matrix-kpi-th">RwSM Dashboard Act.<div class="mu-th-q4">MU Q4: 65%</div></th><th class="mu-matrix-kpi-th">churn mitigation plan<div class="mu-th-q4">MU Q4: 95%</div></th><th class="mu-matrix-kpi-th">compliance check delivered<div class="mu-th-q4">MU Q4: 95%</div></th><th class="mu-matrix-kpi-th">Leads created <div class="mu-th-q4">MU Q4: 45%</div></th><th class="mu-matrix-kpi-th">Customer Ref Stage 3 &amp; 4<div class="mu-th-q4">MU Q4: 35%</div></th><th class="mu-matrix-kpi-th">QBR governance implemented<div class="mu-th-q4">MU Q4: 90%</div></th><th class="mu-matrix-kpi-th">risk<div class="mu-th-q4">MU Q4: 95%</div></th><th class="mu-matrix-kpi-th">S/4 upgrade Comm.<div class="mu-th-q4">MU Q4: 85%</div></th><th class="mu-matrix-kpi-th">CALM tenant Act.<div class="mu-th-q4">MU Q4: 95%</div></th><th class="mu-matrix-kpi-th">active LeanIX usage<div class="mu-th-q4">MU Q4: 95%</div></th><th class="mu-matrix-kpi-th">active Signavio usage<div class="mu-th-q4">MU Q4: 95%</div></th><th class="mu-matrix-kpi-th">active Tricentis License<div class="mu-th-q4">MU Q4: 25%</div></th><th class="mu-matrix-kpi-th">active WalkMe usage<div class="mu-th-q4">MU Q4: 25%</div></th></tr></thead><tbody><tr><td class="mu-matrix-q4-mu">MU Q4 Target</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">35%</td><td class="mu-matrix-q4-td">65%</td><td class="mu-matrix-q4-td">75%</td><td class="mu-matrix-q4-td">50%</td><td class="mu-matrix-q4-td">65%</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">45%</td><td class="mu-matrix-q4-td">35%</td><td class="mu-matrix-q4-td">90%</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">85%</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">95%</td><td class="mu-matrix-q4-td">25%</td><td class="mu-matrix-q4-td">25%</td></tr><tr><td class="mu-matrix-apac-mu">APAC Total</td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">89%</div><div class="cat-cell-cnt">267/299</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">14%</div><div class="cat-cell-cnt">31/221</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">34%</div><div class="cat-cell-cnt">76/221</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','joule')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">31%</div><div class="cat-cell-cnt">69/221</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','cc_princ_score')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">49%</div><div class="cat-cell-cnt">148/299</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','rwsm_dibo')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">44%</div><div class="cat-cell-cnt">133/299</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','churn_mitigation')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">88%</div><div class="cat-cell-cnt">264/299</div></td><td class="mu-matrix-apac-td" style="background:#C8E6C9;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','compliance_check')"><div class="cat-cell-pct" style="color:#1B5E20;font-size:12px;font-weight:700">96%</div><div class="cat-cell-cnt">286/299</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','lead_created')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">38%</div><div class="cat-cell-cnt">114/299</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','cust_ref')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">32%</div><div class="cat-cell-cnt">97/299</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','qbr_govnc')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">84%</div><div class="cat-cell-cnt">251/299</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','risk_assessment')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">90%</div><div class="cat-cell-cnt">268/299</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','s4_upgrade')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">74%</div><div class="cat-cell-cnt">54/73</div></td><td class="mu-matrix-apac-td" style="background:#FFF9C4;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','calm_tenant')"><div class="cat-cell-pct" style="color:#E65100;font-size:12px;font-weight:700">92%</div><div class="cat-cell-cnt">276/299</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','leanix')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">68%</div><div class="cat-cell-cnt">75/111</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','signavio')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">75%</div><div class="cat-cell-cnt">92/123</div></td><td class="mu-matrix-apac-td" style="background:#FFCDD2;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','tricentis')"><div class="cat-cell-pct" style="color:#B71C1C;font-size:12px;font-weight:700">18%</div><div class="cat-cell-cnt">55/299</div></td><td class="mu-matrix-apac-td" style="background:#C8E6C9;border:1px solid var(--bdr-l)" onclick="openMuKpiPanel('APAC','walkme')"><div class="cat-cell-pct" style="color:#1B5E20;font-size:12px;font-weight:700">25%</div><div class="cat-cell-cnt">11/44</div></td></tr><tr><td class="mu-matrix-mu-td">ANZ</td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#1B5E20">96%</div><div class="cat-cell-cnt">55/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C">20%</div><div class="cat-cell-cnt">10/51</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C">35%</div><div class="cat-cell-cnt">18/51</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','joule')"><div class="cat-cell-pct" style="color:#B71C1C">27%</div><div class="cat-cell-cnt">14/51</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','cc_princ_score')"><div class="cat-cell-pct" style="color:#B71C1C">25%</div><div class="cat-cell-cnt">14/57</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','rwsm_dibo')"><div class="cat-cell-pct" style="color:#B71C1C">49%</div><div class="cat-cell-cnt">28/57</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','churn_mitigation')"><div class="cat-cell-pct" style="color:#1B5E20">98%</div><div class="cat-cell-cnt">56/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','compliance_check')"><div class="cat-cell-pct" style="color:#1B5E20">98%</div><div class="cat-cell-cnt">56/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','lead_created')"><div class="cat-cell-pct" style="color:#1B5E20">58%</div><div class="cat-cell-cnt">33/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','cust_ref')"><div class="cat-cell-pct" style="color:#1B5E20">37%</div><div class="cat-cell-cnt">21/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('ANZ','qbr_govnc')"><div class="cat-cell-pct" style="color:#E65100">81%</div><div class="cat-cell-cnt">46/57</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','risk_assessment')"><div class="cat-cell-pct" style="color:#1B5E20">98%</div><div class="cat-cell-cnt">56/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('ANZ','s4_upgrade')"><div class="cat-cell-pct" style="color:#E65100">78%</div><div class="cat-cell-cnt">7/9</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','calm_tenant')"><div class="cat-cell-pct" style="color:#1B5E20">100%</div><div class="cat-cell-cnt">57/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('ANZ','leanix')"><div class="cat-cell-pct" style="color:#E65100">84%</div><div class="cat-cell-cnt">26/31</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('ANZ','signavio')"><div class="cat-cell-pct" style="color:#E65100">86%</div><div class="cat-cell-cnt">37/43</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('ANZ','tricentis')"><div class="cat-cell-pct" style="color:#1B5E20">35%</div><div class="cat-cell-cnt">20/57</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('ANZ','walkme')"><div class="cat-cell-pct" style="color:#B71C1C">17%</div><div class="cat-cell-cnt">4/23</div><div class="q4-badge q4-badge-miss">!</div></td></tr><tr><td class="mu-matrix-mu-td">G.China</td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#B71C1C">71%</div><div class="cat-cell-cnt">27/38</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C">19%</div><div class="cat-cell-cnt">3/16</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C">50%</div><div class="cat-cell-cnt">8/16</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','joule')"><div class="cat-cell-pct" style="color:#B71C1C">38%</div><div class="cat-cell-cnt">6/16</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('G.China','cc_princ_score')"><div class="cat-cell-pct" style="color:#1B5E20">63%</div><div class="cat-cell-cnt">24/38</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','rwsm_dibo')"><div class="cat-cell-pct" style="color:#B71C1C">26%</div><div class="cat-cell-cnt">10/38</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('G.China','churn_mitigation')"><div class="cat-cell-pct" style="color:#E65100">92%</div><div class="cat-cell-cnt">35/38</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('G.China','compliance_check')"><div class="cat-cell-pct" style="color:#1B5E20">97%</div><div class="cat-cell-cnt">37/38</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','lead_created')"><div class="cat-cell-pct" style="color:#B71C1C">8%</div><div class="cat-cell-cnt">3/38</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','cust_ref')"><div class="cat-cell-pct" style="color:#B71C1C">11%</div><div class="cat-cell-cnt">4/38</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('G.China','qbr_govnc')"><div class="cat-cell-pct" style="color:#E65100">87%</div><div class="cat-cell-cnt">33/38</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('G.China','risk_assessment')"><div class="cat-cell-pct" style="color:#1B5E20">100%</div><div class="cat-cell-cnt">38/38</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','s4_upgrade')"><div class="cat-cell-pct" style="color:#B71C1C">67%</div><div class="cat-cell-cnt">6/9</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','calm_tenant')"><div class="cat-cell-pct" style="color:#B71C1C">74%</div><div class="cat-cell-cnt">28/38</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','leanix')"><div class="cat-cell-pct" style="color:#B71C1C">75%</div><div class="cat-cell-cnt">3/4</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','signavio')"><div class="cat-cell-pct" style="color:#B71C1C">33%</div><div class="cat-cell-cnt">1/3</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','tricentis')"><div class="cat-cell-pct" style="color:#B71C1C">8%</div><div class="cat-cell-cnt">3/38</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('G.China','walkme')"><div class="cat-cell-pct" style="color:#B71C1C">0%</div><div class="cat-cell-cnt">0/2</div><div class="q4-badge q4-badge-miss">!</div></td></tr><tr><td class="mu-matrix-mu-td">India</td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#E65100">91%</div><div class="cat-cell-cnt">64/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C">14%</div><div class="cat-cell-cnt">8/59</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C">32%</div><div class="cat-cell-cnt">19/59</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','joule')"><div class="cat-cell-pct" style="color:#B71C1C">19%</div><div class="cat-cell-cnt">11/59</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('India','cc_princ_score')"><div class="cat-cell-pct" style="color:#1B5E20">59%</div><div class="cat-cell-cnt">41/70</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','rwsm_dibo')"><div class="cat-cell-pct" style="color:#B71C1C">51%</div><div class="cat-cell-cnt">36/70</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','churn_mitigation')"><div class="cat-cell-pct" style="color:#E65100">90%</div><div class="cat-cell-cnt">63/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','compliance_check')"><div class="cat-cell-pct" style="color:#E65100">90%</div><div class="cat-cell-cnt">63/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','lead_created')"><div class="cat-cell-pct" style="color:#E65100">43%</div><div class="cat-cell-cnt">30/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('India','cust_ref')"><div class="cat-cell-pct" style="color:#1B5E20">40%</div><div class="cat-cell-cnt">28/70</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','qbr_govnc')"><div class="cat-cell-pct" style="color:#E65100">89%</div><div class="cat-cell-cnt">62/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','risk_assessment')"><div class="cat-cell-pct" style="color:#E65100">91%</div><div class="cat-cell-cnt">64/70</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('India','s4_upgrade')"><div class="cat-cell-pct" style="color:#1B5E20">100%</div><div class="cat-cell-cnt">16/16</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('India','calm_tenant')"><div class="cat-cell-pct" style="color:#1B5E20">99%</div><div class="cat-cell-cnt">69/70</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('India','leanix')"><div class="cat-cell-pct" style="color:#E65100">79%</div><div class="cat-cell-cnt">23/29</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','signavio')"><div class="cat-cell-pct" style="color:#B71C1C">70%</div><div class="cat-cell-cnt">14/20</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','tricentis')"><div class="cat-cell-pct" style="color:#B71C1C">10%</div><div class="cat-cell-cnt">7/70</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('India','walkme')"><div class="cat-cell-pct" style="color:#B71C1C">17%</div><div class="cat-cell-cnt">1/6</div><div class="q4-badge q4-badge-miss">!</div></td></tr><tr><td class="mu-matrix-mu-td">Japan</td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Japan','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#E65100">77%</div><div class="cat-cell-cnt">27/35</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C">10%</div><div class="cat-cell-cnt">3/31</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C">32%</div><div class="cat-cell-cnt">10/31</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','joule')"><div class="cat-cell-pct" style="color:#B71C1C">55%</div><div class="cat-cell-cnt">17/31</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Japan','cc_princ_score')"><div class="cat-cell-pct" style="color:#E65100">49%</div><div class="cat-cell-cnt">17/35</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','rwsm_dibo')"><div class="cat-cell-pct" style="color:#B71C1C">40%</div><div class="cat-cell-cnt">14/35</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','churn_mitigation')"><div class="cat-cell-pct" style="color:#B71C1C">60%</div><div class="cat-cell-cnt">21/35</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Japan','compliance_check')"><div class="cat-cell-pct" style="color:#E65100">94%</div><div class="cat-cell-cnt">33/35</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','lead_created')"><div class="cat-cell-pct" style="color:#B71C1C">29%</div><div class="cat-cell-cnt">10/35</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','cust_ref')"><div class="cat-cell-pct" style="color:#B71C1C">17%</div><div class="cat-cell-cnt">6/35</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','qbr_govnc')"><div class="cat-cell-pct" style="color:#B71C1C">66%</div><div class="cat-cell-cnt">23/35</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','risk_assessment')"><div class="cat-cell-pct" style="color:#B71C1C">63%</div><div class="cat-cell-cnt">22/35</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','s4_upgrade')"><div class="cat-cell-pct" style="color:#B71C1C">50%</div><div class="cat-cell-cnt">7/14</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Japan','calm_tenant')"><div class="cat-cell-pct" style="color:#E65100">89%</div><div class="cat-cell-cnt">31/35</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','leanix')"><div class="cat-cell-pct" style="color:#B71C1C">59%</div><div class="cat-cell-cnt">10/17</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Japan','signavio')"><div class="cat-cell-pct" style="color:#E65100">83%</div><div class="cat-cell-cnt">15/18</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Japan','tricentis')"><div class="cat-cell-pct" style="color:#E65100">23%</div><div class="cat-cell-cnt">8/35</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Japan','walkme')"><div class="cat-cell-pct" style="color:#B71C1C">17%</div><div class="cat-cell-cnt">1/6</div><div class="q4-badge q4-badge-miss">!</div></td></tr><tr><td class="mu-matrix-mu-td">Korea</td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Korea','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#E65100">91%</div><div class="cat-cell-cnt">39/43</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C">12%</div><div class="cat-cell-cnt">3/25</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C">28%</div><div class="cat-cell-cnt">7/25</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','joule')"><div class="cat-cell-pct" style="color:#B71C1C">44%</div><div class="cat-cell-cnt">11/25</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('Korea','cc_princ_score')"><div class="cat-cell-pct" style="color:#1B5E20">72%</div><div class="cat-cell-cnt">31/43</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','rwsm_dibo')"><div class="cat-cell-pct" style="color:#B71C1C">21%</div><div class="cat-cell-cnt">9/43</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Korea','churn_mitigation')"><div class="cat-cell-pct" style="color:#E65100">81%</div><div class="cat-cell-cnt">35/43</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('Korea','compliance_check')"><div class="cat-cell-pct" style="color:#1B5E20">95%</div><div class="cat-cell-cnt">41/43</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','lead_created')"><div class="cat-cell-pct" style="color:#B71C1C">21%</div><div class="cat-cell-cnt">9/43</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('Korea','cust_ref')"><div class="cat-cell-pct" style="color:#1B5E20">35%</div><div class="cat-cell-cnt">15/43</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Korea','qbr_govnc')"><div class="cat-cell-pct" style="color:#E65100">79%</div><div class="cat-cell-cnt">34/43</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Korea','risk_assessment')"><div class="cat-cell-pct" style="color:#E65100">79%</div><div class="cat-cell-cnt">34/43</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','s4_upgrade')"><div class="cat-cell-pct" style="color:#B71C1C">54%</div><div class="cat-cell-cnt">7/13</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('Korea','calm_tenant')"><div class="cat-cell-pct" style="color:#E65100">81%</div><div class="cat-cell-cnt">35/43</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','leanix')"><div class="cat-cell-pct" style="color:#B71C1C">30%</div><div class="cat-cell-cnt">6/20</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','signavio')"><div class="cat-cell-pct" style="color:#B71C1C">44%</div><div class="cat-cell-cnt">4/9</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','tricentis')"><div class="cat-cell-pct" style="color:#B71C1C">7%</div><div class="cat-cell-cnt">3/43</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('Korea','walkme')"><div class="cat-cell-pct" style="color:#B71C1C">0%</div><div class="cat-cell-cnt">0/1</div><div class="q4-badge q4-badge-miss">!</div></td></tr><tr><td class="mu-matrix-mu-td">South East Asia</td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','ai_adoption_plan')"><div class="cat-cell-pct" style="color:#1B5E20">98%</div><div class="cat-cell-cnt">55/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('South East Asia','ai_agent')"><div class="cat-cell-pct" style="color:#B71C1C">10%</div><div class="cat-cell-cnt">4/39</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('South East Asia','ai_btp')"><div class="cat-cell-pct" style="color:#B71C1C">36%</div><div class="cat-cell-cnt">14/39</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('South East Asia','joule')"><div class="cat-cell-pct" style="color:#B71C1C">26%</div><div class="cat-cell-cnt">10/39</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('South East Asia','cc_princ_score')"><div class="cat-cell-pct" style="color:#B71C1C">38%</div><div class="cat-cell-cnt">21/56</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFF9C4" onclick="openMuKpiPanel('South East Asia','rwsm_dibo')"><div class="cat-cell-pct" style="color:#E65100">64%</div><div class="cat-cell-cnt">36/56</div><div class="q4-badge q4-badge-near">~</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','churn_mitigation')"><div class="cat-cell-pct" style="color:#1B5E20">96%</div><div class="cat-cell-cnt">54/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','compliance_check')"><div class="cat-cell-pct" style="color:#1B5E20">100%</div><div class="cat-cell-cnt">56/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','lead_created')"><div class="cat-cell-pct" style="color:#1B5E20">52%</div><div class="cat-cell-cnt">29/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','cust_ref')"><div class="cat-cell-pct" style="color:#1B5E20">41%</div><div class="cat-cell-cnt">23/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','qbr_govnc')"><div class="cat-cell-pct" style="color:#1B5E20">95%</div><div class="cat-cell-cnt">53/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','risk_assessment')"><div class="cat-cell-pct" style="color:#1B5E20">96%</div><div class="cat-cell-cnt">54/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','s4_upgrade')"><div class="cat-cell-pct" style="color:#1B5E20">92%</div><div class="cat-cell-cnt">11/12</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','calm_tenant')"><div class="cat-cell-pct" style="color:#1B5E20">100%</div><div class="cat-cell-cnt">56/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('South East Asia','leanix')"><div class="cat-cell-pct" style="color:#B71C1C">70%</div><div class="cat-cell-cnt">7/10</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#FFCDD2" onclick="openMuKpiPanel('South East Asia','signavio')"><div class="cat-cell-pct" style="color:#B71C1C">70%</div><div class="cat-cell-cnt">21/30</div><div class="q4-badge q4-badge-miss">!</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','tricentis')"><div class="cat-cell-pct" style="color:#1B5E20">25%</div><div class="cat-cell-cnt">14/56</div><div class="q4-badge q4-badge-met">✓</div></td><td class="mu-matrix-cell" style="background:#C8E6C9" onclick="openMuKpiPanel('South East Asia','walkme')"><div class="cat-cell-pct" style="color:#1B5E20">83%</div><div class="cat-cell-cnt">5/6</div><div class="q4-badge q4-badge-met">✓</div></td></tr></tbody></table></div>
   <div style="padding:6px 16px 14px;font-size:10.5px;color:var(--sub)">
     <span class="q4-badge-legend"><span class="qbl-item"><span class="q4bl q4bl-met">✓</span> target meet</span>&nbsp;<span class="qbl-item"><span class="q4bl q4bl-near">~</span> Near target (≥80%)</span>&nbsp;<span class="qbl-item"><span class="q4bl q4bl-miss">!</span> Below target</span></span>
   </div></div></div><div class="coll-wrap" id="APAC-eav" data-sec="ea">
@@ -5469,7 +5477,7 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
           <div class="akpi-bar-bg"></div>
           <div class="akpi-bar-fill" style="height:48px"></div>
           <div class="akpi-att-lbl" style="bottom:48px">32%</div>
-          <div class="akpi-tgt-line" style="bottom:75px;background:#F0A800"><span class="akpi-tgt-lbl-l" style="color:#F0A800">50%</span></div><div class="akpi-tgt-line" style="bottom:53px;background:#7C3AED"><span class="akpi-tgt-lbl-l" style="color:#7C3AED">35%</span></div><div class="akpi-tgt-line" style="bottom:38px;background:#EC4899"><span class="akpi-tgt-lbl-l" style="color:#EC4899">25%</span></div>
+          <div class="akpi-tgt-line" style="bottom:53px;background:#F0A800"><span class="akpi-tgt-lbl-l" style="color:#F0A800">35%</span></div><div class="akpi-tgt-line" style="bottom:38px;background:#EC4899"><span class="akpi-tgt-lbl-l" style="color:#EC4899">25%</span></div><div class="akpi-tgt-line" style="bottom:33px;background:#7C3AED"><span class="akpi-tgt-lbl-l" style="color:#7C3AED"></span></div>
         </div>
         <div class="akpi-bar-lbl">Customer Ref Stage 3 &amp; 4</div>
         <div class="akpi-bar-delta">Δ+6</div>
@@ -5700,8 +5708,8 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="akpi-bar-bg"></div>
         <div class="akpi-bar-fill" style="height:21px"></div>
         <div class="akpi-att-lbl" style="bottom:21px">14%</div>
-        <div class="akpi-tgt-line" style="bottom:68px;background:#F0A800">
-        <span class="akpi-tgt-lbl-l" style="color:#F0A800">45%</span>
+        <div class="akpi-tgt-line" style="bottom:53px;background:#F0A800">
+        <span class="akpi-tgt-lbl-l" style="color:#F0A800">35%</span>
       </div><div class="akpi-tgt-line" style="bottom:33px;background:#7C3AED">
         <span class="akpi-tgt-lbl-l" style="color:#7C3AED">22%</span>
       </div><div class="akpi-tgt-line" style="bottom:18px;background:#EC4899">
@@ -5717,8 +5725,8 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <div class="akpi-bar-bg"></div>
         <div class="akpi-bar-fill" style="height:47px"></div>
         <div class="akpi-att-lbl" style="bottom:47px">31%</div>
-        <div class="akpi-tgt-line" style="bottom:128px;background:#F0A800">
-        <span class="akpi-tgt-lbl-l" style="color:#F0A800">85%</span>
+        <div class="akpi-tgt-line" style="bottom:113px;background:#F0A800">
+        <span class="akpi-tgt-lbl-l" style="color:#F0A800">75%</span>
       </div><div class="akpi-tgt-line" style="bottom:98px;background:#7C3AED">
         <span class="akpi-tgt-lbl-l" style="color:#7C3AED">65%</span>
       </div><div class="akpi-tgt-line" style="bottom:83px;background:#EC4899">
@@ -5771,94 +5779,94 @@ const GH_DEFAULTS={owner:"cathyz0916",repo:"Impact-KPI-Production",branch:"main"
 let ADMIN_HASH="96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e";
 const KPI_DEFS=[
   // ── AI ────────────────────────────────────────────────────────────────────
-  {k:'ai_adoption_plan',label:'Has AI Adoption Plan available',cat:'AI',q2:50,q3:75,q4:95,
+  {k:'ai_adoption_plan',label:'Has AI Adoption Plan available',cat:'AI',q2:50,q3:75,q4:95,muq4:90,
     desc:'Indicates if customer has AI Adoption plan created.',
     notes:'Check whether an AI adoption plan is available. The AI adoption plan availability flag is fed by a dedicated MXP instance tracking plan availability, independent of the EA AI adoption plan template in EA MXP.',
     source:'AI Adoption Plan Repository',bl:'Original baseline',
     links:[{l:'[AI MXP] MXP Launcher',u:'https://launcher.value-experience-hub.for.sap/experiences/business-ai---adoption-overview/groups/workshops/pages/workshop-table?nf-model-version=latest&selectedTab=Tab-5'}]},
-  {k:'ai_agent',label:'Has AI agents activated',cat:'AI',q2:12,q3:22,q4:45,
+  {k:'ai_agent',label:'Has AI agents activated',cat:'AI',q2:12,q3:22,q4:35,muq4:35,
     desc:'Indicates if customer has AI agents activated.',
     notes:'Always refer to last month data. For details refer to the AI Portfolio team. Premium AI SKUs: SAP Ariba Category Management (8015105), SAP AI Unit (8016532/8018592), RISE wSAP S/4HANA Cld prem pl (8016421/8018501), SAP CX AI Toolkit (8017592), AI Units (8019164). For Actual: AI Usecases must be Premium.',
     notesHtml:'Always refer to last month data. For details refer to the AI Portfolio team, Jonas Gehring.<br><br><strong>Premium AI customer baseline</strong> is defined by customers having any of the below SKUs in their portfolio:<br>&#8226;&nbsp;SAP Ariba Category Management (8015105)<br>&#8226;&nbsp;SAP AI Unit (8016532)<br>&#8226;&nbsp;RISE wSAP S/4HANA Cld, priv ed, prem pl (8016421)<br>&#8226;&nbsp;RISE wSAP S/4HANA Cld, priv ed, prem pl (8018501)<br>&#8226;&nbsp;SAP AI Unit (8018592)<br>&#8226;&nbsp;SAP CX AI Toolkit (8017592)<br>&#8226;&nbsp;AI Units (8019164)<br><br>For Actual: check AI usage Report &rarr; AI Usecases must be Premium.',
     source:'AI USAGE data model',bl:'Original baseline limited to customers with Premium AI Agents entitlements',
-    links:[{l:'AI Agents - Stories - SAP Analytics Cloud',u:'https://sap-sac.eu10.sapanalytics.cloud/sap/fpa/ui/app.html#/story2&/s2/300400685811C695E433EABA562D372/?mode=view'},{l:'Business AI Taxonomy',u:'https://sap.sharepoint.com/sites/208497/Shared%20Documents/Forms/AllItems.aspx?viewid=f7c3854d%2D0deb%2D4637%2Daf57%2D7de96999e80c&OR=EXCEL%2DWEB%2EBODY%2ENT&CT=1789951717772&id=%2Fsites%2F208497%2FShared%20Documents%2FLearn%20about%20AI%2FAI%20Essentials%2FBusiness%5FAI%5FTaxonomy%2Epdf&parent=%2Fsites%2F208497%2FShared%20Documents%2FLearn%20about%20AI%2FAI%20Essentials'},{l:'AI Usage Landing Page - Stories - SAP Analytics Cloud',u:'https://sap-sac.eu10.sapanalytics.cloud/sap/fpa/ui/app.html'},{l:'AI Multi-Customer Analysis - Stories - SAP Analytics Cloud',u:'https://sap-sac.eu10.sapanalytics.cloud/sap/fpa/ui/app.html'}]},
-  {k:'ai_btp',label:'Has AI BTP services activated',cat:'AI',q2:45,q3:55,q4:65,
+    links:[{l:'AI Agents - Stories - SAP Analytics Cloud',u:'https://sap-sac.eu10.sapanalytics.cloud/sap/fpa/ui/app.html#/story2&/s2/300400685811C695E433EABA562D372/?mode=view'},{l:'Business AI Taxonomy',u:'https://sap.sharepoint.com/sites/208497/Shared%20Documents/Forms/AllItems.aspx?viewid=f7c3854d%2D0deb%2D4637%2Daf57%2D7de96999e80c&OR=EXCEL%2DWEB%2EBODY%2ENT&CT=1789951717772&id=%2Fsites%2F208497%2FShared%20Documents%2FLearn%20about%20AI%2FAI%20Essentials%2FBusiness%5FAI%5FTaxonomy%2Epdf&parent=%2Fsites%2F208497%2FShared%20Documents%2FLearn%20about%20AI%2FAI%20Essentials'},{l:'AI Usage Landing Page - Stories - SAP Analytics Cloud',u:'https://sap-sac.eu10.sapanalytics.cloud/sap/fpa/ui/app.html#/story2&/s2/39B2FF038AF2B51C5ABE5A12EC88A47F/?mode=present'},{l:'AI Multi-Customer Analysis - Stories - SAP Analytics Cloud',u:'https://sap-sac.eu10.sapanalytics.cloud/sap/fpa/ui/app.html#/story2&/s2/AEF8F800295997AC8BFA111323ECEB5E/?mode=view'}]},
+  {k:'ai_btp',label:'Has AI BTP services activated',cat:'AI',q2:45,q3:55,q4:65,muq4:65,
     desc:'Indicates if customer has AI BTP activated.',
     notes:'',source:'Consumed ACV data model / BTP Consumed SKU data model',bl:'Original baseline limited to customers with Premium BTP services entitlements',
     links:[]},
-  {k:'joule',label:'Has Joule activated',cat:'AI',q2:55,q3:65,q4:85,
+  {k:'joule',label:'Has Joule activated',cat:'AI',q2:55,q3:65,q4:75,muq4:75,
     desc:'Indicates if customer has Joule activated.',
     notes:'Only look at Premium AI (productive licensed landscape). Filtering is preset on Premium AI. Base Joule is excluded.',
     source:'AI USAGE data model',bl:'Original baseline limited to customers with Premium Joule entitlements',
     links:[]},
   // ── Clean Core ────────────────────────────────────────────────────────────
-  {k:'cc_princ_score',label:'Has Clean Core principal scores',cat:'Clean Core',q2:5,q3:25,q4:50,
+  {k:'cc_princ_score',label:'Has Clean Core principal scores',cat:'Clean Core',q2:5,q3:25,q4:50,muq4:45,
     desc:'Indicates if principle clean core scores (actual & target) for the dimensions process & extensibility are available.',
     notes:'Process & Extensibility components are sufficient for KPI tracking. Assessments should primarily use the Clean Core Scoring App as system of record. Aggregated results are manually transferred to MXP.',
     source:'EA MXP (Manual Input)',bl:'Original baseline',
     links:[{l:'[Sharepoint] Clean Core Knowledge Hub for Enterprise Architect',u:'https://sap.sharepoint.com/sites/210796/SitePages/DCB/Clean%20Core%20Knowledge%20Hub.aspx?csf=1&web=1&e=obpUIk&CID=199d4f19-2cf6-45db-9752-b5c291f6a091&OR=EXCEL-WEB.BODY.NT&CT=1789951779555'},{l:'[PPT] Clean Core Governance & Practices Maturity',u:'https://sap.sharepoint.com/:p:/r/teams/BTAEAAPAC/_layouts/15/Doc.aspx?sourcedoc=%7B5AFE2C3D-8ED6-4535-A9C0-C5C504B77337%7D&file=Clean_Core_Governance_and_Operational_Practices_Maturity_v2.0_2605%20(3).pptx&wdLOR=c9FFE90F4-D626-4C95-BBE9-E09CBB159D83&action=edit&mobileredirect=true'}]},
-  {k:'rwsm_dibo',label:'Has RwSM Dashboard activated',cat:'Clean Core',q2:45,q3:55,q4:65,
+  {k:'rwsm_dibo',label:'Has RwSM Dashboard activated',cat:'Clean Core',q2:45,q3:55,q4:65,muq4:65,
     desc:'Defined as count of clicks in the RWSM dashboard. Customers with min 5 clicks count as having the dashboard activated.',
     notes:'Look at past 3 months. The # symbol means the customer is not showing up in Cloud Reporting. False means the 5-click condition is not met. Public sector or on-premise customers without CALM tenant are not excluded.',
     source:'Cloud Reporting',bl:'Original baseline',
     links:[{l:'[Cloud Reporting] [CF] SAP Cloud ALM',u:'https://reporting.ondemand.com/sap/crp/cdo?type=CRP_CALM&list=10&period_type=dp&group_by=customer_id,customer_name,isp_customer_id,dimension_4&aggreg=sum&chart_display=on&chart_type=StackedColumn&data_source=C,T&dimension_4=RISE%20with%20SAP%20Methodology%20-%20System%20View%20Dashboard,RISE%20with%20SAP%20Methodology%20-%20Operations%20View%20Dashboard&measure_id=NO_OF_CLICKS_PER_UI5COMP&sort_by=-value_sum&db_id=p-calm-rise&date=20260121&dateend=20260430'}]},
   // ── EA KPI ────────────────────────────────────────────────────────────────
-  {k:'churn_mitigation',label:'Has churn mitigation plan',cat:'EA KPI',q2:5,q3:25,q4:95,
+  {k:'churn_mitigation',label:'Has churn mitigation plan',cat:'EA KPI',q2:5,q3:25,q4:95,muq4:45,
     desc:'Indicates if customer has churn mitigation plan, which means that the field "risk retention lever" is filled out in Gainsight.',
     notes:'[New Logic] If ACV at Risk % is maintained as No Risk (0%) this KPI is set as met. Same LPR scope as Risk Assessment. Use the most appropriate input option (e.g. "To be assigned" if no risk identified).',
     source:'Gainsight',source_url:'https://sap.eu.gainsightcloud.com/v1/ui/home',bl:'Original baseline',
     links:[]},
-  {k:'compliance_check',label:'Has compliance check delivered',cat:'EA KPI',q2:85,q3:88,q4:95,
+  {k:'compliance_check',label:'Has compliance check delivered',cat:'EA KPI',q2:85,q3:88,q4:95,muq4:90,
     desc:'Indicates if EA Introduction was conducted and the acknowledgement was delivered by the customer.',
     notes:'',source:'EA MXP (Manual Input)',bl:'Original baseline*',
     links:[]},
-  {k:'lead_created',label:'Has Leads created (by EA and Sales accepted)',cat:'EA KPI',q2:25,q3:35,q4:45,
+  {k:'lead_created',label:'Has Leads created (by EA and Sales accepted)',cat:'EA KPI',q2:25,q3:35,q4:45,muq4:45,
     desc:'Indicates Leads that were created by the EA and have been accepted by Sales.',
     notes:'Not only look at open pipeline, also look at discontinued pipeline.',
     source:'Leads Data Analyzer',bl:'Original baseline',
     links:[]},
-  {k:'cust_ref',label:'Has Customer Ref Stage 3 & 4',cat:'EA KPI',q2:25,q3:35,q4:50,
+  {k:'cust_ref',label:'Has Customer Ref Stage 3 & 4',cat:'EA KPI',q2:25,q3:22,q4:35,muq4:25,
     desc:'Indicates if customer has at least one Customer Reference at Stage 3 or Stage 4.',
     notes:'Value is 1 if the sum of CUSTOMER_REF_STAGE_3 and CUSTOMER_REF_STAGE_4 is greater than zero. Accounts where both columns are null are excluded from the baseline.',
     source:'EA Reference Program',bl:'Original baseline',
     links:[]},
-  {k:'qbr_govnc',label:'Has QBR governance implemented',cat:'EA KPI',q2:50,q3:75,q4:90,
+  {k:'qbr_govnc',label:'Has QBR governance implemented',cat:'EA KPI',q2:50,q3:75,q4:90,muq4:90,
     desc:'Indicates if customer has implemented QBR governance in which the EA is an active part of.',
     notes:'',source:'EA MXP (Manual Input)',bl:'Original baseline',
     links:[]},
   // ── RISE ─────────────────────────────────────────────────────────────────
-  {k:'risk_assessment',label:'Has risk assessment available',cat:'RISE',q2:20,q3:50,q4:95,
+  {k:'risk_assessment',label:'Has risk assessment available',cat:'RISE',q2:20,q3:50,q4:95,muq4:90,
     desc:'Indicates if customer has a risk assessment available for private cloud, which means that in Gainsight for LPR LPR1001, LPR943, LPR1052, LPRNPDC, fields "ACV at Risk %" and "ACV at Risk Reason" are filled out in Gainsight.',
     notes:'[New Logic] If ACV at Risk % for RISE LPRs are maintained as No Risk (0%) this KPI is set as met. LPRs: LPR1001-SAP ERP Private Cloud; LPR943-S/4HANA Private Cloud edition; LPR1052-S/4HANA Cloud PTO IaaS; LPRNPDC-Users & Other Products S/4HANA and ERP.',
     notesHtml:'[New Logic] If ACV at Risk % for RISE LPRs are maintained as No Risk (0%) this KPI is set as met. Needs to be maintained for each LPR in scope individually. Customers with no risk can be marked as &#8220;No Risk 0%&#8221;.<br><br><strong>LPRs in scope:</strong><br>&#8226;&nbsp;LPR1001 &ndash; SAP ERP Private Cloud<br>&#8226;&nbsp;LPR943 &ndash; S/4HANA Private Cloud edition<br>&#8226;&nbsp;LPR1052 &ndash; S/4HANA Cloud PTO IaaS<br>&#8226;&nbsp;LPRNPDC &ndash; Users &amp; Other Products S/4HANA and ERP<br><br>Fields required: &#8220;ACV at Risk %&#8221; and &#8220;ACV at Risk Reason&#8221;. Accounts with Lifecycle Stage in Prospect are not excluded from baseline.',
     source:'Gainsight',source_url:'https://sap.eu.gainsightcloud.com/v1/ui/home',bl:'Original baseline',
     links:[{l:'[SharePoint] Gainsight for Enterprise Architects',u:'https://sap.sharepoint.com/sites/210796/SitePages/Fundamentals/Gainsight-for-Enterp.aspx?csf=1&web=1&e=n0zmCy&OR=EXCEL-WEB.BODY.NT&CT=1789951874539'},{l:'[Gainsight Knowledge Base] Home',u:'https://sap.sharepoint.com/sites/210895/SitePages/Home.aspx?e=eu3F7g4-vEanKpD5nc5_Uw&at=38&OR=EXCEL-WEB.BODY.NT&CT=1789951880709'},{l:'[Recording] Gainsight & ACV@Risk Training for Enterprise Architects [APAC] - Zoom',u:'https://sap-se.zoom.us/rec/play/t8OxDsR1NyQTJCicrdKKoDb-20tJRAUF2OVzxYoFJC3APp0kSnrBw5Rc1W2OUIZhCYW6ubSC0_LvMtkf.9fNCn7jXcB9J6wMq?accessLevel=meeting&canPlayFromShare=true&from=share_recording_detail&startTime=1779415358000&oldStyle=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fsap-se.zoom.us%2Frec%2Fshare%2Fy3oM8QP62zWSjpvLjM8tcnMuNN_-PNSqeyQMyQUAje4QrxR9rVq_XGWG5q-tePXi._LToYhzgmdWysupU%3FstartTime%3D1779415358000'},{l:'Gainsight March Release: 2026-03',u:'https://sap.sharepoint.com/sites/210895/SitePages/Gainsight-March-Release.aspx'}]},
-  {k:'s4_upgrade',label:'Has S/4 upgrade commitment',cat:'RISE',q2:15,q3:20,q4:85,
+  {k:'s4_upgrade',label:'Has S/4 upgrade commitment',cat:'RISE',q2:15,q3:20,q4:85,muq4:30,
     desc:'Indicates if customer has made an upgrade commitment to ensure upgrades will take place, additionally start month of upgrade is tracked.',
     notes:'Fill in the MXP Forecast Form — whether the customer has a commitment (yes/no) and the forecasted start month. Completed upgrades are out of scope; only customers with outdated systems are considered. Look at live and productive systems only.',
     source:'EA MXP (Manual Input)',bl:'Original baseline limited to customers with S4/HANA version(s) <2023',
     links:[{l:'Gainsight March Release: 2026-03',u:'https://sap.sharepoint.com/sites/210895/SitePages/Gainsight-March-Release.aspx'}]},
   // ── Toolchain ─────────────────────────────────────────────────────────────
-  {k:'calm_tenant',label:'Has CALM tenant activated',cat:'Toolchain',q2:88,q3:90,q4:95,
+  {k:'calm_tenant',label:'Has CALM tenant activated',cat:'Toolchain',q2:88,q3:90,q4:95,muq4:92,
     desc:'Indicates if customer has a CALM tenant activated.',
     notes:'',source:'Cloud Reporting',bl:'Original baseline',
     links:[]},
-  {k:'leanix',label:'Has active LeanIX usage',cat:'Toolchain',q2:45,q3:50,q4:95,
+  {k:'leanix',label:'Has active LeanIX usage',cat:'Toolchain',q2:45,q3:50,q4:95,muq4:60,
     desc:'Indicates if customer has active LeanIX usage, defined as the adoption status being in Low, Medium or Great Adoption.',
     notes:'LeanIX reporting is at PE ID level; data is replicated to all underlying BPs. Demo licenses are excluded by default.',
     source:'LeanIX adoption reporting',bl:'Original baseline limited to customers with LeanIX license',
     links:[{l:'Clean Core Dashboard - Stories - SAP Analytics Cloud',u:'https://sap-sac.eu10.sapanalytics.cloud/sap/fpa/ui/app.html'}]},
-  {k:'signavio',label:'Has active Signavio usage',cat:'Toolchain',q2:45,q3:65,q4:95,
+  {k:'signavio',label:'Has active Signavio usage',cat:'Toolchain',q2:45,q3:65,q4:95,muq4:80,
     desc:'Indicates if customer has active Signavio usage, defined as min. 5% cACV consumption ratio.',
     notes:'Only licensed customers in scope. Signavio customers with 0 ACV value have been removed from baseline. The 5% threshold is calculated at Solution L3 level over the past 12 months.',
     source:'Consumed ACV data model / calculated field',bl:'Original baseline limited to customers with Signavio license',
     links:[]},
-  {k:'tricentis',label:'Has active Tricentis License',cat:'Toolchain',q2:18,q3:23,q4:25,
+  {k:'tricentis',label:'Has active Tricentis License',cat:'Toolchain',q2:18,q3:23,q4:25,muq4:25,
     desc:'Indicates if customer has Tricentis license or not.',
     notes:'Usage tracking is not available for Tricentis. All baseline customers are in scope. Target was set based on feasibility given the strong sales flavor of this KPI.',
     source:'Cloud Orders reporting',bl:'Original baseline',
     links:[]},
-  {k:'walkme',label:'Has active WalkMe usage',cat:'Toolchain',q2:5,q3:10,q4:25,
+  {k:'walkme',label:'Has active WalkMe usage',cat:'Toolchain',q2:5,q3:10,q4:25,muq4:25,
     desc:'Indicates if customer has active WalkMe usage, defined as min 5% cACV consumption ratio.',
     notes:'WalkMe consumption data is available only from the beginning of this fiscal year. Same 5% methodology is applied as for Signavio.',
     source:'Consumed ACV data model / calculated field',bl:'Original baseline limited to customers with WalkMe license',
@@ -5877,7 +5885,7 @@ const REGIONS=[
 ];
 const _st={baseline:'fixed',region:'APAC',eaFilter:new Set(),accFilter:new Set(),eaAssigned:'all',
   kpiFilter:new Set(KPI_DEFS.map(d=>d.k)),trendFilter:null,
-  qTarget:'q3',kpiStatusFilter:null,trendTsA:null,trendTsB:null,
+  qTarget:'q4',targetScope:'mu',kpiStatusFilter:null,trendTsA:null,trendTsB:null,
   panelKpi:null,panelView:'notmet',bkSort:{col:'acv',dir:-1},bkSearch:''};
 let _pendingData=null,_pendingHTMLStr=null,_panelAccounts=null;
 
@@ -5912,14 +5920,28 @@ function fmtDate(ts){if(!ts)return'—';const d=new Date(ts+'T00:00:00');return 
 function barColor(p,q){if(p>=q)return'#188918';if(p>=Math.round(q*.85))return'#6AB187';if(p>=60)return'#F0A800';return'#BB0000';}
 function pctClass(p,q){if(p>=q)return'ovw-v-grn';if(p>=60)return'ovw-v-blue';return'ovw-v-red';}
 // ── Q3/Q4 Target helpers ───────────────────────────────────────────────────
-function getTgt(kd){return typeof kd[_st.qTarget]!=='undefined'?kd[_st.qTarget]:kd.q4;}
-function getTgtLabel(){return _st.qTarget==='q3'?'Q3':'Q4';}
+function getTgt(kd){
+  if(_st.targetScope==='reg')return kd.muq4!=null?kd.muq4:(kd.q4!=null?kd.q4:0);
+  return typeof kd[_st.qTarget]!=='undefined'?kd[_st.qTarget]:kd.q4;
+}
+function getTgtLabel(){
+  if(_st.targetScope==='reg')return 'Reg Q4';
+  return _st.qTarget==='q3'?'MU Q3':'MU Q4';
+}
 function setQTarget(q){
   if(_st.qTarget===q)return;
   _st.qTarget=q;
   const q3b=document.getElementById('tgt-q3-btn'),q4b=document.getElementById('tgt-q4-btn');
   if(q3b)q3b.classList.toggle('active',q==='q3');
   if(q4b)q4b.classList.toggle('active',q==='q4');
+  renderDashboard();
+}
+function setTargetScope(scope){
+  if(_st.targetScope===scope)return;
+  _st.targetScope=scope;
+  const mb=document.getElementById('tgt-scope-mu-btn'),rb=document.getElementById('tgt-scope-reg-btn');
+  if(mb)mb.classList.toggle('active',scope==='mu');
+  if(rb)rb.classList.toggle('active',scope==='reg');
   renderDashboard();
 }
 function kpiIdx(k){return DD.kpis.indexOf(k);}
@@ -6369,7 +6391,7 @@ function renderKPIDefinitions(){
   cats.forEach(cat=>{
     h+=`<tr class="kdef-cat-row"><td colspan="6">${esc(cat)}</td></tr>`;
     KPI_DEFS.filter(d=>d.cat===cat).forEach(kd=>{
-      const q4tag=kd.q4!=null?`<span class="kdef-q4-tag">${getTgtLabel()}: ${getTgt(kd)}%</span>`:'';
+      const q4tag=kd.q4!=null?`<span class="kdef-q4-tag">Q4: ${kd.q4}%</span>`:'';
       const srcHtml=kd.source_url
         ?`<a class="kdef-link" href="${kd.source_url}" target="_blank" rel="noopener">${esc(kd.source||'')}</a>`
         :esc(kd.source||'');
@@ -6662,8 +6684,9 @@ function renderAllKpiStatus(accounts,pid){
       const deltaStr=delta===0?'&#916;0':delta>0?`&#916;+${delta}`:`&#916;${delta}`;
       const q2b=Math.round(kd.q2/100*BAR_H);
       const q3b=Math.round(kd.q3/100*BAR_H);
-      const q4b=Math.round(kd.q4/100*BAR_H);
-      const lines=[[q4b,'#F0A800',kd.q4,'Q4'],[q3b,'#7C3AED',kd.q3,'Q3'],[q2b,'#EC4899',kd.q2,'Q2']].sort((a,b)=>b[0]-a[0]);
+      const tgt=getTgt(kd),tgtLbl=getTgtLabel();
+      const q4b=Math.round(tgt/100*BAR_H);
+      const lines=[[q4b,'#F0A800',tgt,tgtLbl],[q3b,'#7C3AED',kd.q3,'Q3'],[q2b,'#EC4899',kd.q2,'Q2']].sort((a,b)=>b[0]-a[0]);
       let lastY=9999;
       const lineHtml=lines.map(([bot,col,val])=>{const showLbl=Math.abs(bot-lastY)>=11;if(showLbl)lastY=bot;return`<div class="akpi-tgt-line" style="bottom:${bot}px;background:${col}"><span class="akpi-tgt-lbl-l" style="color:${col}">${showLbl?val+'%':''}</span></div>`;}).join('');
       return`<div class="akpi-bar-item">
@@ -6695,9 +6718,10 @@ function renderAllKpiStatus(accounts,pid){
     // target lines: bottom position in px
     const q2b=Math.round(kd.q2/100*BAR_H);
     const q3b=Math.round(kd.q3/100*BAR_H);
-    const q4b=Math.round(kd.q4/100*BAR_H);
+    const tgt=getTgt(kd),tgtLbl=getTgtLabel();
+    const q4b=Math.round(tgt/100*BAR_H);
     // deduplicate overlapping labels (within 12px)
-    const lines=[[q4b,'#F0A800',kd.q4,'Q4'],[q3b,'#7C3AED',kd.q3,'Q3'],[q2b,'#EC4899',kd.q2,'Q2']]
+    const lines=[[q4b,'#F0A800',tgt,tgtLbl],[q3b,'#7C3AED',kd.q3,'Q3'],[q2b,'#EC4899',kd.q2,'Q2']]
       .sort((a,b)=>b[0]-a[0]); // highest first
     let lastY=9999;
     const lineHtml=lines.map(([bot,col,val])=>{
