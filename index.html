@@ -6310,14 +6310,22 @@ function renderKPITrends(pid){
         const i=kpiIdx(kd.k);
         function _met(t){return regionAccs.filter(a=>{if(!inBaseline(a,kd.k))return false;if(kd.k==='s4_upgrade'&&a.s4f){return a.s4c&&a.s4c[t]===1;}return a.s[t]?a.s[t][i]===1:false;}).length;}
         function _tot(t){return regionAccs.filter(a=>{if(!inBaseline(a,kd.k))return false;if(kd.k==='s4_upgrade'&&a.s4f){return a.s4c&&a.s4c[t]!==null&&a.s4c[t]!==undefined;}return a.s[t]&&a.s[t][i]!==null;}).length;}
-        let tot=_tot(ts);
-        if(!tot){
-          // No per-account data for this timestamp — walk back through available timestamps
-          const earlier=[...tsAll].filter(t=>t<ts).sort().reverse();
-          for(const tf of earlier){const tf_tot=_tot(tf);if(tf_tot>0){return Math.round(_met(tf)/tf_tot*100);}}
-          return 0;
+        let useTs=ts;
+        if(!_tot(ts)){
+          // No per-account data for this exact timestamp (upload only stores 3 snapshots per account).
+          // Find the nearest timestamp in tsAll that does have regional per-account data.
+          const tsDate=new Date(ts).getTime();
+          let best=null,bestDiff=Infinity;
+          for(const t of tsAll){
+            if(!regionAccs.some(a=>a.s&&a.s[t]!==undefined))continue;
+            const d=Math.abs(new Date(t).getTime()-tsDate);
+            if(d<bestDiff){bestDiff=d;best=t;}
+          }
+          if(!best)return 0;
+          useTs=best;
         }
-        return Math.round(_met(ts)/tot*100);
+        const tot=_tot(useTs);
+        return tot?Math.round(_met(useTs)/tot*100):0;
       }
       return{cp:calcTs(tsB),pp:calcTs(tsA)};
     }
