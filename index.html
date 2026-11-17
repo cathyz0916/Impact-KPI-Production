@@ -1,4 +1,4 @@
-<html lang="en" style="--sticky-below-ctrl: 147px; --sticky-below-secnav: 198px;"><!-- EA RISE Impact KPI Dashboard – v26 – Data: 2026-09-18 – Rebuilt 2026-09-23 --><head>
+<html lang="en" style="--sticky-below-ctrl: 145px; --sticky-below-secnav: 197px;"><!-- EA RISE Impact KPI Dashboard – v26 – Data: 2026-09-18 – Rebuilt 2026-09-23 --><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EA RISE IMPACT KPI DASHBOARD – APJ</title>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -1791,17 +1791,17 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
       <div><label class="modal-lbl">File</label><div class="modal-status info" id="commit-file-name">1113——AFO_EA_Impact_KPI___cACV_Territory_Analyzer_Ops_updated.xlsx</div></div>
       <div><label class="modal-lbl">Validation</label><div class="modal-status ok" id="commit-validation">✓ Both required tabs found</div></div>
       <div><label class="modal-lbl">Dashboard Preview</label><div class="modal-status ok" id="commit-preview">✓ Parsed — Fixed: 299 accounts, Dynamic: 412 accounts. Dashboard refreshed!</div></div>
-      <div id="commit-gh-section" style="display: none;">
+      <div id="commit-gh-section" style="display:none">
         <label class="modal-lbl">GitHub Commit</label>
-        <div class="modal-status ok" id="commit-gh-status">✓ Committed! SHA: c3646c9. GitHub Pages will update in ~1 min.</div>
-        <div class="progress-bar-bg"><div class="progress-bar-fg" id="commit-progress" style="width: 100%;"></div></div>
-        <a class="commit-url" id="commit-url" href="https://github.com/cathyz0916/Impact-KPI-Production/commit/c3646c97c3450a73eae9616053cb44d909183596" target="_blank" rel="noopener" style="display: none;">View commit on GitHub ↗</a>
+        <div class="modal-status" id="commit-gh-status"></div>
+        <div class="progress-bar-bg"><div class="progress-bar-fg" id="commit-progress" style="width:0%"></div></div>
+        <a class="commit-url" id="commit-url" href="#" target="_blank" rel="noopener" style="display:none"></a>
       </div>
       <div class="modal-note">After upload the dashboard refreshes immediately in your browser.<br>Click <strong>Commit to GitHub</strong> to persist the data so all visitors see it after reload.</div>
     </div>
     <div class="modal-footer">
       <button class="btn-secondary" onclick="closeModal('commit-modal')">Close</button>
-      <button class="btn-primary" id="commit-gh-btn" onclick="doCommitToGitHub()" style="display: none;">
+      <button class="btn-primary" id="commit-gh-btn" onclick="doCommitToGitHub()" style="display:none">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
           <polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line>
           <polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line>
@@ -1847,24 +1847,17 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
 <div class="det-panel" id="det-panel">
   <div class="ph">
     <div class="ph-top">
-      <div class="ph-title" id="ph-title">Has AI BTP services activated — G.China</div>
+      <div class="ph-title" id="ph-title">KPI Details</div>
       <div style="display:flex;align-items:center;gap:8px">
-        <span class="ph-rbadge" id="ph-badge">AI</span>
+        <span class="ph-rbadge" id="ph-badge"></span>
         <button class="p-xls-btn" onclick="exportPanelToExcel()" title="Export to Excel">📄 Export XLS</button><button class="ph-close" onclick="closePanel()">×</button>
       </div>
     </div>
-    <div class="ph-stats" id="ph-stats">
-    <div class="pstat"><div class="pstat-lbl">Current</div><div class="pstat-val" style="color:#BB0000">50%<span>8/16</span></div></div>
-    <div class="pstat-sep"></div>
-    <div class="pstat"><div class="pstat-lbl">Prev Week</div><div class="pstat-val">50%<span>8/16</span></div></div>
-    <div class="pstat-sep"></div>
-    <div class="pstat"><div class="pstat-lbl">WoW</div><div class="pstat-val" style="color:#188918">+0pp</div></div>
-    <div class="pstat-sep"></div>
-    <div class="pstat"><div class="pstat-lbl">MU Q4 Target</div><div class="pstat-val">65%</div></div></div>
+    <div class="ph-stats" id="ph-stats"></div>
     <div class="ph-row2">
       <div class="v-tog">
-        <button class="v-btn" id="pv-met" onclick="panelSetView('met')">Met</button>
-        <button class="v-btn active" id="pv-notmet" onclick="panelSetView('notmet')">Not Met</button>
+        <button class="v-btn active" id="pv-met" onclick="panelSetView('met')">Met</button>
+        <button class="v-btn" id="pv-notmet" onclick="panelSetView('notmet')">Not Met</button>
         <button class="v-btn" id="pv-nb" onclick="panelSetView('nb')">N/A</button>
       </div>
     </div>
@@ -1878,14 +1871,14 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
         <option value="region">Sort: Region</option>
       </select>
     </div>
-    <div id="p-tbl-wrap"><table class="acc-tbl"><thead><tr><th>Account</th><th>BP ID</th><th>EA</th><th>Region</th><th>ACV</th><th>Prev Week</th></tr></thead><tbody><tr><td><div class="a-name"><a href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0003718253" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">HON HAI PRECISION INDUSTRY CO.,LTD.</a></div><div class="a-ea">Shi-Jie Huang</div></td><td><span class="a-id" style="font-size:11.5px;font-weight:600;color:var(--sub)">0003718253</span></td><td class="a-reg">Taiwan</td><td>G.China</td><td><span class="ovw-acv-pill">$26.5M</span></td><td><span class="sp-dec">Not Met</span></td></tr><tr><td><div class="a-name"><a href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0002472069" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">TCC Group Holdings CO., LTD.</a></div><div class="a-ea">Edward Chang</div></td><td><span class="a-id" style="font-size:11.5px;font-weight:600;color:var(--sub)">0002472069</span></td><td class="a-reg">Taiwan</td><td>G.China</td><td><span class="ovw-acv-pill">$3.6M</span></td><td><span class="sp-dec">Not Met</span></td></tr><tr><td><div class="a-name"><a href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0006654823" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">Pegatron Corporation</a></div><div class="a-ea">Shi-Jie Huang</div></td><td><span class="a-id" style="font-size:11.5px;font-weight:600;color:var(--sub)">0006654823</span></td><td class="a-reg">Taiwan</td><td>G.China</td><td><span class="ovw-acv-pill">$3.3M</span></td><td><span class="sp-dec">Not Met</span></td></tr><tr><td><div class="a-name"><a href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0001240006" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">AUO Corporation</a></div><div class="a-ea">Edward Chang</div></td><td><span class="a-id" style="font-size:11.5px;font-weight:600;color:var(--sub)">0001240006</span></td><td class="a-reg">Taiwan</td><td>G.China</td><td><span class="ovw-acv-pill">$2.3M</span></td><td><span class="sp-dec">Not Met</span></td></tr><tr><td><div class="a-name"><a href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0005526959" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">Lee Kum Kee International Holdings Ltd</a></div><div class="a-ea">Ting Zhou</div></td><td><span class="a-id" style="font-size:11.5px;font-weight:600;color:var(--sub)">0005526959</span></td><td class="a-reg">Hong Kong</td><td>G.China</td><td><span class="ovw-acv-pill">$2.1M</span></td><td><span class="sp-dec">Not Met</span></td></tr><tr><td><div class="a-name"><a href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0001160685" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">Hong Kong Aero Engine Services Ltd</a></div><div class="a-ea">Xuming Cai</div></td><td><span class="a-id" style="font-size:11.5px;font-weight:600;color:var(--sub)">0001160685</span></td><td class="a-reg">Hong Kong</td><td>G.China</td><td><span class="ovw-acv-pill">$1.9M</span></td><td><span class="sp-dec">Not Met</span></td></tr><tr><td><div class="a-name"><a href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0012459048" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">Peak Reinsurance Company Limited</a></div><div class="a-ea">Ting Zhou</div></td><td><span class="a-id" style="font-size:11.5px;font-weight:600;color:var(--sub)">0012459048</span></td><td class="a-reg">Hong Kong</td><td>G.China</td><td><span class="ovw-acv-pill">$1.9M</span></td><td><span class="sp-dec">Not Met</span></td></tr><tr><td><div class="a-name"><a href="https://launcher.value-experience-hub.for.sap/experiences/ea-rise-mxp-platform/pages/cust_dash?cust_id=0026665492" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">SAIC HK Limited</a></div><div class="a-ea">Sabrina Sun</div></td><td><span class="a-id" style="font-size:11.5px;font-weight:600;color:var(--sub)">0026665492</span></td><td class="a-reg">China</td><td>G.China</td><td><span class="ovw-acv-pill">$1.3M</span></td><td><span class="sp-dec">Not Met</span></td></tr></tbody></table></div>
+    <div id="p-tbl-wrap"></div>
   </div>
 </div>
 
 <!-- Toast -->
 <div class="toast hidden" id="toast">Admin access granted</div>
 <div class="ctrl">
-  <div class="ctrl-row ctrl-row-flt" style="">
+  <div class="ctrl-row ctrl-row-flt">
     <div class="flt-wrap">
       <span class="flt-lbl">Baseline:</span>
       <div class="bl-tog">
@@ -1956,14 +1949,14 @@ html{font-size:14px}body{font-family:var(--font);background:var(--bg-alt);color:
           <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
         </svg>GitHub
       </button>
-      <button class="flt-clear-btn" id="flt-clear-all" onclick="clearAllFilters()" style="display: none;">✕ Clear All</button>
+      <button class="flt-clear-btn" id="flt-clear-all" onclick="clearAllFilters()" style="display:none">✕ Clear All</button>
     </div>
   </div>
   <div class="ctrl-row ctrl-row-tabs">
     <div class="r-tabs" id="r-tabs"><button class="r-tab tab-apac active" onclick="switchRegion('APAC')">APAC</button><button class="r-tab " onclick="switchRegion('ANZ')">ANZ</button><button class="r-tab " onclick="switchRegion('G.China')">G.China</button><button class="r-tab " onclick="switchRegion('India')">India</button><button class="r-tab " onclick="switchRegion('Japan')">Japan</button><button class="r-tab " onclick="switchRegion('Korea')">Korea</button><button class="r-tab " onclick="switchRegion('South East Asia')">SEA</button><button class="r-tab tab-bkd" onclick="switchRegion('BKD')">Breakdown</button><button class="r-tab tab-kpidef" onclick="switchRegion('KPIDEF')">KPI Definitions</button></div>
   </div>
 </div>
-<div class="sec-nav" id="sec-nav" style=""><div class="sec-nav-inner" id="sec-nav-inner"><button class="sec-nav-btn" id="snb-APAC-ovw-sec" onclick="scrollToSection('APAC-ovw-sec')">☰ Overview</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-cards" onclick="scrollToSection('APAC-cards')">☷ KPI Cards</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-mu" onclick="scrollToSection('APAC-mu')">☷ Matrix</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-eav" onclick="scrollToSection('APAC-eav')">👤 EA View</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-trends" onclick="scrollToSection('APAC-trends')">📈 KPI Trend</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-akpi" onclick="scrollToSection('APAC-akpi')">🎯 KPI Target Attainments</button></div></div>
+<div class="sec-nav" id="sec-nav"><div class="sec-nav-inner" id="sec-nav-inner"><button class="sec-nav-btn" id="snb-APAC-ovw-sec" onclick="scrollToSection('APAC-ovw-sec')">☰ Overview</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-cards" onclick="scrollToSection('APAC-cards')">☷ KPI Cards</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-mu" onclick="scrollToSection('APAC-mu')">☷ Matrix</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-eav" onclick="scrollToSection('APAC-eav')">👤 EA View</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-trends" onclick="scrollToSection('APAC-trends')">📈 KPI Trend</button><div class="sec-nav-sep"></div><button class="sec-nav-btn" id="snb-APAC-akpi" onclick="scrollToSection('APAC-akpi')">🎯 KPI Target Attainments</button></div></div>
 <div class="dd-ov" id="dd-ov" onclick="closeDD()"></div>
 <div class="kpi-dd" id="kpi-dd">
   <div class="dd-hdr">
@@ -6312,7 +6305,20 @@ function renderKPITrends(pid){
   const visCats=cats.filter(cat=>vis.some(d=>d.cat===cat));
   function kpiRates(kd){
     if(useRegionFilter&&regionAccs){
-      function calcTs(tsKey){const ts=tsKey;if(!ts)return 0;const i=kpiIdx(kd.k);const met=regionAccs.filter(a=>{if(!inBaseline(a,kd.k))return false;if(kd.k==='s4_upgrade'&&a.s4f){return a.s4c&&a.s4c[ts]===1;}return a.s[ts]?a.s[ts][i]===1:false;}).length;const tot=regionAccs.filter(a=>{if(!inBaseline(a,kd.k))return false;if(kd.k==='s4_upgrade'&&a.s4f){return a.s4c&&a.s4c[ts]!==null&&a.s4c[ts]!==undefined;}return a.s[ts]&&a.s[ts][i]!==null;}).length;return tot?Math.round(met/tot*100):0;}
+      function calcTs(tsKey){
+        const ts=tsKey;if(!ts)return 0;
+        const i=kpiIdx(kd.k);
+        function _met(t){return regionAccs.filter(a=>{if(!inBaseline(a,kd.k))return false;if(kd.k==='s4_upgrade'&&a.s4f){return a.s4c&&a.s4c[t]===1;}return a.s[t]?a.s[t][i]===1:false;}).length;}
+        function _tot(t){return regionAccs.filter(a=>{if(!inBaseline(a,kd.k))return false;if(kd.k==='s4_upgrade'&&a.s4f){return a.s4c&&a.s4c[t]!==null&&a.s4c[t]!==undefined;}return a.s[t]&&a.s[t][i]!==null;}).length;}
+        let tot=_tot(ts);
+        if(!tot){
+          // No per-account data for this timestamp — walk back through available timestamps
+          const earlier=[...tsAll].filter(t=>t<ts).sort().reverse();
+          for(const tf of earlier){const tf_tot=_tot(tf);if(tf_tot>0){return Math.round(_met(tf)/tf_tot*100);}}
+          return 0;
+        }
+        return Math.round(_met(ts)/tot*100);
+      }
       return{cp:calcTs(tsB),pp:calcTs(tsA)};
     }
     const i=DD.kpis.indexOf(kd.k);
